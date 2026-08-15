@@ -395,7 +395,7 @@ h1 em, h2 em {
 .archive { background: var(--acid); }
 .archiveHead { display: flex; justify-content: space-between; align-items: end; margin-bottom: 28px; }
 .archiveHead p { max-width: 340px; font-size: 18px; line-height: 1.5; font-weight: 700; }
-.bookGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.bookGrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
 .pastBook h3 { font-family: var(--display); text-transform: uppercase; font-size: 18px; line-height: 1; margin: 12px 0 5px; }
 .pastBook > p:last-child { margin: 0; font-weight: 700; }
 .miniBookStage { aspect-ratio: 2/3; position: relative; perspective: 900px; box-shadow: 7px 7px 0 var(--ink); cursor: pointer; }
@@ -546,19 +546,19 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
     <section class="current section" id="book">
       <div class="sectionLabel"><span>01</span> Now reading</div>
       <div class="bookLayout">
-        <div class="bookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Young Mungo cover; open to see the author">
-          <div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/99a431e8-cc40-4549-8852-3d1831f926fb/content" alt="Douglas Stuart" loading="lazy"></div>
+        <div class="bookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Oye cover; open to see the author">
+          <div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/eec9f87f-21c0-4e52-9067-284780096695/content" alt="Melissa Mogollon" loading="lazy"></div>
           <div class="bookCover">
-            <img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/bdf4f3ad-654c-46bc-8167-551fc1fed513/content" alt="" loading="eager">
-            <span class="srOnly">Young Mungo by Douglas Stuart</span>
+            <img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/bab81f13-cc00-4f13-a5ad-b3e2816dc524/content" alt="" loading="eager">
+            <span class="srOnly">Oye by Melissa Mogollon</span>
           </div>
         </div>
         <div class="bookCopy">
           <p class="kicker">Our current pick</p>
-          <h2>Young Mungo</h2>
-          <p class="author">by Douglas Stuart</p>
-          <p>A tender yet brutal coming-of-age story set in 1990s Glasgow. Mungo, a sensitive Protestant boy, falls in love with James, a Catholic—amidst hyper-masculine gang violence and sectarian tension.</p>
-          <div class="tags"><span>Coming-of-age</span><span>Bildungsroman</span><span>Gay fiction</span></div>
+          <h2>Oye</h2>
+          <p class="author">by Melissa Mogollon</p>
+          <p>A humorous, heartfelt debut told through a series of one-sided phone calls from Luciana, an 18-year-old Colombian American, to her older sister away at college. When a hurricane hits Miami and their eccentric grandmother receives a shocking medical diagnosis, Luciana must step up as caretaker.</p>
+          <div class="tags"><span>Debut novel</span><span>Family</span><span>Colombian American</span></div>
         </div>
       </div>
     </section>
@@ -585,6 +585,7 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
         <p>A growing library of queer lives, love stories, histories, and futures.</p>
       </div>
       <div class="bookGrid">
+        <article class="pastBook coral"><div class="miniBookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Young Mungo cover; open to see the author"><div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/99a431e8-cc40-4549-8852-3d1831f926fb/content" alt="Douglas Stuart" loading="lazy"></div><div class="miniCover"><img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/bdf4f3ad-654c-46bc-8167-551fc1fed513/content" alt="" loading="lazy"><span class="srOnly">Young Mungo by Douglas Stuart</span></div></div><p class="bookTag">Coming-of-age</p><h3>Young Mungo</h3><p>Douglas Stuart</p></article>
         <article class="pastBook coral"><div class="miniBookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Felix Ever After cover; open to see the author"><div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/ce06e4f2-5793-4f6c-96d8-f86550a6492a/content" alt="Kacen Callender" loading="lazy"></div><div class="miniCover"><img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/43705de5-8369-4ae2-88c9-8a92983b8266/content" alt="" loading="lazy"><span class="srOnly">Felix Ever After by Kacen Callender</span></div></div><p class="bookTag">Young adult</p><h3>Felix Ever After</h3><p>Kacen Callender</p></article>
         <article class="pastBook violet"><div class="miniBookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Days Without End cover; open to see the author"><div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/44d847ad-9102-4a88-8837-1c323de0382a/content" alt="Sebastian Barry" loading="lazy"></div><div class="miniCover"><img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/2a2ba537-44e1-4706-9e6e-668c1563d8db/content" alt="" loading="lazy"><span class="srOnly">Days Without End by Sebastian Barry</span></div></div><p class="bookTag">Historical fiction</p><h3>Days Without End</h3><p>Sebastian Barry</p></article>
         <article class="pastBook lime"><div class="miniBookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Greta and Valdin cover; open to see the author"><div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/2bde3680-45d0-4270-b5b0-a48c46a3bf21/content" alt="Rebecca K Reilly" loading="lazy"></div><div class="miniCover"><img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/80a2ce34-7986-4b98-a2d4-f06cef0f1709/content" alt="" loading="lazy"><span class="srOnly">Greta and Valdin by Rebecca K Reilly</span></div></div><p class="bookTag">Contemporary fiction</p><h3>Greta &amp; Valdin</h3><p>Rebecca K Reilly</p></article>
