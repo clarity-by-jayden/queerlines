@@ -14,6 +14,9 @@
     gtag('config', 'G-WW6QL7QPL7');
   </script>
   <script async src="https://tally.so/widgets/embed.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
   <style>
 :root {
   --ink: #090909;
@@ -26,6 +29,7 @@
   --green: #00a86b;
   --purple: #8b3dff;
   --white: #ffffff;
+  --display: "Archivo Black", Arial, sans-serif;
   --pride: linear-gradient(90deg,
     var(--red) 0 16.66%,
     var(--orange) 16.66% 33.32%,
@@ -75,13 +79,13 @@ button, input { font: inherit; }
   align-items: center;
   gap: 12px;
   text-transform: uppercase;
-  font-family: Impact, "Arial Black", sans-serif;
+  font-family: var(--display);
   font-size: 13px;
   line-height: .92;
   letter-spacing: .04em;
 }
 .flower {
-  font-family: "Arial Black", sans-serif;
+  font-family: var(--display);
   font-size: 22px;
   color: var(--pink);
   letter-spacing: -.22em;
@@ -133,7 +137,7 @@ button, input { font: inherit; }
   transform: rotate(-2deg);
 }
 h1, h2 {
-  font-family: Impact, "Arial Black", Arial, sans-serif;
+  font-family: var(--display);
   font-weight: 900;
   margin: 0;
   text-transform: uppercase;
@@ -153,7 +157,7 @@ h1 em, h2 em {
 }
 .tagline {
   display: inline-block;
-  font-family: "Arial Black", Arial, sans-serif;
+  font-family: var(--display);
   font-size: clamp(18px, 1.8vw, 27px);
   font-style: normal;
   font-weight: 900;
@@ -198,7 +202,7 @@ h1 em, h2 em {
 }
 .posterWord {
   color: var(--acid);
-  font-family: Impact, "Arial Black", sans-serif;
+  font-family: var(--display);
   font-weight: 900;
   font-size: clamp(64px, 6.7vw, 105px);
   line-height: .78;
@@ -209,6 +213,7 @@ h1 em, h2 em {
   color: transparent;
   -webkit-text-stroke: 4px var(--white);
 }
+.posterWord.long { font-size: clamp(42px, 5.2vw, 78px); letter-spacing: -.05em; }
 .sticker {
   position: absolute;
   right: 16px;
@@ -221,7 +226,7 @@ h1 em, h2 em {
   border: 4px solid var(--ink);
   background: var(--orange);
   color: var(--ink);
-  font-family: "Arial Black", Arial, sans-serif;
+  font-family: var(--display);
   font-size: 15px;
   line-height: .9;
   text-align: center;
@@ -274,6 +279,7 @@ h1 em, h2 em {
   position: relative;
   perspective: 1200px;
   box-shadow: 16px 16px 0 var(--orange);
+  cursor: pointer;
 }
 .insidePage {
   position: absolute;
@@ -296,7 +302,7 @@ h1 em, h2 em {
   display: block;
   margin-bottom: 14px;
   color: var(--pink);
-  font-family: "Arial Black", Arial, sans-serif;
+  font-family: var(--display);
   font-size: 15px;
   line-height: 1;
   text-transform: uppercase;
@@ -308,16 +314,6 @@ h1 em, h2 em {
   display: block;
   object-fit: contain;
   object-position: center bottom;
-}
-.insidePage::after {
-  content: "Tap again to close";
-  position: absolute;
-  right: 12px;
-  bottom: 10px;
-  color: var(--blue);
-  font-size: 8px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
 }
 .bookCover {
   height: 100%;
@@ -353,7 +349,7 @@ h1 em, h2 em {
   border: 0;
 }
 .bookStage.is-open .bookCover {
-  transform: rotateY(-86deg);
+  transform: rotateY(-78deg);
   box-shadow: 12px 8px 18px rgba(9,9,9,.25);
 }
 .bookStage:focus-visible,
@@ -369,7 +365,7 @@ h1 em, h2 em {
   top: 110px;
 }
 .coverGlow { display: none; }
-.coverTitle { font-family: Impact, "Arial Black", sans-serif; font-size: 47px; letter-spacing: -.02em; line-height: .78; position: relative; z-index: 2; }
+.coverTitle { font-family: var(--display); font-size: 47px; letter-spacing: -.02em; line-height: .78; position: relative; z-index: 2; }
 .coverAuthor { position: absolute; bottom: 24px; letter-spacing: .16em; font-weight: 900; z-index: 2; }
 .bookCopy { max-width: 700px; }
 .bookCopy h2, .archive h2, .join h2, .meeting h2 { font-size: clamp(48px, 5.8vw, 84px); }
@@ -395,7 +391,7 @@ h1 em, h2 em {
 .meetingCard > p:not(.kicker) { font-size: 17px; line-height: 1.45; max-width: 610px; font-weight: 600; }
 .cream { background: var(--white); color: var(--ink); margin-top: 18px; box-shadow: 6px 6px 0 var(--pink); }
 .meetingQuote { border: 4px solid var(--pink); padding: 26px; display: flex; align-items: center; background: var(--blue); transform: rotate(2deg); }
-.meetingQuote > span { font: 120px Impact, sans-serif; color: var(--acid); line-height: 0; }
+.meetingQuote > span { font: 120px var(--display); color: var(--acid); line-height: 0; }
 .meetingQuote p { font: 900 20px Arial, sans-serif; line-height: 1.25; text-transform: uppercase; }
 .meetingQuote strong { color: var(--acid); }
 
@@ -403,21 +399,28 @@ h1 em, h2 em {
 .archiveHead { display: flex; justify-content: space-between; align-items: end; margin-bottom: 28px; }
 .archiveHead p { max-width: 340px; font-size: 18px; line-height: 1.5; font-weight: 700; }
 .bookGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.pastBook h3 { font-family: "Arial Black", Arial, sans-serif; text-transform: uppercase; font-size: 18px; line-height: 1; margin: 12px 0 5px; }
+.pastBook h3 { font-family: var(--display); text-transform: uppercase; font-size: 18px; line-height: 1; margin: 12px 0 5px; }
 .pastBook > p:last-child { margin: 0; font-weight: 700; }
-.miniBookStage { aspect-ratio: 2/3; position: relative; perspective: 900px; box-shadow: 7px 7px 0 var(--ink); }
+.miniBookStage { aspect-ratio: 2/3; position: relative; perspective: 900px; box-shadow: 7px 7px 0 var(--ink); cursor: pointer; }
 .miniBookStage .insidePage { padding: 14px 10px; font-size: clamp(8px, .72vw, 11px); background: repeating-linear-gradient(to bottom, transparent 0 18px, rgba(9,9,9,.13) 18px 20px), var(--paper); }
 .miniBookStage .insidePage strong { margin-bottom: 8px; font-size: clamp(9px, .9vw, 12px); }
-.miniBookStage .insidePage::after { content: "Tap to close"; right: 8px; bottom: 7px; font-size: 6px; }
 .miniCover { height: 100%; border: 4px solid; display: flex; flex-direction: column; justify-content: space-between; padding: 0; overflow: hidden; position: relative; z-index: 2; transform-origin: left center; transition: transform .55s cubic-bezier(.2,.7,.2,1), box-shadow .55s ease; backface-visibility: hidden; }
-.miniBookStage.is-open .miniCover { transform: rotateY(-86deg); box-shadow: 10px 7px 15px rgba(9,9,9,.25); }
+.miniBookStage.is-open .miniCover { transform: rotateY(-78deg); box-shadow: 10px 7px 15px rgba(9,9,9,.25); }
 @media (hover: hover) and (pointer: fine) {
-  .bookStage:hover .bookCover { transform: rotateY(-86deg); box-shadow: 12px 8px 18px rgba(9,9,9,.25); }
-  .miniBookStage:hover .miniCover { transform: rotateY(-86deg); box-shadow: 10px 7px 15px rgba(9,9,9,.25); }
-  .insidePage::after { content: "Move away to close"; }
+  .bookStage:hover .bookCover { transform: rotateY(-78deg); box-shadow: 12px 8px 18px rgba(9,9,9,.25); }
+  .miniBookStage:hover .miniCover { transform: rotateY(-78deg); box-shadow: 10px 7px 15px rgba(9,9,9,.25); }
+}
+@keyframes bookHint {
+  0%, 100% { transform: rotateY(0); }
+  45% { transform: rotateY(-9deg); }
+  68% { transform: rotateY(-4deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bookStage.isHinting .bookCover,
+  .miniBookStage.isHinting .miniCover { animation: bookHint .9s ease-in-out; }
 }
 .miniCover span { font-size: 11px; font-weight: 900; }
-.miniCover strong { font-family: Impact, "Arial Black", sans-serif; text-transform: uppercase; font-size: clamp(25px, 2.5vw, 32px); line-height: .85; letter-spacing: -.02em; }
+.miniCover strong { font-family: var(--display); text-transform: uppercase; font-size: clamp(25px, 2.5vw, 32px); line-height: .85; letter-spacing: -.02em; }
 .pastBook.coral .miniCover { background: var(--orange); }
 .pastBook.violet .miniCover { background: var(--purple); color: var(--white); }
 .pastBook.lime .miniCover { background: var(--green); color: var(--white); }
@@ -465,7 +468,7 @@ footer::before {
   height: 6px;
   background: var(--pride);
 }
-footer > p { font-family: "Arial Black", Arial, sans-serif; font-size: 14px; text-transform: uppercase; }
+footer > p { font-family: var(--display); font-size: 14px; text-transform: uppercase; }
 footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
 
 @media (max-width: 900px) {
@@ -486,6 +489,7 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
   h1 { font-size: 62px; }
   .heroArt { min-height: 260px; }
   .posterWord { font-size: 64px; }
+  .posterWord.long { font-size: 46px; }
   .sticker { width: 102px; font-size: 12px; }
   .heroActions { align-items: flex-start; flex-direction: column; }
   .marquee div { text-align: left; }
@@ -531,9 +535,9 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
         </div>
       </div>
       <div class="heroArt" aria-hidden="true">
-        <div class="posterWord">LOUD</div>
-        <div class="posterWord outline">PROUD</div>
-        <div class="posterWord">READ</div>
+        <div class="posterWord">TURN</div>
+        <div class="posterWord outline">PAGES</div>
+        <div class="posterWord long">TOGETHER</div>
         <div class="sticker">NO<br>STRAIGHT<br>LINES</div>
       </div>
     </header>
@@ -615,12 +619,17 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
   </main>
 
   <script>
-    document.querySelectorAll(".bookStage, .miniBookStage").forEach(function (book) {
+    const interactiveBooks = document.querySelectorAll(".bookStage, .miniBookStage");
+
+    interactiveBooks.forEach(function (book) {
       function toggleBook() {
+        book.classList.remove("isHinting");
         const isOpen = book.classList.toggle("is-open");
         book.setAttribute("aria-expanded", String(isOpen));
       }
       book.addEventListener("click", toggleBook);
+      book.addEventListener("pointerenter", function () { book.classList.remove("isHinting"); });
+      book.addEventListener("animationend", function () { book.classList.remove("isHinting"); });
       book.addEventListener("keydown", function (event) {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
@@ -628,6 +637,24 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
         }
       });
     });
+
+    if ("IntersectionObserver" in window) {
+      const hintObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          const book = entry.target;
+          hintObserver.unobserve(book);
+          window.setTimeout(function () {
+            if (!book.classList.contains("is-open")) book.classList.add("isHinting");
+          }, Number(book.dataset.hintDelay || 0));
+        });
+      }, { threshold: .55 });
+
+      interactiveBooks.forEach(function (book, index) {
+        book.dataset.hintDelay = String((index % 4) * 110);
+        hintObserver.observe(book);
+      });
+    }
 
   </script>
 </body>
