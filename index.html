@@ -13,6 +13,17 @@
     gtag('js', new Date());
     gtag('config', 'G-WW6QL7QPL7');
   </script>
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('qbtl-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    }());
+  </script>
   <script async src="https://tally.so/widgets/embed.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,6 +118,22 @@ button, input { font: inherit; }
   box-shadow: 5px 5px 0 var(--pink);
   transform: rotate(-1deg);
 }
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.themeToggle:hover, .themeToggle:focus-visible { background: var(--white); color: var(--blue); outline: none; }
+.themeIcon { font-size: 15px; line-height: 1; }
 
 .hero {
   min-height: 510px;
@@ -163,6 +190,7 @@ h1 em, h2 em {
   font-weight: 900;
   text-transform: uppercase;
   background: var(--acid);
+  color: var(--ink);
   border: 3px solid var(--ink);
   padding: 9px 12px;
   margin: 0 0 18px;
@@ -184,7 +212,7 @@ h1 em, h2 em {
   cursor: pointer;
 }
 .button span { font-size: 18px; }
-.primary { background: var(--pink); box-shadow: 6px 6px 0 var(--ink); }
+.primary { background: var(--pink); color: var(--ink); box-shadow: 6px 6px 0 var(--ink); }
 .textLink { font-size: 13px; font-weight: 900; text-transform: uppercase; border-bottom: 4px solid; padding-bottom: 4px; }
 
 .heroArt {
@@ -365,7 +393,7 @@ h1 em, h2 em {
 .bookCopy .author { font: 900 18px Arial, sans-serif; text-transform: uppercase; color: var(--blue); margin: 14px 0 18px; }
 .bookCopy > p:not(.kicker):not(.author) { font-size: 17px; line-height: 1.48; font-weight: 600; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.tags span, .bookTag { font-size: 11px; text-transform: uppercase; border: 2px solid; padding: 7px 10px; font-weight: 900; background: var(--acid); }
+.tags span, .bookTag { color: var(--ink); font-size: 11px; text-transform: uppercase; border: 2px solid; padding: 7px 10px; font-weight: 900; background: var(--acid); }
 .tags span:nth-child(1) { background: var(--orange); }
 .tags span:nth-child(2) { background: var(--acid); }
 .tags span:nth-child(3) { background: var(--green); color: var(--white); }
@@ -468,6 +496,22 @@ footer::before {
 footer > p { font-family: var(--display); font-size: 14px; text-transform: uppercase; }
 footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
 
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
+html[data-theme="dark"] .hero {
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgba(255,255,255,.07) 50%, transparent 50.2%),
+    #11131a;
+  background-size: 54px 54px;
+}
+html[data-theme="dark"] .current { background: #11131a; color: var(--paper); }
+html[data-theme="dark"] .meeting { background: #191c27; color: var(--paper); }
+html[data-theme="dark"] .meeting h2 { color: var(--paper); }
+html[data-theme="dark"] .meetingCta { background: var(--paper); color: var(--ink); }
+html[data-theme="dark"] .archive { color: var(--ink); }
+html[data-theme="dark"] .insidePage { color: var(--ink); }
+html[data-theme="dark"] .join, html[data-theme="dark"] .joinForm { color: var(--ink); }
+
 @media (max-width: 900px) {
   .navLinks > a:not(.navCta) { display: none; }
   .hero, .meeting, .join { grid-template-columns: 1fr; }
@@ -481,6 +525,8 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
 }
 @media (max-width: 560px) {
   .nav { height: 64px; }
+  .navLinks { gap: 14px; }
+  .toggleLabel { display: none; }
   .hero, .section { padding: 34px 22px; }
   .hero { min-height: 0; }
   h1 { font-size: 62px; }
@@ -517,6 +563,7 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
       <div class="navLinks">
         <a href="#book">Current book</a>
         <a href="#meeting">Meetings</a>
+        <button class="themeToggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode"><span class="themeIcon" aria-hidden="true">◐</span><span class="toggleLabel">Dark</span></button>
         <a class="navCta" href="#join">Join us</a>
       </div>
     </nav>
@@ -621,6 +668,25 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
   </main>
 
   <script>
+    const themeToggle = document.getElementById("theme-toggle");
+
+    function updateThemeToggle() {
+      const isDark = document.documentElement.dataset.theme === "dark";
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      themeToggle.querySelector(".themeIcon").textContent = isDark ? "☀" : "◐";
+      themeToggle.querySelector(".toggleLabel").textContent = isDark ? "Light" : "Dark";
+    }
+
+    themeToggle.addEventListener("click", function () {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = nextTheme;
+      try { localStorage.setItem("qbtl-theme", nextTheme); } catch (error) {}
+      updateThemeToggle();
+    });
+
+    updateThemeToggle();
+
     const interactiveBooks = document.querySelectorAll(".bookStage, .miniBookStage");
 
     interactiveBooks.forEach(function (book) {
