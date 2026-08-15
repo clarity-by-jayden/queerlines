@@ -200,6 +200,18 @@ h1 em, h2 em {
   justify-content: center;
   transform: rotate(1deg);
 }
+.heroArt::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 24px;
+  right: -54px;
+  width: 190px;
+  height: 30px;
+  background: var(--pride);
+  border-block: 3px solid var(--ink);
+  transform: rotate(45deg);
+}
 .posterWord {
   color: var(--acid);
   font-family: var(--display);
@@ -214,25 +226,6 @@ h1 em, h2 em {
   -webkit-text-stroke: 4px var(--white);
 }
 .posterWord.long { font-size: clamp(42px, 5.2vw, 78px); letter-spacing: -.05em; }
-.sticker {
-  position: absolute;
-  right: 16px;
-  bottom: 18px;
-  width: 128px;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  border: 4px solid var(--ink);
-  background: var(--orange);
-  color: var(--ink);
-  font-family: var(--display);
-  font-size: 15px;
-  line-height: .9;
-  text-align: center;
-  transform: rotate(12deg);
-  box-shadow: 5px 5px 0 var(--ink);
-}
 
 .marquee {
   border-block: 4px solid var(--ink);
@@ -378,22 +371,26 @@ h1 em, h2 em {
 .tags span:nth-child(3) { background: var(--green); color: var(--white); }
 
 .meeting {
-  background: var(--ink);
-  color: var(--white);
+  background: var(--paper);
+  color: var(--ink);
   display: grid;
-  grid-template-columns: 1.2fr .8fr;
+  grid-template-columns: 1.05fr .95fr;
   gap: 6vw;
   border-block: 8px solid var(--blue);
 }
 .meetingCard { max-width: 700px; }
 .light { color: var(--white); }
-.meeting h2 { color: var(--acid); margin: 14px 0 18px; }
+.meeting h2 { color: var(--ink); margin: 14px 0 18px; }
+.meeting h2 em { color: var(--blue); -webkit-text-stroke: 2px var(--ink); text-shadow: 5px 5px 0 var(--pink); }
 .meetingCard > p:not(.kicker) { font-size: 17px; line-height: 1.45; max-width: 610px; font-weight: 600; }
-.cream { background: var(--white); color: var(--ink); margin-top: 18px; box-shadow: 6px 6px 0 var(--pink); }
-.meetingQuote { border: 4px solid var(--pink); padding: 26px; display: flex; align-items: center; background: var(--blue); transform: rotate(2deg); }
-.meetingQuote > span { font: 120px var(--display); color: var(--acid); line-height: 0; }
-.meetingQuote p { font: 900 20px Arial, sans-serif; line-height: 1.25; text-transform: uppercase; }
-.meetingQuote strong { color: var(--acid); }
+.meetingCta { background: var(--ink); color: var(--white); margin-top: 18px; box-shadow: 6px 6px 0 var(--pink); }
+.meetingCards { display: grid; gap: 14px; align-content: center; padding: 12px 18px; }
+.meetingNote { border: 4px solid var(--ink); padding: 20px 22px; box-shadow: 7px 7px 0 var(--ink); }
+.meetingNote:nth-child(1) { background: var(--pink); transform: rotate(-2deg) translateX(-12px); }
+.meetingNote:nth-child(2) { background: var(--blue); color: var(--white); transform: rotate(1deg) translateX(12px); }
+.meetingNote:nth-child(3) { background: var(--orange); transform: rotate(-1deg) translateX(-4px); }
+.meetingNote h3 { margin: 0 0 7px; font-family: var(--display); font-size: clamp(20px, 2vw, 29px); line-height: 1; text-transform: uppercase; }
+.meetingNote p { margin: 0; font-size: 15px; line-height: 1.35; font-weight: 800; }
 
 .archive { background: var(--acid); }
 .archiveHead { display: flex; justify-content: space-between; align-items: end; margin-bottom: 28px; }
@@ -488,20 +485,21 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
   .hero { min-height: 0; }
   h1 { font-size: 62px; }
   .heroArt { min-height: 260px; }
+  .heroArt::after { top: 18px; right: -46px; width: 150px; height: 23px; border-width: 2px; }
   .posterWord { font-size: 64px; }
-  .posterWord.long { font-size: 46px; }
-  .sticker { width: 102px; font-size: 12px; }
+  .posterWord.long { font-size: 42px; letter-spacing: -.055em; }
   .heroActions { align-items: flex-start; flex-direction: column; }
   .marquee div { text-align: left; }
   .bookLayout { grid-template-columns: 1fr; gap: 30px; }
   .bookGrid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .archiveHead { margin-bottom: 28px; }
   .joinForm { padding: 24px; }
-  .meetingQuote { padding: 22px; }
-  .meetingQuote > span { font-size: 92px; }
+  .meetingCards { padding: 8px 4px 4px; }
+  .meetingNote { padding: 18px; }
   footer { align-items: flex-start; gap: 24px; flex-direction: column; }
 }
 @media (max-width: 400px) {
+  .posterWord.long { font-size: 38px; }
   .bookGrid { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -538,7 +536,6 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
         <div class="posterWord">TURN</div>
         <div class="posterWord outline">PAGES</div>
         <div class="posterWord long">TOGETHER</div>
-        <div class="sticker">NO<br>STRAIGHT<br>LINES</div>
       </div>
     </header>
 
@@ -568,13 +565,17 @@ footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color
 
     <section class="meeting section" id="meeting">
       <div class="meetingCard">
-        <div class="sectionLabel light"><span>02</span> Next gathering</div>
-        <p class="kicker">Our next meeting</p>
-        <h2>Come as you are.<br>Leave with more.</h2>
-        <p>Meeting details are shared with club members. Join the list and we’ll send you the next date, time, location, and everything you need to know.</p>
-        <a class="button cream" href="#join">Get the details <span>↓</span></a>
+        <div class="sectionLabel"><span>02</span> What happens in the room</div>
+        <p class="kicker">More than a reading list</p>
+        <h2>Books.<br><em>Banter.</em><br>Belonging.</h2>
+        <p>Come with notes or come with none. Expect lively conversation, generous listening, unexpected perspectives—and a considerably longer reading list.</p>
+        <a class="button meetingCta" href="#join">Join the next chapter <span>↓</span></a>
       </div>
-      <div class="meetingQuote"><span>“</span><p>No literary hot takes required.<br><strong>Curiosity is enough.</strong></p></div>
+      <div class="meetingCards" aria-label="What to expect at a gathering">
+        <article class="meetingNote"><h3>Read your way</h3><p>No perfect interpretation required.</p></article>
+        <article class="meetingNote"><h3>Say as much as you like</h3><p>Thoughtful listeners belong here too.</p></article>
+        <article class="meetingNote"><h3>Leave with more</h3><p>New perspectives, new books and new people.</p></article>
+      </div>
     </section>
 
     <section class="archive section" aria-labelledby="archive-title">
