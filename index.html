@@ -13,7 +13,17 @@
   --acid: #e9ff32;
   --blue: #4757ff;
   --orange: #ff6337;
+  --red: #ef3340;
+  --green: #00a86b;
+  --purple: #8b3dff;
   --white: #ffffff;
+  --pride: linear-gradient(90deg,
+    var(--red) 0 16.66%,
+    var(--orange) 16.66% 33.32%,
+    var(--acid) 33.32% 49.98%,
+    var(--green) 49.98% 66.64%,
+    var(--blue) 66.64% 83.3%,
+    var(--purple) 83.3% 100%);
 }
 
 * { box-sizing: border-box; }
@@ -37,6 +47,17 @@ button, input { font: inherit; }
   background: var(--acid);
   position: relative;
   z-index: 10;
+}
+.nav::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background: var(--pride);
+  border-bottom: 3px solid var(--ink);
 }
 .brand {
   display: flex;
@@ -200,12 +221,20 @@ h1 em, h2 em {
 .marquee {
   border-block: 4px solid var(--ink);
   background: var(--pink);
+  position: relative;
   overflow: hidden;
   white-space: nowrap;
   padding: 10px 0;
   font-size: 14px;
   font-weight: 900;
   letter-spacing: .14em;
+}
+.marquee::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 5px;
+  background: var(--pride);
 }
 .marquee div { word-spacing: 22px; text-align: center; }
 .marquee span { color: var(--acid); }
@@ -219,6 +248,10 @@ h1 em, h2 em {
   border: 2px solid var(--ink);
   box-shadow: 3px 3px 0 var(--pink);
 }
+.current .sectionLabel span { background: var(--red); color: var(--white); }
+.meeting .sectionLabel span { background: var(--orange); color: var(--ink); }
+.archive .sectionLabel span { background: var(--green); color: var(--white); }
+.join .sectionLabel span { background: var(--purple); color: var(--white); }
 .bookLayout {
   display: grid;
   grid-template-columns: minmax(210px, 280px) 1fr;
@@ -254,6 +287,9 @@ h1 em, h2 em {
 .bookCopy > p:not(.kicker):not(.author) { font-size: 17px; line-height: 1.48; font-weight: 600; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .tags span, .bookTag { font-size: 11px; text-transform: uppercase; border: 2px solid; padding: 7px 10px; font-weight: 900; background: var(--acid); }
+.tags span:nth-child(1) { background: var(--orange); }
+.tags span:nth-child(2) { background: var(--acid); }
+.tags span:nth-child(3) { background: var(--green); color: var(--white); }
 
 .meeting {
   background: var(--ink);
@@ -283,9 +319,9 @@ h1 em, h2 em {
 .miniCover span { font-size: 11px; font-weight: 900; }
 .miniCover strong { font-family: Impact, "Arial Black", sans-serif; text-transform: uppercase; font-size: clamp(25px, 2.5vw, 32px); line-height: .85; letter-spacing: -.02em; }
 .pastBook.coral .miniCover { background: var(--orange); }
-.pastBook.violet .miniCover { background: var(--blue); color: var(--white); }
-.pastBook.lime .miniCover { background: var(--pink); }
-.pastBook.blue .miniCover { background: var(--paper); }
+.pastBook.violet .miniCover { background: var(--purple); color: var(--white); }
+.pastBook.lime .miniCover { background: var(--green); color: var(--white); }
+.pastBook.blue .miniCover { background: var(--blue); color: var(--white); }
 .bookTag { display: inline-block; margin: 16px 0 0; padding: 4px 7px; background: var(--paper); }
 
 .join {
@@ -314,6 +350,14 @@ footer {
   border-top: 4px solid;
   background: var(--ink);
   color: var(--white);
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--pride);
 }
 footer > p { font-family: "Arial Black", Arial, sans-serif; font-size: 14px; text-transform: uppercase; }
 footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
