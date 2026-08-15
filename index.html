@@ -1,1 +1,471 @@
-//LGBTQ+ Book Club
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Queer Between the Lines</title>
+  <meta name="description" content="Stories beyond the straight and narrow. A bold, welcoming LGBTQ+ book club celebrating queer voices, great books, and open conversation.">
+  <style>
+:root {
+  --ink: #090909;
+  --paper: #fff7e8;
+  --pink: #ff2d8d;
+  --acid: #e9ff32;
+  --blue: #4757ff;
+  --orange: #ff6337;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+
+.nav {
+  height: 78px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--ink);
+  background: var(--acid);
+  position: relative;
+  z-index: 10;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: 13px;
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.flower {
+  font-family: "Arial Black", sans-serif;
+  font-size: 22px;
+  color: var(--pink);
+  letter-spacing: -.22em;
+}
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.navCta {
+  background: var(--ink);
+  color: var(--white);
+  padding: 13px 20px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+
+.hero {
+  min-height: 600px;
+  padding: 44px 5vw 46px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 5vw;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgba(9,9,9,.09) 50%, transparent 50.2%),
+    var(--paper);
+  background-size: 54px 54px;
+}
+.heroCopy { max-width: 760px; position: relative; z-index: 2; }
+.eyebrow, .sectionLabel, .kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+.eyebrow span {
+  display: inline-block;
+  background: var(--pink);
+  color: var(--white);
+  padding: 8px 12px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+h1, h2 {
+  font-family: Impact, "Arial Black", Arial, sans-serif;
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  line-height: .78;
+}
+h1 {
+  font-size: clamp(72px, 9.2vw, 144px);
+  margin: 30px 0 26px;
+}
+h1 em, h2 em {
+  display: inline-block;
+  color: var(--pink);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 6px 6px 0 var(--acid);
+}
+.tagline {
+  display: inline-block;
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: clamp(18px, 1.8vw, 27px);
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: var(--acid);
+  border: 3px solid var(--ink);
+  padding: 9px 12px;
+  margin: 0 0 18px;
+  transform: rotate(1deg);
+}
+.heroText { max-width: 560px; font-size: 17px; line-height: 1.45; margin: 0; font-weight: 700; }
+.heroActions { display: flex; align-items: center; gap: 26px; margin-top: 26px; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 3px solid var(--ink);
+  padding: 14px 21px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  cursor: pointer;
+}
+.button span { font-size: 18px; }
+.primary { background: var(--pink); box-shadow: 6px 6px 0 var(--ink); }
+.textLink { font-size: 13px; font-weight: 900; text-transform: uppercase; border-bottom: 4px solid; padding-bottom: 4px; }
+
+.heroArt {
+  min-height: 480px;
+  position: relative;
+  background: var(--blue);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--pink);
+  padding: 28px 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: rotate(1deg);
+}
+.posterWord {
+  color: var(--acid);
+  font-family: Impact, "Arial Black", sans-serif;
+  font-weight: 900;
+  font-size: clamp(72px, 8vw, 128px);
+  line-height: .78;
+  letter-spacing: -.03em;
+  text-align: center;
+}
+.posterWord.outline {
+  color: transparent;
+  -webkit-text-stroke: 4px var(--white);
+}
+.sticker {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  width: 128px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 4px solid var(--ink);
+  background: var(--orange);
+  color: var(--ink);
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: 15px;
+  line-height: .9;
+  text-align: center;
+  transform: rotate(12deg);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.marquee {
+  border-block: 4px solid var(--ink);
+  background: var(--pink);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 14px 0;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+.marquee div { word-spacing: 22px; text-align: center; }
+.marquee span { color: var(--acid); }
+
+.section { padding: 68px 6vw; }
+.sectionLabel { display: flex; gap: 12px; align-items: center; margin-bottom: 34px; }
+.sectionLabel span {
+  background: var(--ink);
+  color: var(--white);
+  padding: 6px 8px;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--pink);
+}
+.bookLayout {
+  display: grid;
+  grid-template-columns: minmax(250px, 330px) 1fr;
+  gap: 8vw;
+  align-items: center;
+}
+.bookCover {
+  aspect-ratio: 2/3;
+  background: var(--ink);
+  border: 4px solid var(--ink);
+  box-shadow: 16px 16px 0 var(--orange);
+  color: var(--acid);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.bookCover::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 34px solid var(--pink);
+  border-radius: 50%;
+  right: -105px;
+  top: 110px;
+}
+.coverGlow { display: none; }
+.coverTitle { font-family: Impact, "Arial Black", sans-serif; font-size: 55px; letter-spacing: -.02em; line-height: .78; position: relative; z-index: 2; }
+.coverAuthor { position: absolute; bottom: 24px; letter-spacing: .16em; font-weight: 900; z-index: 2; }
+.bookCopy { max-width: 700px; }
+.bookCopy h2, .archive h2, .join h2, .meeting h2 { font-size: clamp(54px, 7vw, 104px); }
+.bookCopy .author { font: 900 19px Arial, sans-serif; text-transform: uppercase; color: var(--blue); margin: 18px 0 26px; }
+.bookCopy > p:not(.kicker):not(.author) { font-size: 18px; line-height: 1.55; font-weight: 600; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.tags span, .bookTag { font-size: 11px; text-transform: uppercase; border: 2px solid; padding: 7px 10px; font-weight: 900; background: var(--acid); }
+
+.meeting {
+  background: var(--ink);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 8vw;
+  border-block: 10px solid var(--blue);
+}
+.meetingCard { max-width: 700px; }
+.light { color: var(--white); }
+.meeting h2 { color: var(--acid); margin: 18px 0 26px; }
+.meetingCard > p:not(.kicker) { font-size: 18px; line-height: 1.5; max-width: 610px; font-weight: 600; }
+.cream { background: var(--white); color: var(--ink); margin-top: 18px; box-shadow: 6px 6px 0 var(--pink); }
+.meetingQuote { border: 4px solid var(--pink); padding: 34px; display: flex; align-items: center; background: var(--blue); transform: rotate(2deg); }
+.meetingQuote > span { font: 150px Impact, sans-serif; color: var(--acid); line-height: 0; }
+.meetingQuote p { font: 900 23px Arial, sans-serif; line-height: 1.25; text-transform: uppercase; }
+.meetingQuote strong { color: var(--acid); }
+
+.archive { background: var(--acid); }
+.archiveHead { display: flex; justify-content: space-between; align-items: end; margin-bottom: 40px; }
+.archiveHead p { max-width: 340px; font-size: 18px; line-height: 1.5; font-weight: 700; }
+.bookGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.pastBook h3 { font-family: "Arial Black", Arial, sans-serif; text-transform: uppercase; font-size: 21px; line-height: 1; margin: 15px 0 6px; }
+.pastBook > p:last-child { margin: 0; font-weight: 700; }
+.miniCover { aspect-ratio: 4/5; border: 4px solid; display: flex; flex-direction: column; justify-content: space-between; padding: 17px; box-shadow: 7px 7px 0 var(--ink); }
+.miniCover span { font-size: 11px; font-weight: 900; }
+.miniCover strong { font-family: Impact, "Arial Black", sans-serif; text-transform: uppercase; font-size: 34px; line-height: .85; letter-spacing: -.02em; }
+.pastBook.coral .miniCover { background: var(--orange); }
+.pastBook.violet .miniCover { background: var(--blue); color: var(--white); }
+.pastBook.lime .miniCover { background: var(--pink); }
+.pastBook.blue .miniCover { background: var(--paper); }
+.bookTag { display: inline-block; margin: 22px 0 0; padding: 4px 7px; background: var(--paper); }
+
+.join {
+  background: var(--pink);
+  color: var(--ink);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9vw;
+  border-top: 4px solid var(--ink);
+}
+.join h2 { margin: 22px 0 28px; }
+.join h2 em { color: var(--white); text-shadow: 6px 6px 0 var(--blue); }
+.joinIntro > p { font-size: 18px; line-height: 1.5; max-width: 600px; font-weight: 700; }
+.joinForm { background: var(--white); color: var(--ink); padding: 34px; border: 4px solid var(--ink); box-shadow: 12px 12px 0 var(--blue); align-self: center; transform: rotate(-1deg); }
+.joinForm label { display: block; text-transform: uppercase; font-size: 11px; font-weight: 900; letter-spacing: .12em; margin-bottom: 24px; }
+.joinForm input { display: block; width: 100%; border: 0; border-bottom: 4px solid; background: transparent; padding: 14px 0; font-size: 18px; outline: none; }
+.joinForm input:focus { border-color: var(--blue); }
+.joinForm .button { width: 100%; }
+.formNote { text-align: center; font-size: 12px; line-height: 1.5; margin: 18px 0 0; font-weight: 700; }
+
+footer {
+  padding: 30px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid;
+  background: var(--ink);
+  color: var(--white);
+}
+footer > p { font-family: "Arial Black", Arial, sans-serif; font-size: 14px; text-transform: uppercase; }
+footer > a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
+
+@media (max-width: 900px) {
+  .navLinks > a:not(.navCta) { display: none; }
+  .hero, .meeting, .join { grid-template-columns: 1fr; }
+  .hero { padding-top: 40px; }
+  .heroArt { min-height: 360px; }
+  .bookLayout { grid-template-columns: 1fr; gap: 42px; }
+  .bookCover { max-width: 350px; }
+  .bookGrid { grid-template-columns: repeat(2, 1fr); }
+  .archiveHead { display: block; }
+  .archiveHead p { margin-top: 26px; }
+}
+@media (max-width: 560px) {
+  .nav { height: 70px; }
+  .hero, .section { padding: 44px 22px; }
+  .hero { min-height: 0; }
+  h1 { font-size: 70px; }
+  .heroArt { min-height: 300px; }
+  .posterWord { font-size: 74px; }
+  .sticker { width: 102px; font-size: 12px; }
+  .heroActions { align-items: flex-start; flex-direction: column; }
+  .marquee div { text-align: left; }
+  .bookGrid { grid-template-columns: 1fr; }
+  .archiveHead { margin-bottom: 38px; }
+  .joinForm { padding: 26px; }
+  .meetingQuote { padding: 26px; }
+  .meetingQuote > span { font-size: 92px; }
+  footer { align-items: flex-start; gap: 24px; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Queer Between the Lines home">
+        <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
+      </a>
+      <div class="navLinks">
+        <a href="#book">Current book</a>
+        <a href="#meeting">Meetings</a>
+        <a class="navCta" href="#join">Join us</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="heroCopy">
+        <p class="eyebrow"><span>LGBTQ+ book club</span></p>
+        <h1>Queer<br><em>Between</em><br>the Lines.</h1>
+        <p class="tagline">Stories beyond the straight and narrow.</p>
+        <p class="heroText">Discover bold queer voices, share honest conversation, and find your people—one brilliant book at a time.</p>
+        <div class="heroActions">
+          <a class="button primary" href="#join">Join the club <span>↗</span></a>
+          <a class="textLink" href="#book">See what we’re reading <span>↓</span></a>
+        </div>
+      </div>
+      <div class="heroArt" aria-hidden="true">
+        <div class="posterWord">LOUD</div>
+        <div class="posterWord outline">PROUD</div>
+        <div class="posterWord">READ</div>
+        <div class="sticker">NO<br>STRAIGHT<br>LINES</div>
+      </div>
+    </header>
+
+    <section class="marquee" aria-label="Club values">
+      <div>QUEER VOICES <span>✦</span> GREAT BOOKS <span>✦</span> OPEN CONVERSATION <span>✦</span> NEW FRIENDS</div>
+    </section>
+
+    <section class="current section" id="book">
+      <div class="sectionLabel"><span>01</span> Now reading</div>
+      <div class="bookLayout">
+        <div class="bookCover">
+          <div class="coverGlow"></div>
+          <p class="coverTitle">YOUNG<br>MUNGO</p>
+          <p class="coverAuthor">DOUGLAS STUART</p>
+        </div>
+        <div class="bookCopy">
+          <p class="kicker">Our current pick</p>
+          <h2>Young Mungo</h2>
+          <p class="author">by Douglas Stuart</p>
+          <p>A tender yet brutal coming-of-age story set in 1990s Glasgow. Mungo, a sensitive Protestant boy, falls in love with James, a Catholic—amidst hyper-masculine gang violence and sectarian tension.</p>
+          <div class="tags"><span>Coming-of-age</span><span>Bildungsroman</span><span>Gay fiction</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="meeting section" id="meeting">
+      <div class="meetingCard">
+        <div class="sectionLabel light"><span>02</span> Next gathering</div>
+        <p class="kicker">Our next meeting</p>
+        <h2>Come as you are.<br>Leave with more.</h2>
+        <p>Meeting details are shared with club members. Join the list and we’ll send you the next date, time, location, and everything you need to know.</p>
+        <a class="button cream" href="#join">Get the details <span>↓</span></a>
+      </div>
+      <div class="meetingQuote"><span>“</span><p>No literary hot takes required.<br><strong>Curiosity is enough.</strong></p></div>
+    </section>
+
+    <section class="archive section" aria-labelledby="archive-title">
+      <div class="sectionLabel"><span>03</span> From our shelves</div>
+      <div class="archiveHead">
+        <h2 id="archive-title">Previously,<br><em>we read…</em></h2>
+        <p>A growing library of queer lives, love stories, histories, and futures.</p>
+      </div>
+      <div class="bookGrid">
+        <article class="pastBook coral"><div class="miniCover"><span>01</span><strong>Felix Ever After</strong></div><p class="bookTag">Young adult</p><h3>Felix Ever After</h3><p>Kacen Callender</p></article>
+        <article class="pastBook violet"><div class="miniCover"><span>02</span><strong>Days Without End</strong></div><p class="bookTag">Historical fiction</p><h3>Days Without End</h3><p>Sebastian Barry</p></article>
+        <article class="pastBook lime"><div class="miniCover"><span>03</span><strong>Greta &amp; Valdin</strong></div><p class="bookTag">Contemporary fiction</p><h3>Greta &amp; Valdin</h3><p>Rebecca K Reilly</p></article>
+        <article class="pastBook blue"><div class="miniCover"><span>04</span><strong>Swimming in the Dark</strong></div><p class="bookTag">Literary fiction</p><h3>Swimming in the Dark</h3><p>Tomasz Jedrowski</p></article>
+      </div>
+    </section>
+
+    <section class="join section" id="join">
+      <div class="joinIntro">
+        <div class="sectionLabel light"><span>04</span> Pull up a chair</div>
+        <h2>There’s room<br><em>for you here.</em></h2>
+        <p>Whether you’re new to queer lit or have a colour-coded TBR, you belong. Add your name and we’ll send the details for our next gathering.</p>
+      </div>
+      <form class="joinForm" id="join-form">
+        <label>Your name<input required name="name" autocomplete="name" placeholder="How should we greet you?"></label>
+        <label>Email address<input required name="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+        <button class="button primary" type="submit">Join the readers ↗</button>
+        <p class="formNote" id="form-note" aria-live="polite">No spam. Just books, gatherings, and good company.</p>
+      </form>
+    </section>
+
+    <footer>
+      <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
+      <p>Stories beyond the straight and narrow.</p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </main>
+
+  <script>
+    // Replace this demo handler with your mailing-list or form-service endpoint.
+    document.getElementById("join-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const button = form.querySelector("button");
+      const note = document.getElementById("form-note");
+      button.disabled = true;
+      button.textContent = "Joining…";
+      window.setTimeout(function () {
+        form.reset();
+        button.disabled = false;
+        button.textContent = "Join the readers ↗";
+        note.textContent = "You’re in! Connect this form to your mailing-list service to collect sign-ups.";
+      }, 500);
+    });
+  </script>
+</body>
+</html>
+
