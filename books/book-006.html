@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e8ff1f">
+  <title>Oye by Melissa Mogollon | Queer Between the Lines</title>
+  <style>
+    :root {
+      --acid: #e8ff1f;
+      --ink: #090909;
+      --pink: #ff2d8d;
+      --blue: #4757ff;
+      --orange: #ff643f;
+      --cream: #fff7e8;
+      --green: #00b85a;
+      --purple: #8f55ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      background: var(--acid);
+      color: var(--ink);
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .poster {
+      position: relative;
+      isolation: isolate;
+      min-height: 100svh;
+      width: 100%;
+      padding: clamp(24px, 5vw, 76px);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: clamp(24px, 4vw, 56px);
+      overflow: hidden;
+      background: var(--acid);
+    }
+
+    .rainbow {
+      position: absolute;
+      z-index: -1;
+      top: clamp(20px, 4vw, 56px);
+      right: clamp(-145px, -9vw, -72px);
+      width: clamp(340px, 36vw, 600px);
+      height: clamp(50px, 6vw, 92px);
+      transform: rotate(42deg);
+      border: 4px solid var(--ink);
+      background: linear-gradient(
+        to bottom,
+        var(--pink) 0 16.66%,
+        var(--orange) 16.66% 33.32%,
+        var(--acid) 33.32% 49.98%,
+        var(--green) 49.98% 66.64%,
+        var(--blue) 66.64% 83.3%,
+        var(--purple) 83.3% 100%
+      );
+    }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-right: clamp(0px, 16vw, 240px);
+    }
+
+    .club-name,
+    .issue,
+    .eyebrow,
+    .author,
+    .footer {
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+    }
+
+    .club-name {
+      max-width: 14ch;
+      font-size: clamp(15px, 1.8vw, 26px);
+      line-height: 1.05;
+    }
+
+    .issue {
+      flex: 0 0 auto;
+      padding: 10px 12px;
+      border: 3px solid var(--ink);
+      background: var(--pink);
+      box-shadow: 5px 5px 0 var(--ink);
+      font-size: clamp(11px, 1.2vw, 17px);
+    }
+
+    .main {
+      align-self: center;
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(260px, .72fr);
+      align-items: center;
+      gap: clamp(30px, 7vw, 110px);
+    }
+
+    .copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 clamp(18px, 3vw, 34px);
+      padding: 10px 14px;
+      border: 3px solid var(--ink);
+      background: var(--cream);
+      box-shadow: 6px 6px 0 var(--pink);
+      font-size: clamp(13px, 1.6vw, 22px);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Impact, "Arial Black", Arial, sans-serif;
+      font-size: clamp(92px, 18vw, 260px);
+      font-weight: 900;
+      line-height: .76;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+
+    .author {
+      margin: clamp(24px, 4vw, 50px) 0 0;
+      font-size: clamp(19px, 3vw, 42px);
+      line-height: 1.05;
+    }
+
+    .by {
+      display: block;
+      margin-bottom: 7px;
+      font-size: .45em;
+      letter-spacing: .2em;
+    }
+
+    .book-wrap {
+      position: relative;
+      justify-self: center;
+      width: min(100%, 520px);
+      transform: rotate(2.2deg);
+    }
+
+    .book-shadow {
+      position: absolute;
+      inset: 5% -7% -5% 7%;
+      z-index: -1;
+      background: var(--blue);
+      border: clamp(3px, .35vw, 6px) solid var(--ink);
+    }
+
+    .cover {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: clamp(4px, .45vw, 7px) solid var(--ink);
+      background: var(--cream);
+      box-shadow: 14px 16px 0 var(--pink);
+    }
+
+    .sticker {
+      position: absolute;
+      right: -9%;
+      bottom: 8%;
+      width: clamp(110px, 13vw, 190px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      padding: 12px;
+      border: clamp(4px, .5vw, 7px) solid var(--ink);
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 9px 10px 0 var(--ink);
+      font-size: clamp(14px, 1.8vw, 26px);
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+      transform: rotate(9deg);
+    }
+
+    .footer {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: clamp(14px, 2vw, 28px);
+      border-top: clamp(4px, .45vw, 7px) solid var(--ink);
+      font-size: clamp(12px, 1.5vw, 21px);
+    }
+
+    .tagline {
+      font-size: clamp(16px, 2.4vw, 34px);
+    }
+
+    @media (max-width: 720px) {
+      .poster {
+        padding: 25px 22px 28px;
+        gap: 24px;
+      }
+
+      .masthead { padding-right: 94px; }
+      .main {
+        grid-template-columns: minmax(0, .78fr) minmax(150px, .92fr);
+        gap: 18px;
+      }
+
+      h1 { font-size: clamp(76px, 24vw, 132px); }
+      .author { font-size: clamp(17px, 5vw, 27px); }
+      .sticker { right: -8%; bottom: 5%; }
+      .footer { align-items: center; }
+      .footer span:last-child { text-align: right; }
+    }
+
+    @media (max-width: 460px) {
+      .main {
+        grid-template-columns: 1fr;
+        align-content: center;
+      }
+
+      .copy { margin-bottom: -10px; }
+      h1 { font-size: clamp(92px, 31vw, 132px); }
+      .book-wrap { width: min(72vw, 330px); }
+      .footer { margin-top: 4px; }
+    }
+
+    @media print {
+      @page { margin: 0; }
+      .poster { min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster" aria-label="Queer Between the Lines book club selection: Oye by Melissa Mogollon">
+    <div class="rainbow" aria-hidden="true"></div>
+
+    <header class="masthead">
+      <div class="club-name">Queer Between the Lines</div>
+      <div class="issue">Book 006</div>
+    </header>
+
+    <section class="main">
+      <div class="copy">
+        <p class="eyebrow">A Queer Between the Lines pick</p>
+        <h1>Oye</h1>
+        <p class="author"><span class="by">A novel by</span>Melissa Mogollon</p>
+      </div>
+
+      <div class="book-wrap">
+        <div class="book-shadow" aria-hidden="true"></div>
+        <img
+          class="cover"
+          src="https://si4io.mjt.lu/img2/si4io/bab81f13-cc00-4f13-a5ad-b3e2816dc524/content"
+          alt="Oye by Melissa Mogollon book cover"
+        >
+        <div class="sticker">Turn pages together</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="tagline">Stories beyond the straight and narrow.</span>
+      <span>Queer book club</span>
+    </footer>
+  </main>
+</body>
+</html>
