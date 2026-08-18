@@ -205,11 +205,25 @@
       .poster { padding: 23px 20px 26px; gap: 20px; }
       .masthead { padding-right: 88px; }
       .main {
-        grid-template-columns: minmax(0, .9fr) minmax(145px, 1fr);
-        gap: 16px;
+        align-self: stretch;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        align-content: center;
+        gap: 0;
+        padding: 3svh 0 1svh;
       }
-      h1 { font-size: clamp(48px, 15.5vw, 86px); }
-      .portrait-frame { width: 100%; }
+      .copy { z-index: 3; }
+      .eyebrow { margin-bottom: 18px; }
+      h1 { font-size: clamp(68px, 20vw, 116px); }
+      .book-name { margin-top: 20px; }
+      .portrait-frame {
+        z-index: 2;
+        align-self: end;
+        justify-self: end;
+        width: min(68vw, 350px);
+        margin-top: -15vw;
+        margin-right: 2vw;
+      }
       .sticker { right: -2%; bottom: 4%; }
       .footer { align-items: center; }
       .footer span:last-child { text-align: right; }
@@ -222,6 +236,21 @@
       .eyebrow { margin-bottom: 14px; }
       .book-name { margin-top: 16px; }
       .footer { padding-top: 10px; }
+    }
+
+    @media (max-width: 720px) and (max-height: 650px) {
+      .main {
+        grid-template-columns: minmax(0, .9fr) minmax(140px, 1fr);
+        grid-template-rows: 1fr;
+        gap: 14px;
+        padding: 0;
+      }
+      h1 { font-size: clamp(48px, 15vw, 78px); }
+      .portrait-frame {
+        align-self: center;
+        width: min(100%, 230px);
+        margin: 0;
+      }
     }
 
     @media print {
