@@ -20,6 +20,7 @@
     * { box-sizing: border-box; }
 
     html, body {
+      width: 100%;
       min-height: 100%;
       margin: 0;
       background: var(--acid);
@@ -34,12 +35,12 @@
     .poster {
       position: relative;
       isolation: isolate;
-      min-height: 100svh;
       width: 100%;
-      padding: clamp(24px, 5vw, 76px);
+      min-height: 100svh;
+      padding: clamp(22px, 4.5vw, 68px);
       display: grid;
       grid-template-rows: auto 1fr auto;
-      gap: clamp(24px, 4vw, 56px);
+      gap: clamp(18px, 3vw, 42px);
       overflow: hidden;
       background: var(--acid);
     }
@@ -47,10 +48,10 @@
     .rainbow {
       position: absolute;
       z-index: -1;
-      top: clamp(20px, 4vw, 56px);
-      right: clamp(-145px, -9vw, -72px);
-      width: clamp(340px, 36vw, 600px);
-      height: clamp(50px, 6vw, 92px);
+      top: clamp(18px, 4vw, 52px);
+      right: clamp(-140px, -9vw, -68px);
+      width: clamp(320px, 36vw, 560px);
+      height: clamp(48px, 6vw, 88px);
       transform: rotate(42deg);
       border: 4px solid var(--ink);
       background: linear-gradient(to bottom,
@@ -64,7 +65,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      padding-right: clamp(0px, 16vw, 240px);
+      padding-right: clamp(88px, 16vw, 230px);
     }
 
     .club-name, .issue, .eyebrow, .book-name, .footer {
@@ -75,13 +76,13 @@
 
     .club-name {
       max-width: 14ch;
-      font-size: clamp(15px, 1.8vw, 26px);
+      font-size: clamp(15px, 1.7vw, 25px);
       line-height: 1.05;
     }
 
     .issue {
       flex: 0 0 auto;
-      padding: 10px 12px;
+      padding: 9px 12px;
       border: 3px solid var(--ink);
       background: var(--pink);
       box-shadow: 5px 5px 0 var(--ink);
@@ -91,27 +92,27 @@
     .main {
       align-self: center;
       display: grid;
-      grid-template-columns: minmax(0, .86fr) minmax(280px, .72fr);
+      grid-template-columns: minmax(0, .9fr) minmax(230px, .72fr);
       align-items: center;
-      gap: clamp(30px, 7vw, 110px);
+      gap: clamp(24px, 6vw, 90px);
     }
 
     .copy { position: relative; z-index: 2; }
 
     .eyebrow {
       display: inline-block;
-      margin: 0 0 clamp(18px, 3vw, 34px);
-      padding: 10px 14px;
+      margin: 0 0 clamp(16px, 2.5vw, 30px);
+      padding: 9px 13px;
       border: 3px solid var(--ink);
       background: var(--cream);
       box-shadow: 6px 6px 0 var(--pink);
-      font-size: clamp(13px, 1.6vw, 22px);
+      font-size: clamp(12px, 1.5vw, 21px);
     }
 
     h1 {
       margin: 0;
       font-family: Impact, "Arial Black", Arial, sans-serif;
-      font-size: clamp(72px, 12vw, 180px);
+      font-size: clamp(64px, 11vw, 164px);
       font-weight: 900;
       line-height: .8;
       letter-spacing: -.045em;
@@ -122,29 +123,29 @@
 
     .book-name {
       display: inline-block;
-      margin: clamp(24px, 4vw, 48px) 0 0;
-      padding: 12px 16px;
+      margin: clamp(20px, 3vw, 40px) 0 0;
+      padding: 11px 15px;
       border: 3px solid var(--ink);
       background: var(--blue);
       color: #fff;
       box-shadow: 7px 7px 0 var(--orange);
-      font-size: clamp(15px, 2vw, 28px);
+      font-size: clamp(14px, 1.8vw, 26px);
     }
 
     .portrait-frame {
       position: relative;
       justify-self: center;
-      width: min(100%, 520px);
+      width: min(100%, 480px);
       aspect-ratio: 4 / 5;
       transform: rotate(2deg);
       border: clamp(4px, .45vw, 7px) solid var(--ink);
-      overflow: hidden;
+      overflow: visible;
       background:
         repeating-linear-gradient(to bottom,
           transparent 0, transparent 34px,
           rgba(9,9,9,.15) 35px, rgba(9,9,9,.15) 36px),
         var(--cream);
-      box-shadow: 14px 16px 0 var(--pink);
+      box-shadow: 12px 14px 0 var(--pink);
     }
 
     .portrait-frame::before {
@@ -163,23 +164,24 @@
       height: 97%;
       object-fit: contain;
       object-position: center bottom;
+      clip-path: inset(0);
       filter: drop-shadow(7px 8px 0 rgba(9,9,9,.16));
     }
 
     .sticker {
       position: absolute;
-      right: -8%;
-      bottom: 7%;
-      width: clamp(112px, 13vw, 190px);
+      right: -7%;
+      bottom: 6%;
+      width: clamp(92px, 11vw, 158px);
       aspect-ratio: 1;
       display: grid;
       place-items: center;
-      padding: 12px;
+      padding: 11px;
       border: clamp(4px, .5vw, 7px) solid var(--ink);
       border-radius: 50%;
       background: var(--orange);
-      box-shadow: 9px 10px 0 var(--ink);
-      font-size: clamp(14px, 1.8vw, 26px);
+      box-shadow: 8px 9px 0 var(--ink);
+      font-size: clamp(12px, 1.45vw, 21px);
       font-weight: 900;
       line-height: 1;
       text-align: center;
@@ -191,39 +193,40 @@
       display: flex;
       align-items: end;
       justify-content: space-between;
-      gap: 24px;
-      padding-top: clamp(14px, 2vw, 28px);
+      gap: 22px;
+      padding-top: clamp(12px, 1.8vw, 24px);
       border-top: clamp(4px, .45vw, 7px) solid var(--ink);
-      font-size: clamp(12px, 1.5vw, 21px);
+      font-size: clamp(11px, 1.35vw, 19px);
     }
 
-    .tagline { font-size: clamp(16px, 2.4vw, 34px); }
+    .tagline { font-size: clamp(15px, 2.2vw, 31px); }
 
     @media (max-width: 720px) {
-      .poster { padding: 24px 22px 28px; gap: 22px; }
-      .masthead { padding-right: 90px; }
+      .poster { padding: 23px 20px 26px; gap: 20px; }
+      .masthead { padding-right: 88px; }
       .main {
-        grid-template-columns: minmax(0, .82fr) minmax(150px, .9fr);
-        gap: 18px;
+        grid-template-columns: minmax(0, .9fr) minmax(145px, 1fr);
+        gap: 16px;
       }
-      h1 { font-size: clamp(62px, 18vw, 100px); }
-      .portrait-frame { width: min(100%, 330px); }
+      h1 { font-size: clamp(48px, 15.5vw, 86px); }
+      .portrait-frame { width: 100%; }
+      .sticker { right: -2%; bottom: 4%; }
       .footer { align-items: center; }
       .footer span:last-child { text-align: right; }
     }
 
-    @media (max-width: 460px) {
-      .poster { min-height: 100svh; }
-      .main { grid-template-columns: 1fr; align-content: center; }
-      .copy { margin-bottom: -8px; }
-      h1 { font-size: clamp(74px, 23vw, 104px); }
-      .portrait-frame { width: min(68vw, 285px); }
-      .book-name { margin-top: 18px; }
+    @media (max-height: 650px) {
+      .poster { padding-top: 18px; padding-bottom: 18px; gap: 14px; }
+      .main { gap: clamp(16px, 4vw, 48px); }
+      .portrait-frame { width: min(100%, 330px); }
+      .eyebrow { margin-bottom: 14px; }
+      .book-name { margin-top: 16px; }
+      .footer { padding-top: 10px; }
     }
 
     @media print {
       @page { margin: 0; }
-      .poster { min-height: 100vh; }
+      .poster { width: 100vw; }
     }
   </style>
 </head>
