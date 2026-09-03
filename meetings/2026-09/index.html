@@ -192,139 +192,6 @@ html[data-theme="dark"] { color-scheme: dark; }
 html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
 html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.15); }
 
-/* Countdown (page-flip vibe) */
-.countdownWrap { margin-top: 26px; display: grid; gap: 12px; }
-.countdownLabel { font-size: 12px; text-transform: uppercase; font-weight: 900; letter-spacing: .14em; }
-.countdown { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.flipUnit {
-  width: 126px;
-  border: 4px solid var(--ink);
-  background: var(--paper);
-  /* layered “page edges” on the right + chunky drop shadow */
-  box-shadow:
-    7px 7px 0 var(--ink),
-    10px 0 0 rgba(9,9,9,.12),
-    14px 0 0 rgba(9,9,9,.08),
-    18px 0 0 rgba(9,9,9,.05);
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-  transform: rotate(-1deg);
-}
-.flipUnit:nth-child(2n) { transform: rotate(1deg); }
-.flipUnit::before {
-  /* book spine */
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 14px;
-  background: var(--ink);
-  opacity: .18;
-  box-shadow: inset -2px 0 0 rgba(255,255,255,.12);
-}
-.flipUnit::after {
-  /* book “hinge” line between the two halves */
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 4px;
-  background: var(--ink);
-  transform: translateY(-50%);
-  opacity: .45;
-}
-.flipTop, .flipBottom {
-  height: 58px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--display);
-  font-weight: 900;
-  font-size: 42px;
-  line-height: 1;
-  letter-spacing: -.02em;
-}
-.flipTop {
-  background: linear-gradient(180deg, var(--white), rgba(255,255,255,.86));
-}
-.flipBottom {
-  background: linear-gradient(180deg, var(--acid), rgba(233,255,50,.78));
-}
-.flipCaption {
-  text-align: center;
-  padding: 10px 8px 12px;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  border-top: 4px solid var(--ink);
-  background: var(--blue);
-  color: var(--white);
-}
-
-/* Flip animation: a “page” swings down over the top half */
-.pageFlip {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 58px;
-  transform-origin: bottom;
-  transform: rotateX(0deg);
-  background: linear-gradient(180deg, var(--white), rgba(255,255,255,.84));
-  border-bottom: 4px solid var(--ink);
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--display);
-  font-weight: 900;
-  font-size: 42px;
-}
-.pageFlip::after {
-  /* page edge shadow */
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 12px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.16));
-}
-.flipUnit.isFlipping .pageFlip { animation: pageTurn .55s cubic-bezier(.2,.7,.2,1) both; }
-@keyframes pageTurn {
-  0% { transform: rotateX(0deg); }
-  100% { transform: rotateX(-92deg); }
-}
-
-html[data-theme="dark"] .flipUnit { background: #191c27; box-shadow: 7px 7px 0 rgba(255,255,255,.15); }
-html[data-theme="dark"] .flipTop { background: #11131a; }
-html[data-theme="dark"] .pageFlip { background: #11131a; }
-
-@media (max-width: 560px) {
-  /* Keep countdown on one row on mobile */
-  .countdown {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 6px;
-    gap: 10px;
-  }
-  .flipUnit {
-    flex: 0 0 auto;
-    width: 92px;
-    box-shadow:
-      5px 5px 0 var(--ink),
-      8px 0 0 rgba(9,9,9,.12),
-      11px 0 0 rgba(9,9,9,.08);
-  }
-  .flipTop, .flipBottom, .pageFlip { font-size: 34px; height: 52px; }
-  .flipUnit::after { height: 3px; }
-  .flipCaption { font-size: 10px; padding: 8px 6px 10px; }
-}
   </style>
 </head>
 <body>
@@ -352,39 +219,10 @@ html[data-theme="dark"] .pageFlip { background: #11131a; }
         <div class="actions">
           <a class="button primary" href="https://meet.google.com/ceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Join on Google Meet <span>↗</span></a>
           <a class="button secondary" href="mailto:enbyjayden@gmail.com?subject=QBTL%3A%20September%20Meet-up%20RSVP&body=I%E2%80%99ll%20be%20there" target="_blank" rel="noopener noreferrer">RSVP <span>↗</span></a>
-          <a class="button secondary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Queer%20Between%20the%20Lines%20%E2%80%94%20Oye%20Meetup%20(with%20Melissa%20Mogollon)&dates=20260909T190000Z/20260909T200000Z&details=Join%20the%20QBTL%20meetup%20to%20discuss%20Oye.%20Author%20Melissa%20Mogollon%20will%20be%20joining%20us.%0A%0AGoogle%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk&location=https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Add to calendar <span>↗</span></a>
+          <a class="button secondary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Queer%20Between%20the%20Lines%20%E2%80%94%20Oye%20Meetup%20(with%20Melissa%20Mogollon)&dates=20260909T190000Z/20260909T200000Z&details=Join%20the%20QBTL%20meetup%20to%20discuss%20Oye.%20Author%20Melissa%20Mogollon%20will%20be%20joining%20us.%0A%0AGoogle%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk&location=https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Add to Google Calendar <span>↗</span></a>
           <button class="button secondary" id="qbtl-ics-btn" type="button">Add to calendar (.ics) <span>↓</span></button>
         </div>
 
-        <div class="countdownWrap" aria-label="Countdown to the meetup">
-          <div class="countdownLabel">Countdown</div>
-          <div class="countdown" id="qbtl-countdown">
-            <div class="flipUnit" data-unit="days">
-              <div class="flipTop" data-value>--</div>
-              <div class="pageFlip" aria-hidden="true">--</div>
-              <div class="flipBottom" data-value>--</div>
-              <div class="flipCaption">Days</div>
-            </div>
-            <div class="flipUnit" data-unit="hours">
-              <div class="flipTop" data-value>--</div>
-              <div class="pageFlip" aria-hidden="true">--</div>
-              <div class="flipBottom" data-value>--</div>
-              <div class="flipCaption">Hours</div>
-            </div>
-            <div class="flipUnit" data-unit="mins">
-              <div class="flipTop" data-value>--</div>
-              <div class="pageFlip" aria-hidden="true">--</div>
-              <div class="flipBottom" data-value>--</div>
-              <div class="flipCaption">Mins</div>
-            </div>
-            <div class="flipUnit" data-unit="secs">
-              <div class="flipTop" data-value>--</div>
-              <div class="pageFlip" aria-hidden="true">--</div>
-              <div class="flipBottom" data-value>--</div>
-              <div class="flipCaption">Secs</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -462,62 +300,6 @@ html[data-theme="dark"] .pageFlip { background: #11131a; }
         });
       }
 
-      // Countdown
-      const countdownEl = document.getElementById("qbtl-countdown");
-      const units = {
-        days: countdownEl && countdownEl.querySelector('[data-unit="days"]'),
-        hours: countdownEl && countdownEl.querySelector('[data-unit="hours"]'),
-        mins: countdownEl && countdownEl.querySelector('[data-unit="mins"]'),
-        secs: countdownEl && countdownEl.querySelector('[data-unit="secs"]')
-      };
-
-      function setFlip(unitEl, nextVal) {
-        if (!unitEl) return;
-        const top = unitEl.querySelector('.flipTop');
-        const bottom = unitEl.querySelector('.flipBottom');
-        const page = unitEl.querySelector('.pageFlip');
-        const current = (bottom && bottom.textContent) || "--";
-        const next = String(nextVal).padStart(2, "0");
-        if (current === next) return;
-
-        if (page) page.textContent = current;
-        if (top) top.textContent = current;
-        if (bottom) bottom.textContent = next;
-
-        unitEl.classList.remove('isFlipping');
-        // force reflow so animation restarts
-        void unitEl.offsetWidth;
-        unitEl.classList.add('isFlipping');
-        window.setTimeout(() => unitEl.classList.remove('isFlipping'), 650);
-      }
-
-      function tick() {
-        if (!countdownEl) return;
-        const now = new Date();
-        const diffMs = eventUtc.getTime() - now.getTime();
-        if (diffMs <= 0) {
-          setFlip(units.days, 0);
-          setFlip(units.hours, 0);
-          setFlip(units.mins, 0);
-          setFlip(units.secs, 0);
-          return;
-        }
-        const totalSecs = Math.floor(diffMs / 1000);
-        const days = Math.floor(totalSecs / (60 * 60 * 24));
-        const hours = Math.floor((totalSecs % (60 * 60 * 24)) / (60 * 60));
-        const mins = Math.floor((totalSecs % (60 * 60)) / 60);
-        const secs = totalSecs % 60;
-
-        // Days can exceed 2 digits; keep it readable
-        const daysVal = days > 99 ? String(days) : String(days).padStart(2, "0");
-        setFlip(units.days, daysVal);
-        setFlip(units.hours, hours);
-        setFlip(units.mins, mins);
-        setFlip(units.secs, secs);
-      }
-
-      tick();
-      window.setInterval(tick, 1000);
     }());
   </script>
 </body>
