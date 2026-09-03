@@ -218,6 +218,8 @@ html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.1
         <div class="actions">
           <a class="button primary" href="https://meet.google.com/ceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Join on Google Meet <span>↗</span></a>
           <a class="button secondary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Queer%20Between%20the%20Lines%20%E2%80%94%20Oye%20Meetup%20(with%20Melissa%20Mogollon)&dates=20260909T190000Z/20260909T200000Z&details=Join%20the%20QBTL%20meetup%20to%20discuss%20Oye.%20Author%20Melissa%20Mogollon%20will%20be%20joining%20us.%0A%0AGoogle%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk&location=https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Add to calendar <span>↗</span></a>
+          <button class="button secondary" id="qbtl-ics-btn" type="button">Add to calendar (.ics) <span>↓</span></button>
+          <a class="button secondary" href="mailto:enbyjayden@gmail.com?subject=QBTL%3A%20Septemner%20Meet-up%20RSVP&body=I%E2%80%99ll%20be%20there" target="_blank" rel="noopener noreferrer">RSVP <span>↗</span></a>
         </div>
       </div>
     </section>
@@ -234,6 +236,7 @@ html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.1
     (function () {
       const eventUtc = new Date("2026-09-09T19:00:00.000Z");
       const localTimeEl = document.getElementById("qbtl-local-time");
+      const icsBtn = document.getElementById("qbtl-ics-btn");
       if (!localTimeEl || Number.isNaN(eventUtc.getTime())) return;
       try {
         const local = new Intl.DateTimeFormat(undefined, {
@@ -247,6 +250,52 @@ html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.1
         localTimeEl.textContent = local;
       } catch (e) {
         localTimeEl.textContent = eventUtc.toLocaleString();
+      }
+
+      // Universal calendar file (.ics) download (works for Apple Calendar, Outlook, etc.)
+      if (icsBtn) {
+        icsBtn.addEventListener("click", function () {
+          const dtStart = "20260909T190000Z";
+          const dtEnd = "20260909T200000Z";
+          const uid = "qbtl-sept-2026-oye@queerbetweenthelines";
+          const title = "QBTL — September Meet-up (Oye)";
+          const description = "Queer Between the Lines meet-up to discuss Oye. Author Melissa Mogollon will be joining us.\\n\\nGoogle Meet: https://meet.google.com/ceq-hxak-nqk";
+          const location = "https://meet.google.com/ceq-hxak-nqk";
+          const attendeeEmail = "enbyjayden@gmail.com";
+          const now = new Date();
+          const pad = (n) => String(n).padStart(2, "0");
+          const stamp = `${now.getUTCFullYear()}${pad(now.getUTCMonth()+1)}${pad(now.getUTCDate())}T${pad(now.getUTCHours())}${pad(now.getUTCMinutes())}${pad(now.getUTCSeconds())}Z`;
+
+          const ics = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "PRODID:-//QBTL//Meetup//EN",
+            "CALSCALE:GREGORIAN",
+            "METHOD:PUBLISH",
+            "BEGIN:VEVENT",
+            `UID:${uid}`,
+            `DTSTAMP:${stamp}`,
+            `DTSTART:${dtStart}`,
+            `DTEND:${dtEnd}`,
+            `SUMMARY:${title}`,
+            `DESCRIPTION:${description.replace(/\n/g, "\\n")}`,
+            `LOCATION:${location}`,
+            `ORGANIZER;CN=Queer Between the Lines:mailto:${attendeeEmail}`,
+            `ATTENDEE;CN=Jayden;ROLE=REQ-PARTICIPANT;RSVP=TRUE:mailto:${attendeeEmail}`,
+            "END:VEVENT",
+            "END:VCALENDAR"
+          ].join("\r\n");
+
+          const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "qbtl-september-meetup.ics";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        });
       }
     }());
   </script>
