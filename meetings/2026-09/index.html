@@ -204,6 +204,17 @@ html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.1
   position: relative;
   overflow: hidden;
 }
+.flipUnit::before {
+  /* a little “spine” on the left */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background: var(--ink);
+  opacity: .12;
+}
 .flipUnit::after {
   content: "";
   position: absolute;
@@ -258,6 +269,16 @@ html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.1
   font-family: var(--display);
   font-weight: 900;
   font-size: 42px;
+}
+.pageFlip::after {
+  /* page edge shadow */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.16));
 }
 .flipUnit.isFlipping .pageFlip { animation: pageTurn .55s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes pageTurn {
@@ -319,6 +340,12 @@ html[data-theme="dark"] .pageFlip { background: #11131a; }
               <div class="pageFlip" aria-hidden="true">--</div>
               <div class="flipBottom" data-value>--</div>
               <div class="flipCaption">Mins</div>
+            </div>
+            <div class="flipUnit" data-unit="secs">
+              <div class="flipTop" data-value>--</div>
+              <div class="pageFlip" aria-hidden="true">--</div>
+              <div class="flipBottom" data-value>--</div>
+              <div class="flipCaption">Secs</div>
             </div>
           </div>
         </div>
@@ -404,7 +431,8 @@ html[data-theme="dark"] .pageFlip { background: #11131a; }
       const units = {
         days: countdownEl && countdownEl.querySelector('[data-unit="days"]'),
         hours: countdownEl && countdownEl.querySelector('[data-unit="hours"]'),
-        mins: countdownEl && countdownEl.querySelector('[data-unit="mins"]')
+        mins: countdownEl && countdownEl.querySelector('[data-unit="mins"]'),
+        secs: countdownEl && countdownEl.querySelector('[data-unit="secs"]')
       };
 
       function setFlip(unitEl, nextVal) {
@@ -435,22 +463,25 @@ html[data-theme="dark"] .pageFlip { background: #11131a; }
           setFlip(units.days, 0);
           setFlip(units.hours, 0);
           setFlip(units.mins, 0);
+          setFlip(units.secs, 0);
           return;
         }
-        const totalMins = Math.floor(diffMs / 60000);
-        const days = Math.floor(totalMins / (60 * 24));
-        const hours = Math.floor((totalMins % (60 * 24)) / 60);
-        const mins = totalMins % 60;
+        const totalSecs = Math.floor(diffMs / 1000);
+        const days = Math.floor(totalSecs / (60 * 60 * 24));
+        const hours = Math.floor((totalSecs % (60 * 60 * 24)) / (60 * 60));
+        const mins = Math.floor((totalSecs % (60 * 60)) / 60);
+        const secs = totalSecs % 60;
 
         // Days can exceed 2 digits; keep it readable
         const daysVal = days > 99 ? String(days) : String(days).padStart(2, "0");
         setFlip(units.days, daysVal);
         setFlip(units.hours, hours);
         setFlip(units.mins, mins);
+        setFlip(units.secs, secs);
       }
 
       tick();
-      window.setInterval(tick, 1000 * 20);
+      window.setInterval(tick, 1000);
     }());
   </script>
 </body>
