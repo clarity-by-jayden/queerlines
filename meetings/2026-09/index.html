@@ -1,35 +1,250 @@
-<!-- September meetup -->
-<div class="meetingNote">
-  <h3>September meetup</h3>
-  <p><b>Wed 9 September</b> — <span id="qbtl-uk-time">8:00pm UK</span> (<span id="qbtl-local-time">your local time</span>)</p>
-  <p>
-    <a href="https://meet.google.com/ceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Join on Google Meet ↗</a>
-    &nbsp;|&nbsp;
-    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Queer%20Between%20the%20Lines%20%E2%80%94%20Oye%20Meetup%20(with%20Melissa%20Mogollon)&dates=20260909T190000Z/20260909T200000Z&details=Join%20the%20QBTL%20meetup%20to%20discuss%20Oye.%20Author%20Melissa%20Mogollon%20will%20be%20joining%20us.%0A%0AGoogle%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk&location=https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Add to calendar ↗</a>
-  </p>
-</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QBTL — September meetup</title>
+  <meta name="description" content="Queer Between the Lines September meetup: Oye discussion + author guest Melissa Mogollon.">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WW6QL7QPL7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WW6QL7QPL7');
+  </script>
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('qbtl-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    }());
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
+  <style>
+:root {
+  --ink: #090909;
+  --paper: #fff7e8;
+  --pink: #ff2d8d;
+  --acid: #e9ff32;
+  --blue: #4757ff;
+  --orange: #ff6337;
+  --red: #ef3340;
+  --green: #00a86b;
+  --purple: #8b3dff;
+  --white: #ffffff;
+  --display: "Archivo Black", Arial, sans-serif;
+  --pride: linear-gradient(90deg,
+    var(--red) 0 16.66%,
+    var(--orange) 16.66% 33.32%,
+    var(--acid) 33.32% 49.98%,
+    var(--green) 49.98% 66.64%,
+    var(--blue) 66.64% 83.3%,
+    var(--purple) 83.3% 100%);
+}
 
-<script>
-  (function () {
-    // Canonical event time: 2026-09-09 20:00 in Europe/London (UK time)
-    const eventUtc = new Date("2026-09-09T19:00:00.000Z");
-    const localTimeEl = document.getElementById("qbtl-local-time");
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
 
-    if (!localTimeEl || Number.isNaN(eventUtc.getTime())) return;
+.nav {
+  height: 68px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--ink);
+  background: var(--blue);
+  color: var(--white);
+  position: relative;
+  z-index: 10;
+}
+.nav .flower { color: var(--acid); }
+.nav::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background: var(--pride);
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-family: var(--display);
+  font-size: 13px;
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.flower {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--pink);
+  letter-spacing: -.22em;
+}
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.navCta {
+  background: var(--ink);
+  color: var(--white);
+  padding: 13px 20px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--pink);
+  transform: rotate(-1deg);
+}
 
-    try {
-      const local = new Intl.DateTimeFormat(undefined, {
-        weekday: "short",
-        month: "short",
-        day: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-        timeZoneName: "short"
-      }).format(eventUtc);
-      localTimeEl.textContent = local;
-    } catch (e) {
-      // Fallback: just show device-local time without timezone label
-      localTimeEl.textContent = eventUtc.toLocaleString();
-    }
-  }());
-</script>
+.section { padding: 48px 6vw; }
+.sectionLabel {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+.sectionLabel span {
+  background: var(--orange);
+  color: var(--ink);
+  padding: 6px 8px;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--pink);
+}
+
+h1, h2 {
+  font-family: var(--display);
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  line-height: .78;
+}
+h2 { font-size: clamp(48px, 5.8vw, 84px); }
+h2 em {
+  display: inline-block;
+  color: var(--blue);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 5px 5px 0 var(--pink);
+}
+
+.meetingNote { border: 4px solid var(--ink); padding: 20px 22px; box-shadow: 7px 7px 0 var(--ink); background: var(--pink); }
+.meetingNote h3 { margin: 0 0 7px; font-family: var(--display); font-size: clamp(20px, 2vw, 29px); line-height: 1; text-transform: uppercase; }
+.meetingNote p { margin: 0; font-size: 15px; line-height: 1.35; font-weight: 800; }
+.meetingNote p + p { margin-top: 10px; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 18px; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 3px solid var(--ink);
+  padding: 14px 21px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  cursor: pointer;
+}
+.button span { font-size: 18px; }
+.primary { background: var(--ink); color: var(--white); box-shadow: 6px 6px 0 var(--acid); }
+.secondary { background: var(--acid); color: var(--ink); box-shadow: 6px 6px 0 var(--blue); }
+
+footer {
+  padding: 30px 4vw;
+  border-top: 4px solid;
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+}
+footer::before { content: ""; position: absolute; inset: 0 0 auto; height: 6px; background: var(--pride); }
+footer .footerInner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+footer p { margin: 0; font-family: var(--display); font-size: 14px; text-transform: uppercase; }
+
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
+html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.15); }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="https://clarity-by-jayden.github.io/queerlines/" aria-label="Queer Between the Lines home">
+        <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
+      </a>
+      <div class="navLinks">
+        <a class="navCta" href="https://clarity-by-jayden.github.io/queerlines/#join">Join us</a>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="sectionLabel"><span>SEPT</span> Meet-up details</div>
+      <h2>Oye<br><em>meet-up.</em></h2>
+
+      <div class="meetingNote" style="margin-top: 18px;">
+        <h3>Melissa Mogollon is joining us</h3>
+        <p><b>Wed 9 September</b> — <span id="qbtl-uk-time">8:00pm UK</span> (<span id="qbtl-local-time">your local time</span>)</p>
+        <div class="actions">
+          <a class="button primary" href="https://meet.google.com/ceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Join on Google Meet <span>↗</span></a>
+          <a class="button secondary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Queer%20Between%20the%20Lines%20%E2%80%94%20Oye%20Meetup%20(with%20Melissa%20Mogollon)&dates=20260909T190000Z/20260909T200000Z&details=Join%20the%20QBTL%20meetup%20to%20discuss%20Oye.%20Author%20Melissa%20Mogollon%20will%20be%20joining%20us.%0A%0AGoogle%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk&location=https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Add to calendar <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footerInner">
+        <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
+        <p>Stories beyond the straight and narrow.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const eventUtc = new Date("2026-09-09T19:00:00.000Z");
+      const localTimeEl = document.getElementById("qbtl-local-time");
+      if (!localTimeEl || Number.isNaN(eventUtc.getTime())) return;
+      try {
+        const local = new Intl.DateTimeFormat(undefined, {
+          weekday: "short",
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+          timeZoneName: "short"
+        }).format(eventUtc);
+        localTimeEl.textContent = local;
+      } catch (e) {
+        localTimeEl.textContent = eventUtc.toLocaleString();
+      }
+    }());
+  </script>
+</body>
+</html>
