@@ -1,0 +1,35 @@
+<!-- September meetup -->
+<div class="meetingNote">
+  <h3>September meetup</h3>
+  <p><b>Wed 9 September</b> — <span id="qbtl-uk-time">8:00pm UK</span> (<span id="qbtl-local-time">your local time</span>)</p>
+  <p>
+    <a href="https://meet.google.com/ceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Join on Google Meet ↗</a>
+    &nbsp;|&nbsp;
+    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Queer%20Between%20the%20Lines%20%E2%80%94%20Oye%20Meetup%20(with%20Melissa%20Mogollon)&dates=20260909T190000Z/20260909T200000Z&details=Join%20the%20QBTL%20meetup%20to%20discuss%20Oye.%20Author%20Melissa%20Mogollon%20will%20be%20joining%20us.%0A%0AGoogle%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk&location=https%3A%2F%2Fmeet.google.com%2Fceq-hxak-nqk" target="_blank" rel="noopener noreferrer">Add to calendar ↗</a>
+  </p>
+</div>
+
+<script>
+  (function () {
+    // Canonical event time: 2026-09-09 20:00 in Europe/London (UK time)
+    const eventUtc = new Date("2026-09-09T19:00:00.000Z");
+    const localTimeEl = document.getElementById("qbtl-local-time");
+
+    if (!localTimeEl || Number.isNaN(eventUtc.getTime())) return;
+
+    try {
+      const local = new Intl.DateTimeFormat(undefined, {
+        weekday: "short",
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        timeZoneName: "short"
+      }).format(eventUtc);
+      localTimeEl.textContent = local;
+    } catch (e) {
+      // Fallback: just show device-local time without timezone label
+      localTimeEl.textContent = eventUtc.toLocaleString();
+    }
+  }());
+</script>
