@@ -197,25 +197,35 @@ html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.1
 .countdownLabel { font-size: 12px; text-transform: uppercase; font-weight: 900; letter-spacing: .14em; }
 .countdown { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .flipUnit {
-  width: 122px;
+  width: 126px;
   border: 4px solid var(--ink);
   background: var(--paper);
-  box-shadow: 7px 7px 0 var(--ink);
+  /* layered “page edges” on the right + chunky drop shadow */
+  box-shadow:
+    7px 7px 0 var(--ink),
+    10px 0 0 rgba(9,9,9,.12),
+    14px 0 0 rgba(9,9,9,.08),
+    18px 0 0 rgba(9,9,9,.05);
   position: relative;
   overflow: hidden;
+  border-radius: 4px;
+  transform: rotate(-1deg);
 }
+.flipUnit:nth-child(2n) { transform: rotate(1deg); }
 .flipUnit::before {
-  /* a little “spine” on the left */
+  /* book spine */
   content: "";
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
-  width: 10px;
+  width: 14px;
   background: var(--ink);
-  opacity: .12;
+  opacity: .18;
+  box-shadow: inset -2px 0 0 rgba(255,255,255,.12);
 }
 .flipUnit::after {
+  /* book “hinge” line between the two halves */
   content: "";
   position: absolute;
   left: 0;
@@ -224,7 +234,7 @@ html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.1
   height: 4px;
   background: var(--ink);
   transform: translateY(-50%);
-  opacity: .65;
+  opacity: .45;
 }
 .flipTop, .flipBottom {
   height: 58px;
@@ -237,8 +247,12 @@ html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.1
   line-height: 1;
   letter-spacing: -.02em;
 }
-.flipTop { background: var(--white); }
-.flipBottom { background: var(--acid); }
+.flipTop {
+  background: linear-gradient(180deg, var(--white), rgba(255,255,255,.86));
+}
+.flipBottom {
+  background: linear-gradient(180deg, var(--acid), rgba(233,255,50,.78));
+}
 .flipCaption {
   text-align: center;
   padding: 10px 8px 12px;
@@ -260,7 +274,7 @@ html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.1
   height: 58px;
   transform-origin: bottom;
   transform: rotateX(0deg);
-  background: var(--white);
+  background: linear-gradient(180deg, var(--white), rgba(255,255,255,.84));
   border-bottom: 4px solid var(--ink);
   backface-visibility: hidden;
   display: flex;
@@ -289,6 +303,28 @@ html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.1
 html[data-theme="dark"] .flipUnit { background: #191c27; box-shadow: 7px 7px 0 rgba(255,255,255,.15); }
 html[data-theme="dark"] .flipTop { background: #11131a; }
 html[data-theme="dark"] .pageFlip { background: #11131a; }
+
+@media (max-width: 560px) {
+  /* Keep countdown on one row on mobile */
+  .countdown {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    gap: 10px;
+  }
+  .flipUnit {
+    flex: 0 0 auto;
+    width: 92px;
+    box-shadow:
+      5px 5px 0 var(--ink),
+      8px 0 0 rgba(9,9,9,.12),
+      11px 0 0 rgba(9,9,9,.08);
+  }
+  .flipTop, .flipBottom, .pageFlip { font-size: 34px; height: 52px; }
+  .flipUnit::after { height: 3px; }
+  .flipCaption { font-size: 10px; padding: 8px 6px 10px; }
+}
   </style>
 </head>
 <body>
