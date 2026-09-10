@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QBTL — September meetup recap</title>
+  <meta name="description" content="Queer Between the Lines September meetup recap: Oye discussion + author guest Melissa Mogollon.">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WW6QL7QPL7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WW6QL7QPL7');
+  </script>
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('qbtl-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    }());
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
+  <style>
+:root {
+  --ink: #090909;
+  --paper: #fff7e8;
+  --pink: #ff2d8d;
+  --acid: #e9ff32;
+  --blue: #4757ff;
+  --orange: #ff6337;
+  --red: #ef3340;
+  --green: #00a86b;
+  --purple: #8b3dff;
+  --white: #ffffff;
+  --display: "Archivo Black", Arial, sans-serif;
+  --pride: linear-gradient(90deg,
+    var(--red) 0 16.66%,
+    var(--orange) 16.66% 33.32%,
+    var(--acid) 33.32% 49.98%,
+    var(--green) 49.98% 66.64%,
+    var(--blue) 66.64% 83.3%,
+    var(--purple) 83.3% 100%);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+
+.nav {
+  height: 68px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--ink);
+  background: var(--blue);
+  color: var(--white);
+  position: relative;
+  z-index: 10;
+}
+.nav .flower { color: var(--acid); }
+.nav::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background: var(--pride);
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-family: var(--display);
+  font-size: 13px;
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.flower {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--pink);
+  letter-spacing: -.22em;
+}
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.navCta {
+  background: var(--ink);
+  color: var(--white);
+  padding: 13px 20px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+
+.section { padding: 48px 6vw; }
+.sectionLabel {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+.sectionLabel span {
+  background: var(--orange);
+  color: var(--ink);
+  padding: 6px 8px;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--pink);
+}
+
+h1, h2 {
+  font-family: var(--display);
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  line-height: .78;
+}
+h2 { font-size: clamp(48px, 5.8vw, 84px); }
+h2 em {
+  display: inline-block;
+  color: var(--blue);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 5px 5px 0 var(--pink);
+}
+
+.meetingNote { border: 4px solid var(--ink); padding: 20px 22px; box-shadow: 7px 7px 0 var(--ink); background: var(--pink); }
+.meetingNote h3 { margin: 0 0 7px; font-family: var(--display); font-size: clamp(20px, 2vw, 29px); line-height: 1; text-transform: uppercase; }
+.meetingNote p { margin: 0; font-size: 15px; line-height: 1.35; font-weight: 800; }
+.meetingNote p + p { margin-top: 10px; }
+.meetingNote ul { margin: 12px 0 0; padding-left: 18px; }
+.meetingNote li { font-size: 15px; line-height: 1.4; font-weight: 800; margin: 8px 0; }
+.meetingNote li strong { font-weight: 900; }
+.meetingNote em { font-style: italic; }
+
+.videoWrap {
+  margin-top: 18px;
+  border: 4px solid var(--ink);
+  box-shadow: 7px 7px 0 var(--ink);
+  background: var(--acid);
+  padding: 14px;
+}
+.videoTitle {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: -.02em;
+  margin: 0 0 12px;
+  line-height: 1;
+}
+.video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+  border: 3px solid var(--ink);
+}
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.meetupHero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 12px;
+}
+.meetupImages { display: flex; gap: 12px; flex: 0 0 auto; }
+.meetupImages img {
+  width: 110px;
+  height: auto;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--acid);
+  display: block;
+}
+.meetupImages img.author { box-shadow: 5px 5px 0 var(--blue); }
+
+.meetupWhen {
+  flex: 1 1 auto;
+  text-align: right;
+}
+.meetupWhen .date {
+  font-family: var(--display);
+  font-size: clamp(30px, 4.2vw, 54px);
+  line-height: .85;
+  text-transform: uppercase;
+}
+.meetupWhen .time {
+  margin-top: 8px;
+  font-family: var(--display);
+  font-size: clamp(22px, 3.2vw, 42px);
+  line-height: .9;
+  text-transform: uppercase;
+}
+.meetupWhen .local {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .meetupHero { flex-direction: column; align-items: flex-start; }
+  .meetupWhen { text-align: left; }
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 18px; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 3px solid var(--ink);
+  padding: 14px 21px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  cursor: pointer;
+}
+.button span { font-size: 18px; }
+.primary { background: var(--ink); color: var(--white); box-shadow: 6px 6px 0 var(--acid); }
+.secondary { background: var(--acid); color: var(--ink); box-shadow: 6px 6px 0 var(--blue); }
+
+footer {
+  padding: 30px 4vw;
+  border-top: 4px solid;
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+}
+footer::before { content: ""; position: absolute; inset: 0 0 auto; height: 6px; background: var(--pride); }
+footer .footerInner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+footer p { margin: 0; font-family: var(--display); font-size: 14px; text-transform: uppercase; }
+
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
+html[data-theme="dark"] .meetingNote { box-shadow: 7px 7px 0 rgba(255,255,255,.15); }
+
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="https://clarity-by-jayden.github.io/queerlines/" aria-label="Queer Between the Lines home">
+        <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
+      </a>
+      <div class="navLinks">
+        <a class="navCta" href="https://clarity-by-jayden.github.io/queerlines/#join">Join us</a>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="sectionLabel"><span>SEPT</span></div>
+      <h2>September<br><em>recap.</em></h2>
+
+      <div class="meetingNote" style="margin-top: 18px;">
+        <h3>Book: Oye <span style="opacity:.9;">✦</span> Author guest: Melissa Mogollon</h3>
+        <p><strong>TL;DR:</strong> We talked about <em>Oye</em>’s one-sided phone call format (and how it shapes what we know), the characters’ arcs (especially Luciana’s shift from anxious control → calm acceptance), and Abu as the emotional centre of the story. Melissa joined us and shared why she chose the format and how the italic sections work.</p>
+
+        <ul aria-label="Meet-up recap notes">
+          <li><strong>The format:</strong> It felt disorienting at first, then immersive once you get your bearings. We only get one person’s perspective, but still build a strong sense of Mari as a presence.</li>
+          <li><strong>Italic sections:</strong> A craft solution for what Luciana wouldn’t naturally say out loud — a way to show memory, context, and inner world alongside what she chooses to share.</li>
+          <li><strong>Character arcs:</strong> Luciana’s anxious control → calmer acceptance; Abu as the emotional centre; Mari as distant-but-coping, with a painfully honest (and still loving) sibling dynamic.</li>
+          <li><strong>Author Q&amp;A:</strong> The format was the only one that felt “right” after trying other POVs; creative restrictions can be energising; the audiobook uses a different tone for the italic sections which can clarify things.</li>
+        </ul>
+
+        <div class="videoWrap" aria-label="Highlights video">
+          <p class="videoTitle">Highlights video</p>
+          <div class="video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/PA5yXigSFfA"
+              title="QBTL — September meetup highlights"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div class="footerInner">
+        <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
+        <p>Stories beyond the straight and narrow.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script></script>
+</body>
+</html>
