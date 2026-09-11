@@ -5,13 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Queer Between the Lines</title>
   <meta name="description" content="Stories beyond the straight and narrow. A bold, welcoming LGBTQ+ book club celebrating queer voices, great books, and open conversation.">
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) + simple consent (default denied) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WW6QL7QPL7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-WW6QL7QPL7');
+
+    // Consent Mode: deny by default, grant only after user accepts.
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted'
+    });
   </script>
   <script>
     (function () {
@@ -275,6 +283,58 @@ h1 em, h2 em {
 }
 .marquee div { word-spacing: 22px; text-align: center; }
 .marquee span { color: var(--acid); }
+
+/* Simple cookie consent banner */
+.cookieBanner {
+  position: fixed;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 999;
+  display: none;
+  max-width: 980px;
+  margin: 0 auto;
+  background: var(--paper);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--pink);
+  padding: 14px 14px 12px;
+}
+.cookieBannerInner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+.cookieBanner p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+.cookieBanner a { text-decoration: underline; }
+.cookieActions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.cookieBtn {
+  border: 3px solid var(--ink);
+  padding: 10px 14px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  cursor: pointer;
+}
+.cookieAccept { background: var(--acid); color: var(--ink); box-shadow: 5px 5px 0 var(--blue); }
+.cookieReject { background: var(--paper); color: var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+
+html[data-theme="dark"] .cookieBanner { background: #191c27; color: var(--paper); }
+html[data-theme="dark"] .cookieReject { background: transparent; color: var(--paper); border-color: var(--paper); box-shadow: 5px 5px 0 rgba(255,255,255,.15); }
+html[data-theme="dark"] .cookieAccept { box-shadow: 5px 5px 0 var(--pink); }
+
+@media (max-width: 560px) {
+  .cookieBanner { left: 14px; right: 14px; bottom: 14px; }
+  .cookieBannerInner { grid-template-columns: 1fr; }
+  .cookieActions { justify-content: flex-start; }
+}
 
 .section { padding: 48px 6vw; }
 .sectionLabel { display: flex; gap: 12px; align-items: center; margin-bottom: 24px; }
@@ -599,19 +659,19 @@ html[data-theme="dark"] .join, html[data-theme="dark"] .joinForm { color: var(--
     <section class="current section" id="book">
       <div class="sectionLabel"><span>01</span> Now reading</div>
       <div class="bookLayout">
-        <div class="bookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Oye cover; open to see the author">
-          <div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/eec9f87f-21c0-4e52-9067-284780096695/content" alt="Melissa Mogollon" loading="lazy"></div>
+        <div class="bookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Fruit Fly cover; open to see the author">
+          <div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/1ca07807-9fa4-4bb3-91aa-07c406f8cd05/content" alt="Josh Silver" loading="lazy"></div>
           <div class="bookCover">
-            <img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/bab81f13-cc00-4f13-a5ad-b3e2816dc524/content" alt="" loading="eager">
-            <span class="srOnly">Oye by Melissa Mogollon</span>
+            <img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/64acaa48-3640-438c-8d6f-2990aca03b87/content" alt="" loading="eager">
+            <span class="srOnly">Fruit Fly by Josh Silver</span>
           </div>
         </div>
         <div class="bookCopy">
           <p class="kicker">Our current pick</p>
-          <h2>Oye</h2>
-          <p class="author">by Melissa Mogollon</p>
-          <p>A humorous, heartfelt debut told through a series of one-sided phone calls from Luciana, an 18-year-old Colombian American, to her older sister away at college. When a hurricane hits Miami and their eccentric grandmother receives a shocking medical diagnosis, Luciana must step up as caretaker.</p>
-          <div class="tags"><span>Debut novel</span><span>Family</span><span>Colombian American</span></div>
+          <h2>Fruit Fly</h2>
+          <p class="author">by Josh Silver</p>
+          <p>Sharp, dark, and darkly funny — <i>Fruit Fly</i> follows a once-celebrated author on a chaotic collision course with addiction, ambition, and queer identity. Expect satire, bite, and a story that doesn’t stay polite.</p>
+          <div class="tags"><span>Satire</span><span>Queer</span><span>Dark comedy</span></div>
         </div>
       </div>
     </section>
@@ -638,6 +698,7 @@ html[data-theme="dark"] .join, html[data-theme="dark"] .joinForm { color: var(--
         <p>A growing library of queer lives, love stories, histories, and futures.</p>
       </div>
       <div class="bookGrid">
+        <article class="pastBook coral"><div class="miniBookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Oye cover; open to see the author"><div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/eec9f87f-21c0-4e52-9067-284780096695/content" alt="Melissa Mogollon" loading="lazy"></div><div class="miniCover"><img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/bab81f13-cc00-4f13-a5ad-b3e2816dc524/content" alt="" loading="lazy"><span class="srOnly">Oye by Melissa Mogollon</span></div></div><p class="bookTag">Debut novel</p><h3>Oye</h3><p>Melissa Mogollon</p></article>
         <article class="pastBook coral"><div class="miniBookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Young Mungo cover; open to see the author"><div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/99a431e8-cc40-4549-8852-3d1831f926fb/content" alt="Douglas Stuart" loading="lazy"></div><div class="miniCover"><img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/bdf4f3ad-654c-46bc-8167-551fc1fed513/content" alt="" loading="lazy"><span class="srOnly">Young Mungo by Douglas Stuart</span></div></div><p class="bookTag">Coming-of-age</p><h3>Young Mungo</h3><p>Douglas Stuart</p></article>
         <article class="pastBook coral"><div class="miniBookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Felix Ever After cover; open to see the author"><div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/ce06e4f2-5793-4f6c-96d8-f86550a6492a/content" alt="Kacen Callender" loading="lazy"></div><div class="miniCover"><img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/43705de5-8369-4ae2-88c9-8a92983b8266/content" alt="" loading="lazy"><span class="srOnly">Felix Ever After by Kacen Callender</span></div></div><p class="bookTag">Young adult</p><h3>Felix Ever After</h3><p>Kacen Callender</p></article>
         <article class="pastBook violet"><div class="miniBookStage" tabindex="0" role="button" aria-expanded="false" aria-label="Days Without End cover; open to see the author"><div class="insidePage"><img class="authorImage" src="https://si4io.mjt.lu/img2/si4io/44d847ad-9102-4a88-8837-1c323de0382a/content" alt="Sebastian Barry" loading="lazy"></div><div class="miniCover"><img class="coverImage" src="https://si4io.mjt.lu/img2/si4io/2a2ba537-44e1-4706-9e6e-668c1563d8db/content" alt="" loading="lazy"><span class="srOnly">Days Without End by Sebastian Barry</span></div></div><p class="bookTag">Historical fiction</p><h3>Days Without End</h3><p>Sebastian Barry</p></article>
@@ -677,6 +738,19 @@ html[data-theme="dark"] .join, html[data-theme="dark"] .joinForm { color: var(--
         <p class="footerCredit">Built with 💜 by <a href="https://claritybyjayden.online" target="_blank" rel="noopener noreferrer">Clarity by Jayden</a></p>
       </div>
     </footer>
+
+    <aside class="cookieBanner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+      <div class="cookieBannerInner">
+        <p>
+          We use cookies for basic site function and optional analytics (to understand what’s working). \
+          <a href="https://clarity-by-jayden.github.io/queerlines/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy policy</a>.
+        </p>
+        <div class="cookieActions">
+          <button class="cookieBtn cookieReject" id="cookie-reject" type="button">Reject</button>
+          <button class="cookieBtn cookieAccept" id="cookie-accept" type="button">Accept</button>
+        </div>
+      </div>
+    </aside>
   </main>
 
   <script>
@@ -735,6 +809,69 @@ html[data-theme="dark"] .join, html[data-theme="dark"] .joinForm { color: var(--
         hintObserver.observe(book);
       });
     }
+
+    // Cookie consent (simple)
+    (function () {
+      const CONSENT_KEY = "qbtl-cookie-consent";
+      const banner = document.getElementById("cookie-banner");
+      const acceptBtn = document.getElementById("cookie-accept");
+      const rejectBtn = document.getElementById("cookie-reject");
+      const measurementId = "G-WW6QL7QPL7";
+
+      function safeGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+      function safeSet(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
+
+      function enableAnalytics() {
+        if (typeof gtag !== "function") return;
+        gtag('consent', 'update', {
+          'ad_storage': 'denied',
+          'analytics_storage': 'granted',
+          'functionality_storage': 'granted',
+          'personalization_storage': 'denied',
+          'security_storage': 'granted'
+        });
+        gtag('config', measurementId);
+      }
+
+      function disableAnalytics() {
+        if (typeof gtag !== "function") return;
+        gtag('consent', 'update', {
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied',
+          'functionality_storage': 'denied',
+          'personalization_storage': 'denied',
+          'security_storage': 'granted'
+        });
+      }
+
+      const existing = safeGet(CONSENT_KEY); // "accepted" | "rejected" | null
+      if (existing === "accepted") {
+        enableAnalytics();
+        return;
+      }
+      if (existing === "rejected") {
+        disableAnalytics();
+        return;
+      }
+
+      // No choice recorded → show banner
+      if (banner) banner.style.display = "block";
+
+      if (acceptBtn) {
+        acceptBtn.addEventListener("click", function () {
+          safeSet(CONSENT_KEY, "accepted");
+          if (banner) banner.style.display = "none";
+          enableAnalytics();
+        });
+      }
+      if (rejectBtn) {
+        rejectBtn.addEventListener("click", function () {
+          safeSet(CONSENT_KEY, "rejected");
+          if (banner) banner.style.display = "none";
+          disableAnalytics();
+        });
+      }
+    }());
 
   </script>
 </body>
