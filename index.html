@@ -578,6 +578,7 @@ html[data-theme="dark"] .join, html[data-theme="dark"] .joinForm { color: var(--
 
 @media (max-width: 900px) {
   .navLinks > a:not(.navCta) { display: none; }
+  .navLinks > a.navCta { display: inline-flex; }
   .hero, .meeting, .join { grid-template-columns: 1fr; }
   .hero { padding-top: 32px; }
   .heroArt { min-height: 320px; }
@@ -629,7 +630,7 @@ html[data-theme="dark"] .join, html[data-theme="dark"] .joinForm { color: var(--
       <div class="navLinks">
         <a href="#book">Current book</a>
         <a href="#meeting">Meetings</a>
-        <a href="./pinboard/">Pinboard</a>
+        <a class="navCta" href="./pinboard/">Pinboard</a>
         <button class="themeToggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode"><span class="themeIcon" aria-hidden="true">◐</span><span class="toggleLabel">Dark</span></button>
         <a class="navCta" href="#join">Join us</a>
       </div>
