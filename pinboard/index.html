@@ -209,30 +209,13 @@ h1 em{
 
 .pinboard {
   position: relative;
-  border: 6px solid var(--ink);
-  box-shadow: 14px 14px 0 var(--pink);
-  padding: 22px;
-  min-height: 520px;
-  overflow: hidden;
-  background-image:
-    linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,0)),
-    var(--pinboard);
-  background-size: 420px auto;
-  background-repeat: repeat;
-  background-position: top left;
-  transform: rotate(-.5deg);
-}
-.pinboard::after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background:
-    radial-gradient(900px 420px at 12% 10%, rgba(255,45,141,.25), transparent 55%),
-    radial-gradient(700px 360px at 88% 22%, rgba(233,255,50,.25), transparent 60%),
-    radial-gradient(760px 520px at 50% 92%, rgba(71,87,255,.20), transparent 55%);
-  mix-blend-mode: multiply;
-  pointer-events: none;
+  padding: 0;
+  min-height: 0;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  transform: none;
 }
 .pinboardInner {
   position: relative;
@@ -360,9 +343,24 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
 }
 @media (max-width: 560px) {
   .nav { height: 64px; }
-  .hero, .boardWrap { padding: 34px 22px; }
-  h1 { font-size: 56px; }
-  .pinboard { padding: 18px; transform: none; }
+  .hero, .boardWrap { padding: 26px 16px; }
+  .navLinks { gap: 10px; }
+  .navCta { padding: 11px 14px; box-shadow: 4px 4px 0 var(--pink); transform: none; }
+  .themeToggle { padding: 7px 9px; }
+  .toggleLabel { display: none; }
+
+  /* Keep the “poster” vibe, but stop it eating the whole screen */
+  h1 {
+    font-size: clamp(40px, 11.5vw, 56px);
+    line-height: .86;
+    padding: 14px 14px 12px;
+    box-shadow: 9px 9px 0 var(--pink);
+    transform: none;
+  }
+  .pinnedTitlePin { top: -9px; left: 14px; }
+  .heroText { font-size: 16px; line-height: 1.45; }
+
+  .pinboard { padding: 0; min-height: 0; transform: none; }
   .grid-4, .grid-3 { grid-column: span 12; }
 }
   </style>
