@@ -22,7 +22,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
 
+  <!-- NOTE: CSS is intentionally copied from the pinboard index page in Notion -->
   <style>
+
 :root {
   --ink: #090909;
   --paper: #fff7e8;
@@ -207,16 +209,6 @@ h1 em{
   background: transparent;
 }
 
-.pinboard {
-  position: relative;
-  padding: 0;
-  min-height: 0;
-  overflow: visible;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  transform: none;
-}
 .pinboardInner {
   position: relative;
   z-index: 2;
@@ -271,7 +263,7 @@ h1 em{
   letter-spacing: -.02em;
 }
 .card p { margin: 0 0 10px; font-weight: 800; line-height: 1.35; }
-.card a.link {
+.card .link {
   display: inline-block;
   font-size: 12px;
   font-weight: 900;
@@ -316,20 +308,6 @@ footer > p { font-family: var(--display); font-size: 14px; text-transform: upper
 /* Dark mode */
 html[data-theme="dark"] { color-scheme: dark; }
 html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
-html[data-theme="dark"] .hero {
-  background:
-    linear-gradient(90deg, transparent 49.8%, rgba(255,255,255,.07) 50%, transparent 50.2%),
-    #11131a;
-  background-size: 54px 54px;
-  border-bottom-color: rgba(255,255,255,.18);
-}
-html[data-theme="dark"] .nav { border-bottom-color: rgba(255,255,255,.22); }
-html[data-theme="dark"] .nav::after { border-bottom-color: rgba(255,255,255,.22); }
-html[data-theme="dark"] .pinboard { box-shadow: 14px 14px 0 rgba(255,45,141,.55); }
-html[data-theme="dark"] .card { background: rgba(25,28,39,.95); color: var(--paper); border-color: rgba(255,255,255,.25); box-shadow: 10px 10px 0 rgba(255,255,255,.14); }
-html[data-theme="dark"] .card:nth-child(3n) { box-shadow: 10px 10px 0 var(--pink); }
-html[data-theme="dark"] .card:nth-child(3n+2) { box-shadow: 10px 10px 0 rgba(233,255,50,.35); }
-html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6); }
 
 /* Responsive */
 @media (max-width: 980px) {
@@ -348,8 +326,6 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
   .navCta { padding: 11px 14px; box-shadow: 4px 4px 0 var(--pink); transform: none; }
   .themeToggle { padding: 7px 9px; }
   .toggleLabel { display: none; }
-
-  /* Keep the “poster” vibe, but stop it eating the whole screen */
   h1 {
     font-size: clamp(40px, 11.5vw, 56px);
     line-height: .86;
@@ -359,15 +335,15 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
   }
   .pinnedTitlePin { top: -9px; left: 14px; }
   .heroText { font-size: 16px; line-height: 1.45; }
-
-  .pinboard { padding: 0; min-height: 0; transform: none; }
   .grid-4, .grid-3 { grid-column: span 12; }
 }
+  
   </style>
 </head>
 
 <body>
   <main>
+    
     <nav class="nav" aria-label="Main navigation">
       <a class="brand" href="../" aria-label="Queer Between the Lines home">
         <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
@@ -387,13 +363,25 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
     </header>
 
     <section class="boardWrap" id="board" aria-label="Pinboard">
-      <div class="pinboard" role="region" aria-label="Corkboard pins">
+      <div role="region" aria-label="Corkboard pins">
         <div class="pinboardInner">
-          <!-- Posts render here as pinned cards -->
-        </div>
-      </div>
-    </section>
+  
 
+        
+          <a class="card grid-4" href="./queer-books-under-250-pages/">
+            <span class="pin pink" aria-hidden="true"></span>
+            <div class="pinRow"><p class="kicker">Post</p></div>
+            <h2>Queer books under 250 pages</h2>
+            <p>A quick, vibe-led list of queer reads under 250 pages—perfect for busy brains, reading slumps, and low-commitment months.</p>
+            <span class="link">Open post →</span>
+          </a>
+        
+
+      </div>
+    </div>
+  </section>
+
+    
     <footer>
       <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
       <p>Stories beyond the straight and narrow.</p>
@@ -403,8 +391,10 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
         </nav>
       </div>
     </footer>
+  
   </main>
 
+  
   <script>
     const themeToggle = document.getElementById("theme-toggle");
 
@@ -426,5 +416,6 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
 
     updateThemeToggle();
   </script>
+  
 </body>
 </html>
