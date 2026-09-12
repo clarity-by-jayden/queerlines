@@ -51,7 +51,11 @@ body {
   margin: 0;
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: var(--pinboard);
+  background-size: 420px auto;
+  background-repeat: repeat;
+  background-position: top left;
 }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
@@ -163,6 +167,13 @@ h1 {
   letter-spacing: -.035em;
   line-height: .78;
   font-size: clamp(54px, 7vw, 92px);
+  display: inline-block;
+  position: relative;
+  padding: 18px 18px 14px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--pink);
+  transform: rotate(-1deg);
 }
 h1 em{
   display: inline-block;
@@ -170,6 +181,17 @@ h1 em{
   font-style: normal;
   -webkit-text-stroke: 2px var(--ink);
   text-shadow: 6px 6px 0 var(--acid);
+}
+.pinnedTitlePin{
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 3px solid var(--ink);
+  background: var(--acid);
+  box-shadow: 3px 3px 0 rgba(9,9,9,.25);
 }
 .heroText {
   max-width: 820px;
@@ -182,16 +204,7 @@ h1 em{
 /* Pinboard stage */
 .boardWrap {
   padding: 42px 6vw 54px;
-  background: var(--paper);
-}
-
-.sectionLabel { display: flex; gap: 12px; align-items: center; margin-bottom: 18px; }
-.sectionLabel span {
-  background: var(--ink);
-  color: var(--white);
-  padding: 6px 8px;
-  border: 2px solid var(--ink);
-  box-shadow: 3px 3px 0 var(--pink);
+  background: transparent;
 }
 
 .pinboard {
@@ -371,56 +384,54 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
 
     <header class="hero">
       <p class="eyebrow"><span>General interest</span></p>
-      <h1>Queer<br><em>Pinboard.</em></h1>
+      <h1><span class="pinnedTitlePin" aria-hidden="true"></span>Queer<br><em>Pinboard.</em></h1>
       <p class="heroText">Links, news, author spots, bookish chaos and the occasional “drop everything and read this”. Not limited to QBTL — just very queer, very literature, very worth your time.</p>
     </header>
 
     <section class="boardWrap" id="board" aria-label="Pinboard">
-      <div class="sectionLabel"><span>01</span> Fresh pins</div>
-
       <div class="pinboard" role="region" aria-label="Corkboard pins">
         <div class="pinboardInner">
 
-          <!-- Placeholder cards — replace these with real links/content -->
-          <article class="card grid-7">
+          <!-- Each card is a "post" page under /pinboard/ (e.g. /pinboard/my-post/) -->
+          <a class="card grid-7" href="./start-here/">
             <span class="pin pink" aria-hidden="true"></span>
             <div class="pinRow"><p class="kicker">Start here</p></div>
             <h2>What this is</h2>
             <p>A living pinboard for queer books, authors, publishing news, essays, reading lists, and anything that makes you say “oh, that’s going straight on the TBR.”</p>
-            <a class="link" href="#board">Pin something new →</a>
-          </article>
+            <span class="link">Open post →</span>
+          </a>
 
-          <article class="card small grid-5">
+          <a class="card small grid-5" href="./author-spotlight-template/">
             <span class="pin blue" aria-hidden="true"></span>
             <div class="pinRow"><p class="kicker">Idea</p></div>
             <h2>Author spotlight</h2>
             <p>One queer author at a time, with links to interviews + best starting points.</p>
-            <a class="link" href="#board">Add a spotlight →</a>
-          </article>
+            <span class="link">Open post →</span>
+          </a>
 
-          <article class="card grid-4">
+          <a class="card grid-4" href="./essays-and-reviews/">
             <span class="pin orange" aria-hidden="true"></span>
             <div class="pinRow"><p class="kicker">Reading</p></div>
             <h2>Essays &amp; reviews</h2>
             <p>Smart writing about books, publishing, and the politics of stories.</p>
-            <a class="link" href="#board">Add a link →</a>
-          </article>
+            <span class="link">Open post →</span>
+          </a>
 
-          <article class="card grid-4">
+          <a class="card grid-4" href="./queer-lit-updates/">
             <span class="pin pink" aria-hidden="true"></span>
             <div class="pinRow"><p class="kicker">News</p></div>
             <h2>Queer lit updates</h2>
             <p>Prizes, releases, lists, controversy, celebrations. The good bits.</p>
-            <a class="link" href="#board">Add an update →</a>
-          </article>
+            <span class="link">Open post →</span>
+          </a>
 
-          <article class="card grid-4">
+          <a class="card grid-4" href="./reading-life/">
             <span class="pin blue" aria-hidden="true"></span>
             <div class="pinRow"><p class="kicker">Hobby</p></div>
             <h2>Reading life</h2>
             <p>Tools, rituals, weird reader problems, and the joy of being a person with opinions.</p>
-            <a class="link" href="#board">Add a tip →</a>
-          </article>
+            <span class="link">Open post →</span>
+          </a>
 
         </div>
       </div>
