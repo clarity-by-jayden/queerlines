@@ -5,32 +5,181 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Notes | Queer Between the Lines</title>
   <meta name="description" content="Monthly notes and reflections from Queer Between the Lines (QBTL)." />
+
   <style>
-    :root { color-scheme: light dark; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.5; margin: 2.5rem auto; padding: 0 1rem; max-width: 48rem; }
-    header { margin-bottom: 2rem; }
-    h1 { font-size: 2rem; margin: 0 0 .25rem 0; }
-    p { margin: .5rem 0 0 0; opacity: .85; }
-    ul { margin: 1rem 0 0 1.25rem; padding: 0; }
-    li { margin: .5rem 0; }
-    a { text-decoration-thickness: from-font; }
-    footer { margin-top: 3rem; font-size: .9rem; opacity: .7; }
+    /* QBTL vibe: calm, readable, quietly bold */
+    :root{
+      --bg: #0b0c10;
+      --surface: rgba(255,255,255,.04);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --hairline: rgba(255,255,255,.12);
+      --accent: #ff4fd8; /* neon-magenta */
+      --accent-2: #58d7ff; /* electric-cyan */
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max: 52rem;
+    }
+
+    /* Light mode keeps the same personality (not a sterile default) */
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #fbfbff;
+        --surface: rgba(0,0,0,.03);
+        --text: rgba(0,0,0,.9);
+        --muted: rgba(0,0,0,.65);
+        --hairline: rgba(0,0,0,.12);
+        --shadow: 0 10px 30px rgba(0,0,0,.10);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    html{ -webkit-text-size-adjust: 100%; }
+    body{
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(1200px 800px at 15% 0%,
+        color-mix(in oklab, var(--accent) 14%, transparent) 0%,
+        transparent 60%),
+        radial-gradient(1000px 700px at 85% 10%,
+        color-mix(in oklab, var(--accent-2) 14%, transparent) 0%,
+        transparent 60%),
+        var(--bg);
+      color: var(--text);
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      line-height: 1.6;
+      letter-spacing: .01em;
+    }
+
+    a{
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in oklab, var(--accent) 55%, var(--hairline));
+      padding-bottom: 1px;
+    }
+    a:hover, a:focus-visible{
+      border-bottom-color: var(--accent);
+      color: color-mix(in oklab, var(--accent) 55%, var(--text));
+    }
+    :focus-visible{
+      outline: 2px solid color-mix(in oklab, var(--accent) 70%, transparent);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 3.25rem 1.25rem 4rem;
+    }
+
+    header{
+      margin-bottom: 2rem;
+      padding: 1.5rem 1.5rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .kicker{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: .85rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 .5rem;
+    }
+
+    h1{
+      font-size: clamp(2rem, 3.6vw, 2.75rem);
+      line-height: 1.12;
+      margin: 0 0 .35rem;
+      letter-spacing: -.02em;
+    }
+
+    .subtitle{
+      margin: 0;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 1rem;
+    }
+
+    main{
+      margin-top: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius);
+    }
+
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li + li{ margin-top: .75rem; }
+
+    .note-link{
+      display: flex;
+      gap: .75rem;
+      align-items: baseline;
+      padding: .75rem .85rem;
+      border-radius: 12px;
+      border: 1px solid transparent;
+    }
+    .note-link:hover, .note-link:focus-visible{
+      background: color-mix(in oklab, var(--surface) 65%, transparent);
+      border-color: color-mix(in oklab, var(--accent) 25%, var(--hairline));
+    }
+    .note-date{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 650;
+      letter-spacing: .02em;
+      min-width: 6.5rem;
+    }
+    .note-meta{
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: .95rem;
+    }
+
+    footer{
+      margin-top: 2rem;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: .95rem;
+      padding: .75rem 0 0;
+    }
+
+    .back a{
+      border-bottom: 1px solid var(--hairline);
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Notes</h1>
-    <p>Monthly notes and reflections from Queer Between the Lines (QBTL).</p>
-  </header>
+  <div class="wrap">
+    <header>
+      <p class="kicker">Queer Between the Lines</p>
+      <h1>Notes</h1>
+      <p class="subtitle">Monthly notes and reflections.</p>
+    </header>
 
-  <main>
-    <ul>
-      <li><a href="./2026-09/">2026-09</a></li>
-    </ul>
-  </main>
+    <main aria-label="Notes archive">
+      <ul>
+        <li>
+          <a class="note-link" href="./2026-09/">
+            <span class="note-date">2026‑09</span>
+            <span class="note-meta">Latest note</span>
+          </a>
+        </li>
+      </ul>
+    </main>
 
-  <footer>
-    <p><a href="../">← Back home</a></p>
-  </footer>
+    <footer>
+      <p class="back"><a href="../">← Back home</a></p>
+    </footer>
+  </div>
 </body>
 </html>
