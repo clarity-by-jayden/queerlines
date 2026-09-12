@@ -204,8 +204,9 @@ h1 em{
   background-image:
     linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,0)),
     var(--pinboard);
-  background-size: cover;
-  background-position: center;
+  background-size: 420px auto;
+  background-repeat: repeat;
+  background-position: top left;
   transform: rotate(-.5deg);
 }
 .pinboard::after {
@@ -236,13 +237,22 @@ h1 em{
   border: 3px solid var(--ink);
   box-shadow: 3px 3px 0 rgba(9,9,9,.25);
   position: absolute;
-  top: 12px;
+  top: 16px;
   left: 18px;
   background: var(--acid);
 }
 .pin.pink { background: var(--pink); }
 .pin.blue { background: var(--blue); }
 .pin.orange { background: var(--orange); }
+
+.pinRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 30px; /* space for the pin */
+  margin: 0 0 10px;
+}
+.pinRow .kicker { margin: 0; }
 
 .card {
   position: relative;
@@ -374,7 +384,7 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
           <!-- Placeholder cards — replace these with real links/content -->
           <article class="card grid-7">
             <span class="pin pink" aria-hidden="true"></span>
-            <p class="kicker">Start here</p>
+            <div class="pinRow"><p class="kicker">Start here</p></div>
             <h2>What this is</h2>
             <p>A living pinboard for queer books, authors, publishing news, essays, reading lists, and anything that makes you say “oh, that’s going straight on the TBR.”</p>
             <a class="link" href="#board">Pin something new →</a>
@@ -382,7 +392,7 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
 
           <article class="card small grid-5">
             <span class="pin blue" aria-hidden="true"></span>
-            <p class="kicker">Idea</p>
+            <div class="pinRow"><p class="kicker">Idea</p></div>
             <h2>Author spotlight</h2>
             <p>One queer author at a time, with links to interviews + best starting points.</p>
             <a class="link" href="#board">Add a spotlight →</a>
@@ -390,7 +400,7 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
 
           <article class="card grid-4">
             <span class="pin orange" aria-hidden="true"></span>
-            <p class="kicker">Reading</p>
+            <div class="pinRow"><p class="kicker">Reading</p></div>
             <h2>Essays &amp; reviews</h2>
             <p>Smart writing about books, publishing, and the politics of stories.</p>
             <a class="link" href="#board">Add a link →</a>
@@ -398,7 +408,7 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
 
           <article class="card grid-4">
             <span class="pin pink" aria-hidden="true"></span>
-            <p class="kicker">News</p>
+            <div class="pinRow"><p class="kicker">News</p></div>
             <h2>Queer lit updates</h2>
             <p>Prizes, releases, lists, controversy, celebrations. The good bits.</p>
             <a class="link" href="#board">Add an update →</a>
@@ -406,7 +416,7 @@ html[data-theme="dark"] .card a.link { border-bottom-color: rgba(255,255,255,.6)
 
           <article class="card grid-4">
             <span class="pin blue" aria-hidden="true"></span>
-            <p class="kicker">Hobby</p>
+            <div class="pinRow"><p class="kicker">Hobby</p></div>
             <h2>Reading life</h2>
             <p>Tools, rituals, weird reader problems, and the joy of being a person with opinions.</p>
             <a class="link" href="#board">Add a tip →</a>
