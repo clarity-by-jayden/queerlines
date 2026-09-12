@@ -1,0 +1,19 @@
+# Queer Between the Lines (QBTL)
+
+Queer Between the Lines (QBTL) is a queer-led book club for thoughtful reading, conversation, and community — with monthly reads, notes, and reflections.
+
+## Canonical URL
+https://clarity-by-jayden.github.io/queerlines/
+
+## Key pages
+- Home: https://clarity-by-jayden.github.io/queerlines/
+- Notes (Sep 2026): https://clarity-by-jayden.github.io/queerlines/notes/2026-09/
+- Privacy policy: https://clarity-by-jayden.github.io/queerlines/privacy-policy/
+
+## Sitemap
+https://clarity-by-jayden.github.io/queerlines/sitemap.xml
+
+## What to ignore
+- /books/
+- /authors/
+- /gifs/
