@@ -1,185 +1,334 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Notes | Queer Between the Lines</title>
-  <meta name="description" content="Monthly notes and reflections from Queer Between the Lines (QBTL)." />
+  <meta name="description" content="Monthly notes and reflections from Queer Between the Lines (QBTL).">
+
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('qbtl-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    }());
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
 
   <style>
-    /* QBTL vibe: calm, readable, quietly bold */
-    :root{
-      --bg: #0b0c10;
-      --surface: rgba(255,255,255,.04);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --hairline: rgba(255,255,255,.12);
-      --accent: #ff4fd8; /* neon-magenta */
-      --accent-2: #58d7ff; /* electric-cyan */
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --max: 52rem;
-    }
+:root {
+  --ink: #090909;
+  --paper: #fff7e8;
+  --pink: #ff2d8d;
+  --acid: #e9ff32;
+  --blue: #4757ff;
+  --orange: #ff6337;
+  --red: #ef3340;
+  --green: #00a86b;
+  --purple: #8b3dff;
+  --white: #ffffff;
+  --display: "Archivo Black", Arial, sans-serif;
+  --pride: linear-gradient(90deg,
+    var(--red) 0 16.66%,
+    var(--orange) 16.66% 33.32%,
+    var(--acid) 33.32% 49.98%,
+    var(--green) 49.98% 66.64%,
+    var(--blue) 66.64% 83.3%,
+    var(--purple) 83.3% 100%);
+}
 
-    /* Light mode keeps the same personality (not a sterile default) */
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg: #fbfbff;
-        --surface: rgba(0,0,0,.03);
-        --text: rgba(0,0,0,.9);
-        --muted: rgba(0,0,0,.65);
-        --hairline: rgba(0,0,0,.12);
-        --shadow: 0 10px 30px rgba(0,0,0,.10);
-      }
-    }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
 
-    *{ box-sizing: border-box; }
-    html{ -webkit-text-size-adjust: 100%; }
-    body{
-      margin: 0;
-      padding: 0;
-      background: radial-gradient(1200px 800px at 15% 0%,
-        color-mix(in oklab, var(--accent) 14%, transparent) 0%,
-        transparent 60%),
-        radial-gradient(1000px 700px at 85% 10%,
-        color-mix(in oklab, var(--accent-2) 14%, transparent) 0%,
-        transparent 60%),
-        var(--bg);
-      color: var(--text);
-      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-      line-height: 1.6;
-      letter-spacing: .01em;
-    }
+/* Shared QBTL header */
+.nav {
+  height: 68px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--ink);
+  background: var(--blue);
+  color: var(--white);
+  position: relative;
+  z-index: 10;
+}
+.nav .flower { color: var(--acid); }
+.nav::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background: var(--pride);
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-family: var(--display);
+  font-size: 13px;
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.flower {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--pink);
+  letter-spacing: -.22em;
+}
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.themeToggle:hover, .themeToggle:focus-visible { background: var(--white); color: var(--blue); outline: none; }
+.themeIcon { font-size: 15px; line-height: 1; }
+.navCta {
+  background: var(--ink);
+  color: var(--white);
+  padding: 13px 20px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--pink);
+  transform: rotate(-1deg);
+}
 
-    a{
-      color: inherit;
-      text-decoration: none;
-      border-bottom: 1px solid color-mix(in oklab, var(--accent) 55%, var(--hairline));
-      padding-bottom: 1px;
-    }
-    a:hover, a:focus-visible{
-      border-bottom-color: var(--accent);
-      color: color-mix(in oklab, var(--accent) 55%, var(--text));
-    }
-    :focus-visible{
-      outline: 2px solid color-mix(in oklab, var(--accent) 70%, transparent);
-      outline-offset: 3px;
-      border-radius: 6px;
-    }
+/* Page */
+.hero {
+  padding: 34px 5vw 28px;
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgba(9,9,9,.09) 50%, transparent 50.2%),
+    var(--paper);
+  background-size: 54px 54px;
+  border-bottom: 4px solid var(--ink);
+}
+.eyebrow, .kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+.eyebrow span {
+  display: inline-block;
+  background: var(--pink);
+  color: var(--white);
+  padding: 8px 12px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 900;
+  margin: 18px 0 10px;
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  line-height: .78;
+  font-size: clamp(54px, 7vw, 92px);
+}
+h1 em{
+  display: inline-block;
+  color: var(--pink);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 6px 6px 0 var(--acid);
+}
+.heroText {
+  max-width: 760px;
+  font-size: 17px;
+  line-height: 1.45;
+  margin: 0;
+  font-weight: 700;
+}
 
-    .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 3.25rem 1.25rem 4rem;
-    }
+.section { padding: 42px 6vw; }
+.sectionLabel { display: flex; gap: 12px; align-items: center; margin-bottom: 22px; }
+.sectionLabel span {
+  background: var(--ink);
+  color: var(--white);
+  padding: 6px 8px;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--pink);
+}
+.notesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.noteCard {
+  display: block;
+  border: 4px solid var(--ink);
+  background: var(--white);
+  box-shadow: 10px 10px 0 var(--blue);
+  padding: 18px 18px 16px;
+  transform: rotate(-1deg);
+}
+.noteCard:nth-child(2n){ transform: rotate(1deg); box-shadow: 10px 10px 0 var(--pink); }
+.noteCard:hover, .noteCard:focus-visible { outline: none; box-shadow: 12px 12px 0 var(--acid); }
+.noteKicker { margin: 0 0 10px; }
+.noteTitle {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: 28px;
+  line-height: .9;
+  margin: 0 0 10px;
+  letter-spacing: -.02em;
+}
+.noteMeta { margin: 0; font-weight: 800; line-height: 1.35; }
 
-    header{
-      margin-bottom: 2rem;
-      padding: 1.5rem 1.5rem 1.25rem;
-      background: var(--surface);
-      border: 1px solid var(--hairline);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+/* Shared QBTL footer */
+footer {
+  padding: 30px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid;
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--pride);
+}
+footer > p { font-family: var(--display); font-size: 14px; text-transform: uppercase; }
+.footerLinks { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.footerNav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px 18px; }
+.footerNav a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
 
-    .kicker{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size: .85rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 .5rem;
-    }
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
+html[data-theme="dark"] .hero {
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgba(255,255,255,.07) 50%, transparent 50.2%),
+    #11131a;
+  background-size: 54px 54px;
+  border-bottom-color: rgba(255,255,255,.18);
+}
+html[data-theme="dark"] .noteCard { background: #191c27; color: var(--paper); box-shadow: 10px 10px 0 rgba(255,255,255,.14); }
+html[data-theme="dark"] .noteCard:nth-child(2n) { box-shadow: 10px 10px 0 var(--pink); }
+html[data-theme="dark"] .sectionLabel span { border-color: rgba(255,255,255,.25); }
+html[data-theme="dark"] .noteCard { border-color: rgba(255,255,255,.25); }
+html[data-theme="dark"] .nav { border-bottom-color: rgba(255,255,255,.22); }
+html[data-theme="dark"] .nav::after { border-bottom-color: rgba(255,255,255,.22); }
 
-    h1{
-      font-size: clamp(2rem, 3.6vw, 2.75rem);
-      line-height: 1.12;
-      margin: 0 0 .35rem;
-      letter-spacing: -.02em;
-    }
-
-    .subtitle{
-      margin: 0;
-      color: var(--muted);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size: 1rem;
-    }
-
-    main{
-      margin-top: 1.25rem;
-      padding: 1.25rem 1.5rem;
-      background: var(--surface);
-      border: 1px solid var(--hairline);
-      border-radius: var(--radius);
-    }
-
-    ul{
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    li + li{ margin-top: .75rem; }
-
-    .note-link{
-      display: flex;
-      gap: .75rem;
-      align-items: baseline;
-      padding: .75rem .85rem;
-      border-radius: 12px;
-      border: 1px solid transparent;
-    }
-    .note-link:hover, .note-link:focus-visible{
-      background: color-mix(in oklab, var(--surface) 65%, transparent);
-      border-color: color-mix(in oklab, var(--accent) 25%, var(--hairline));
-    }
-    .note-date{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-weight: 650;
-      letter-spacing: .02em;
-      min-width: 6.5rem;
-    }
-    .note-meta{
-      color: var(--muted);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size: .95rem;
-    }
-
-    footer{
-      margin-top: 2rem;
-      color: var(--muted);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size: .95rem;
-      padding: .75rem 0 0;
-    }
-
-    .back a{
-      border-bottom: 1px solid var(--hairline);
-    }
+@media (max-width: 900px) {
+  .notesGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  footer { align-items: flex-start; gap: 24px; flex-direction: column; }
+  .footerLinks { align-items: flex-start; }
+  .footerNav { justify-content: flex-start; }
+}
+@media (max-width: 560px) {
+  .nav { height: 64px; }
+  .hero, .section { padding: 34px 22px; }
+  h1 { font-size: 56px; }
+  .notesGrid { grid-template-columns: 1fr; }
+}
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <p class="kicker">Queer Between the Lines</p>
-      <h1>Notes</h1>
-      <p class="subtitle">Monthly notes and reflections.</p>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../" aria-label="Queer Between the Lines home">
+        <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
+      </a>
+      <div class="navLinks">
+        <button class="themeToggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          <span class="themeIcon" aria-hidden="true">◐</span><span class="toggleLabel">Dark</span>
+        </button>
+        <a class="navCta" href="#notes">Read notes</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow"><span>Monthly notes</span></p>
+      <h1>Notes &amp;<br><em>Reflections.</em></h1>
+      <p class="heroText">A small archive of what we’re thinking about, what we’re reading between meetings, and what’s worth remembering.</p>
     </header>
 
-    <main aria-label="Notes archive">
-      <ul>
-        <li>
-          <a class="note-link" href="./2026-09/">
-            <span class="note-date">2026‑09</span>
-            <span class="note-meta">Latest note</span>
-          </a>
-        </li>
-      </ul>
-    </main>
+    <section class="section" id="notes" aria-label="Notes archive">
+      <div class="sectionLabel"><span>01</span> Latest</div>
+
+      <div class="notesGrid">
+        <a class="noteCard" href="./2026-09/">
+          <p class="kicker noteKicker">Archive entry</p>
+          <h2 class="noteTitle">2026‑09</h2>
+          <p class="noteMeta">Read the latest note →</p>
+        </a>
+      </div>
+    </section>
 
     <footer>
-      <p class="back"><a href="../">← Back home</a></p>
+      <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
+      <p>Stories beyond the straight and narrow.</p>
+      <div class="footerLinks">
+        <nav class="footerNav" aria-label="Footer navigation">
+          <a href="../">Back home</a>
+        </nav>
+      </div>
     </footer>
-  </div>
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+
+    function updateThemeToggle() {
+      const isDark = document.documentElement.dataset.theme === "dark";
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      themeToggle.querySelector(".themeIcon").textContent = isDark ? "☀" : "◐";
+      const label = themeToggle.querySelector(".toggleLabel");
+      if (label) label.textContent = isDark ? "Light" : "Dark";
+    }
+
+    themeToggle.addEventListener("click", function () {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = nextTheme;
+      try { localStorage.setItem("qbtl-theme", nextTheme); } catch (error) {}
+      updateThemeToggle();
+    });
+
+    updateThemeToggle();
+  </script>
 </body>
 </html>
