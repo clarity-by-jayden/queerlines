@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /authors/
+Disallow: /books/
+Disallow: /gifs/
+
+Sitemap: https://clarity-by-jayden.github.io/queerlines/sitemap.xml
