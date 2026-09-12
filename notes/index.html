@@ -7,15 +7,7 @@
   <meta name="description" content="Monthly notes and reflections from Queer Between the Lines (QBTL).">
 
   <script>
-    (function () {
-      try {
-        const savedTheme = localStorage.getItem('qbtl-theme');
-        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        document.documentElement.dataset.theme = savedTheme || systemTheme;
-      } catch (error) {
-        document.documentElement.dataset.theme = 'light';
-      }
-    }());
+    /* Theme toggle removed (now always light) */
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,22 +97,6 @@ button { font: inherit; }
   font-weight: 900;
   letter-spacing: .08em;
 }
-.themeToggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  border: 2px solid var(--white);
-  background: transparent;
-  color: var(--white);
-  padding: 8px 10px;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.themeToggle:hover, .themeToggle:focus-visible { background: var(--white); color: var(--blue); outline: none; }
-.themeIcon { font-size: 15px; line-height: 1; }
 .navCta {
   background: var(--ink);
   color: var(--white);
@@ -129,6 +105,108 @@ button { font: inherit; }
   box-shadow: 5px 5px 0 var(--pink);
   transform: rotate(-1deg);
 }
+
+/* Hamburger menu (matches home page) */
+.menuBtn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.menuBtn:hover, .menuBtn:focus-visible{ background: var(--white); color: var(--blue); outline: none; }
+.burger{
+  width: 18px;
+  height: 12px;
+  position: relative;
+  display: inline-block;
+}
+.burger::before, .burger::after, .burger span{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.burger::before{ top: 0; }
+.burger span{ top: 5px; }
+.burger::after{ bottom: 0; }
+
+.menuOverlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(9,9,9,.55);
+  display: none;
+  z-index: 999;
+}
+.menuPanel{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: min(360px, calc(100vw - 28px));
+  background: var(--paper);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--pink);
+  padding: 14px;
+  z-index: 1000;
+  display: none;
+}
+.menuPanel .menuHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+.menuPanel .menuTitle{
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .06em;
+  margin: 0;
+}
+.menuClose{
+  border: 3px solid var(--ink);
+  background: var(--white);
+  color: var(--ink);
+  padding: 8px 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+.menuList{
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menuLink{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 3px solid var(--ink);
+  background: var(--white);
+  padding: 12px 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.menuLink strong{ font-family: var(--display); font-weight: 900; }
+.menuLink span{ font-size: 16px; }
 
 /* Page */
 .hero {
@@ -236,21 +314,7 @@ footer > p { font-family: var(--display); font-size: 14px; text-transform: upper
 .footerNav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px 18px; }
 .footerNav a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
 
-html[data-theme="dark"] { color-scheme: dark; }
-html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
-html[data-theme="dark"] .hero {
-  background:
-    linear-gradient(90deg, transparent 49.8%, rgba(255,255,255,.07) 50%, transparent 50.2%),
-    #11131a;
-  background-size: 54px 54px;
-  border-bottom-color: rgba(255,255,255,.18);
-}
-html[data-theme="dark"] .noteCard { background: #191c27; color: var(--paper); box-shadow: 10px 10px 0 rgba(255,255,255,.14); }
-html[data-theme="dark"] .noteCard:nth-child(2n) { box-shadow: 10px 10px 0 var(--pink); }
-html[data-theme="dark"] .sectionLabel span { border-color: rgba(255,255,255,.25); }
-html[data-theme="dark"] .noteCard { border-color: rgba(255,255,255,.25); }
-html[data-theme="dark"] .nav { border-bottom-color: rgba(255,255,255,.22); }
-html[data-theme="dark"] .nav::after { border-bottom-color: rgba(255,255,255,.22); }
+/* Dark mode removed */
 
 @media (max-width: 900px) {
   .notesGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -273,8 +337,9 @@ html[data-theme="dark"] .nav::after { border-bottom-color: rgba(255,255,255,.22)
         <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
       </a>
       <div class="navLinks">
-        <button class="themeToggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
-          <span class="themeIcon" aria-hidden="true">◐</span><span class="toggleLabel">Dark</span>
+        <button class="menuBtn" id="menu-open" type="button" aria-haspopup="dialog" aria-controls="menu-panel" aria-expanded="false">
+          <span class="burger" aria-hidden="true"><span></span></span>
+          <span class="toggleLabel">Menu</span>
         </button>
         <a class="navCta" href="#notes">Read notes</a>
       </div>
@@ -309,26 +374,54 @@ html[data-theme="dark"] .nav::after { border-bottom-color: rgba(255,255,255,.22)
     </footer>
   </main>
 
-  <script>
-    const themeToggle = document.getElementById("theme-toggle");
+  <div class="menuOverlay" id="menu-overlay" hidden></div>
+  <aside class="menuPanel" id="menu-panel" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+    <div class="menuHead">
+      <p class="menuTitle">Menu</p>
+      <button class="menuClose" id="menu-close" type="button">Close</button>
+    </div>
+    <ul class="menuList">
+      <li><a class="menuLink" href="../#book"><strong>Current book</strong><span>↗</span></a></li>
+      <li><a class="menuLink" href="#notes"><strong>Meetup notes</strong><span>↓</span></a></li>
+      <li><a class="menuLink" href="../pinboard/"><strong>Pinboard</strong><span>↗</span></a></li>
+    </ul>
+  </aside>
 
-    function updateThemeToggle() {
-      const isDark = document.documentElement.dataset.theme === "dark";
-      themeToggle.setAttribute("aria-pressed", String(isDark));
-      themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-      themeToggle.querySelector(".themeIcon").textContent = isDark ? "☀" : "◐";
-      const label = themeToggle.querySelector(".toggleLabel");
-      if (label) label.textContent = isDark ? "Light" : "Dark";
+  <script>
+    const menuOpen = document.getElementById("menu-open");
+    const menuClose = document.getElementById("menu-close");
+    const menuPanel = document.getElementById("menu-panel");
+    const menuOverlay = document.getElementById("menu-overlay");
+
+    function openMenu() {
+      menuPanel.hidden = false;
+      menuOverlay.hidden = false;
+      menuPanel.style.display = "block";
+      menuOverlay.style.display = "block";
+      menuOpen.setAttribute("aria-expanded", "true");
+      menuClose.focus();
     }
 
-    themeToggle.addEventListener("click", function () {
-      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-      document.documentElement.dataset.theme = nextTheme;
-      try { localStorage.setItem("qbtl-theme", nextTheme); } catch (error) {}
-      updateThemeToggle();
+    function closeMenu() {
+      menuPanel.style.display = "none";
+      menuOverlay.style.display = "none";
+      menuPanel.hidden = true;
+      menuOverlay.hidden = true;
+      menuOpen.setAttribute("aria-expanded", "false");
+      menuOpen.focus();
+    }
+
+    menuOpen.addEventListener("click", openMenu);
+    menuClose.addEventListener("click", closeMenu);
+    menuOverlay.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !menuPanel.hidden) closeMenu();
     });
 
-    updateThemeToggle();
+    Array.from(menuPanel.querySelectorAll("a")).forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
   </script>
 </body>
 </html>
