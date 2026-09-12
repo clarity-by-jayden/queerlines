@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Member spotlight: Jayden | Pinboard | Queer Between the Lines</title>
+  <meta name="description" content="Jayden started Queer Between the Lines because they couldn’t find a queer book club, so they built one. Here are three books that changed them, and why community matters more than “being a perfect reader.”">
+
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('qbtl-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    }());
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
+
+  <!-- NOTE: CSS is intentionally copied from the post template page in Notion -->
+  <style>
+:root {
+  --ink: #090909;
+  --paper: #fff7e8;
+  --pink: #ff2d8d;
+  --acid: #e9ff32;
+  --blue: #4757ff;
+  --orange: #ff6337;
+  --red: #ef3340;
+  --green: #00a86b;
+  --purple: #8b3dff;
+  --white: #ffffff;
+  --display: "Archivo Black", Arial, sans-serif;
+  --pride: linear-gradient(90deg,
+    var(--red) 0 16.66%,
+    var(--orange) 16.66% 33.32%,
+    var(--acid) 33.32% 49.98%,
+    var(--green) 49.98% 66.64%,
+    var(--blue) 66.64% 83.3%,
+    var(--purple) 83.3% 100%);
+  --pinboard: url("https://si4io.mjt.lu/img2/si4io/bc06ad5f-8faa-420d-933e-036afce89c2e/content");
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  background-image: var(--pinboard);
+  background-size: 420px auto;
+  background-repeat: repeat;
+  background-position: top left;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+/* Shared QBTL header */
+.nav {
+  height: 68px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--ink);
+  background: var(--blue);
+  color: var(--white);
+  position: relative;
+  z-index: 10;
+}
+.nav .flower { color: var(--acid); }
+.nav::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background: var(--pride);
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-family: var(--display);
+  font-size: 13px;
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.flower {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--pink);
+  letter-spacing: -.22em;
+}
+
+.navLinks{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.navCta{
+  background: var(--ink);
+  color: var(--white);
+  padding: 13px 20px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+
+/* Post layout */
+.wrap{
+  padding: 34px 6vw 54px;
+}
+.post{
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.lede{
+  background: rgba(255,255,255,.92);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--orange);
+  padding: 18px 18px 16px;
+  margin-top: 14px;
+}
+
+html[data-theme="dark"] .lede{
+  background: rgba(25,28,39,.92);
+  border-color: rgba(255,255,255,.25);
+  box-shadow: 14px 14px 0 rgba(255,255,255,.14);
+}
+.kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+  margin: 0 0 12px;
+}
+.kicker span{
+  display: inline-block;
+  background: var(--pink);
+  color: var(--white);
+  padding: 8px 12px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+
+h1{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  line-height: .82;
+  font-size: clamp(44px, 6vw, 84px);
+  margin: 0 0 12px;
+  display: inline-block;
+  position: relative;
+  padding: 18px 18px 14px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+h1 em{
+  display: inline-block;
+  color: var(--pink);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 6px 6px 0 var(--acid);
+}
+.titlePin{
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 3px solid var(--ink);
+  background: var(--acid);
+  box-shadow: 3px 3px 0 rgba(9,9,9,.25);
+}
+.meta{
+  margin: 14px 0 0;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.meta a{
+  border-bottom: 4px solid var(--ink);
+  padding-bottom: 4px;
+}
+.deck{
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 800;
+  max-width: 64ch;
+}
+
+.paper{
+  margin-top: 22px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--blue);
+  padding: 18px 18px 22px;
+  overflow: hidden;
+}
+.paper figure,
+.paper .article-image{
+  margin: 18px auto;
+  text-align: center;
+}
+
+.paper figure img,
+.paper .article-image img{
+  display: block;
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 420px;
+  margin: 0 auto;
+  object-fit: contain;
+  border: 3px solid var(--ink);
+  background: var(--white);
+}
+
+.paper figcaption{
+  margin: 8px auto 0;
+  max-width: 64ch;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+.paper h2{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  line-height: .9;
+  font-size: 30px;
+  margin: 22px 0 10px;
+}
+.paper p, .paper li{
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 650;
+}
+.paper ul{
+  margin: 12px 0 0 1.2rem;
+  padding: 0;
+}
+.quote{
+  margin: 16px 0;
+  padding: 14px 14px;
+  border-left: 8px solid var(--pink);
+  background: #fff;
+  font-weight: 800;
+}
+.hr{
+  height: 6px;
+  background: var(--pride);
+  border: 0;
+  margin: 22px 0;
+}
+
+/* Shared QBTL footer */
+footer {
+  padding: 30px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid;
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--pride);
+}
+footer > p { font-family: var(--display); font-size: 14px; text-transform: uppercase; }
+.footerLinks { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.footerNav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px 18px; }
+.footerNav a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
+
+/* Dark mode */
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body { background-color: #11131a; color: var(--paper); }
+html[data-theme="dark"] .paper { background: rgba(25,28,39,.95); color: var(--paper); border-color: rgba(255,255,255,.25); box-shadow: 14px 14px 0 rgba(255,255,255,.14); }
+html[data-theme="dark"] h1 { background: rgba(25,28,39,.95); border-color: rgba(255,255,255,.25); }
+html[data-theme="dark"] .quote { background: rgba(255,255,255,.06); border-left-color: var(--acid); }
+html[data-theme="dark"] .kicker span { box-shadow: 5px 5px 0 rgba(255,255,255,.2); border-color: rgba(255,255,255,.25); }
+html[data-theme="dark"] h1 em { -webkit-text-stroke: 2px rgba(255,255,255,.25); }
+html[data-theme="dark"] .titlePin { border-color: rgba(255,255,255,.25); }
+
+/* Mobile */
+@media (max-width: 560px){
+  .wrap{ padding: 26px 16px 42px; }
+  h1{
+    font-size: clamp(38px, 11vw, 54px);
+    line-height: .9;
+    padding: 14px 14px 12px;
+    box-shadow: 9px 9px 0 var(--pink);
+    transform: none;
+  }
+  .titlePin{ top: -9px; left: 14px; }
+  .deck{ font-size: 16px; }
+  .lede{ padding: 14px 14px 12px; box-shadow: 10px 10px 0 var(--orange); }
+  .paper{ padding: 16px 14px 18px; box-shadow: 10px 10px 0 var(--blue); }
+  footer { align-items: flex-start; gap: 24px; flex-direction: column; }
+  .footerLinks { align-items: flex-start; }
+  .footerNav { justify-content: flex-start; }
+}
+  </style>
+</head>
+
+<body>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../" aria-label="Queer Between the Lines home">
+        <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
+      </a>
+      <div class="navLinks">
+        <a class="navCta" href="../">← Back to pinboard</a>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <article class="post">
+        <p class="kicker"><span>Pinboard post</span></p>
+
+        <h1><span class="titlePin" aria-hidden="true"></span>Member<br>spotlight: Jayden</h1>
+
+        <section class="lede" aria-label="Post intro">
+          <p class="meta">
+            <span>Published: 2026-09-12</span>
+            &nbsp;•&nbsp;
+            <a href="../">← Back to pinboard</a>
+          </p>
+
+          <p class="deck">Jayden started Queer Between the Lines because they couldn’t find a queer book club, so they built one. Here are three books that changed them, and why community matters more than “being a perfect reader.”</p>
+        </section>
+
+        <section class="paper" aria-label="Post content">
+          <h2>Jayden: 3 books that changed me</h2><p>I started <strong>Queer Between the Lines</strong> because I went looking for a queer book club and… couldn’t find one. So I made the thing I wanted to join.</p><p>The first run took off (mostly thanks to Threads, the turnout surprised me). Then life happened: I took a year out for mental health, and earlier this year I restarted QBTL again. This time, it’s less about “running a perfect book club” and more about building something that actually feels like community, whether you’re a devoted reader, a chaotic starter-of-books, or someone who mostly just likes hearing about them.</p><p>These are three books that changed me. Not because they “fixed” me, but because each one made something feel more honest.</p><hr><h2>1) <em>Holding the Man</em> by Timothy Conigrave</h2><p>This book is set through the AIDS crisis, and it’s brutal in the way only real love stories can be brutal. I read it last year and it absolutely flattened me. Ugly-cry, need-a-minute-to-recover kind of flattened.</p><p>What I didn’t expect was what it shifted in me personally.</p><p>There’s this stereotype that queer people are “too” sexual: promiscuous, reckless, shameful. And even if you don’t believe it intellectually, that stuff can still seep into you. <em>Holding the Man</em> didn’t make me feel judged. It made me feel <strong>less alone</strong>. What I saw in it wasn’t shame. It was <strong>love and desire</strong>, and the tenderness underneath all the noise.</p><p>If you want something deep, raw, and emotionally honest, and you want a window into what it was like to live through that time, this is the one.</p><figure class="article-image"><img src="https://si4io.mjt.lu/img2/si4io/323d0f98-727e-4723-acc8-3b3b0a06e341/content" alt="" loading="lazy"></figure><hr><h2>2) <em>The Picture of Dorian Gray</em> by Oscar Wilde</h2><p>Oscar Wilde captivated me from a young age. Not just because of his writing, but because of the injustice of what happened to him.</p><p>I first became aware of Wilde when I was still at school: not out, but already aware of my sexuality. Learning what he was put through (even as “history”) was terrifying in that quiet, personal way, like a warning from the past.</p><p>And <em>Dorian Gray</em> still holds up because the central obsession is timeless: wanting to be liked, wanting to be loved, wanting to look our best. In queer life, that pressure can feel turned up, like you have to look a certain way to be safe, wanted, or taken seriously.</p><p>But the book is really about the cost of that pursuit. The thing Dorian forfeits isn’t just “morality” in an abstract sense. It’s authenticity and integrity. And that trade-off gets ugly.</p><p>This is the book that reminds me: if you have to abandon yourself to be loved, it isn’t love.</p><figure class="article-image"><img src="https://si4io.mjt.lu/img2/si4io/92774c63-36a3-407c-8d1d-c631b7c166fa/content" alt="" loading="lazy"></figure><hr><h2>3) <em>The Five People You Meet in Heaven</em> by Mitch Albom</h2><p>Worth saying up front: this isn’t an LGBTQ book. I’m including it because it changed how I think about connection and community.</p><p>This one’s a more recent read, within the last year, and it’s short and quick, but it stuck.</p><p>What I loved about it is how it treats the human experience as something interconnected: the people we meet, the impact they have on us, the impact we have on them, and even the way we can be shaped by people we never meet at all. Their actions, their legacies, the ripple effects we inherit.</p><p>It’s a simple idea, but it’s also kind of… everything.</p><p>It also presents a concept of heaven that I found genuinely interesting. Not in a preachy way, more in a “what if meaning is bigger than we think?” way. It’s poignant, and it left me more aware of how interwoven we all are.</p><p>And honestly, it’s hard not to connect that back to QBTL: community doesn’t just happen because people read the same book. It happens because people show up, share themselves, and change each other a little.</p><figure class="article-image"><img src="https://si4io.mjt.lu/img2/si4io/0bf36db1-4784-4890-b871-ddf054a32c5a/content" alt="" loading="lazy"></figure><hr><h2>If you’re “not a big reader”, you still belong here</h2><p>The main thing I want people to take from this isn’t “read these exact books.”</p><p>It’s that queer literature (and reading in general) isn’t some gated hobby for perfect, consistent readers. It’s a way of finding language for your life, meeting people across time, and feeling less alone, even when you’re reading slowly, or not finishing everything, or just listening in.</p><p>If that sounds like you, you’ll fit right in.</p>
+        </section>
+      </article>
+    </div>
+
+    <footer>
+      <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
+      <p>Stories beyond the straight and narrow.</p>
+      <div class="footerLinks">
+        <nav class="footerNav" aria-label="Footer navigation">
+          <a href="../">Back to pinboard</a>
+          <a href="../">Back home</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
