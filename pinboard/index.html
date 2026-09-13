@@ -442,6 +442,19 @@ html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
       </div>
     </nav>
 
+    <div class="menuOverlay" id="menu-overlay"></div>
+    <aside class="menuPanel" id="menu-panel" role="dialog" aria-modal="true" aria-label="Site menu">
+      <div class="menuHead">
+        <p class="menuTitle">Menu</p>
+        <button class="menuClose" id="menu-close" type="button">Close</button>
+      </div>
+      <ul class="menuList">
+        <li><a class="menuLink" href="../#book"><strong>Current book</strong><span>↓</span></a></li>
+        <li><a class="menuLink" href="../notes/"><strong>Meetup notes</strong><span>↗</span></a></li>
+        <li><a class="menuLink" href="./"><strong>Pinboard</strong><span>↗</span></a></li>
+      </ul>
+    </aside>
+
     <header class="hero">
       <p class="eyebrow"><span>General interest</span></p>
       <h1><span class="pinnedTitlePin" aria-hidden="true"></span>Queer<br><em>Pinboard.</em></h1>
@@ -507,8 +520,6 @@ html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
 
     function openMenu() {
       if (!menuPanel || !menuOverlay || !menuOpen) return;
-      menuPanel.hidden = false;
-      menuOverlay.hidden = false;
       menuPanel.style.display = "block";
       menuOverlay.style.display = "block";
       menuOpen.setAttribute("aria-expanded", "true");
@@ -519,8 +530,6 @@ html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
       if (!menuPanel || !menuOverlay || !menuOpen) return;
       menuPanel.style.display = "none";
       menuOverlay.style.display = "none";
-      menuPanel.hidden = true;
-      menuOverlay.hidden = true;
       menuOpen.setAttribute("aria-expanded", "false");
       menuOpen.focus();
     }
@@ -530,7 +539,7 @@ html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
     if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && menuPanel && !menuPanel.hidden) closeMenu();
+      if (event.key === "Escape" && menuPanel && menuPanel.style.display !== "none") closeMenu();
     });
 
     if (menuPanel) {
