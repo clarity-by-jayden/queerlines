@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Three ways I keep a book log (Notion, typewriter, journal) | Pinboard | Queer Between the Lines</title>
+  <meta name="description" content="I keep three book logs: a searchable Notion tracker, a typewritten record, and mini covers in my journal. Not perfection, just a system my brain actually sticks with.">
+
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('qbtl-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    }());
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
+
+  <!-- NOTE: CSS is intentionally copied from the post template page in Notion -->
+  <style>
+:root {
+  --ink: #090909;
+  --paper: #fff7e8;
+  --pink: #ff2d8d;
+  --acid: #e9ff32;
+  --blue: #4757ff;
+  --orange: #ff6337;
+  --red: #ef3340;
+  --green: #00a86b;
+  --purple: #8b3dff;
+  --white: #ffffff;
+  --display: "Archivo Black", Arial, sans-serif;
+  --pride: linear-gradient(90deg,
+    var(--red) 0 16.66%,
+    var(--orange) 16.66% 33.32%,
+    var(--acid) 33.32% 49.98%,
+    var(--green) 49.98% 66.64%,
+    var(--blue) 66.64% 83.3%,
+    var(--purple) 83.3% 100%);
+  --pinboard: url("https://si4io.mjt.lu/img2/si4io/bc06ad5f-8faa-420d-933e-036afce89c2e/content");
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  background-image: var(--pinboard);
+  background-size: 420px auto;
+  background-repeat: repeat;
+  background-position: top left;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+/* Shared QBTL header */
+.nav {
+  height: 68px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--ink);
+  background: var(--blue);
+  color: var(--white);
+  position: relative;
+  z-index: 10;
+}
+.nav .flower { color: var(--acid); }
+.nav::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background: var(--pride);
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-family: var(--display);
+  font-size: 13px;
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.flower {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--pink);
+  letter-spacing: -.22em;
+}
+
+.navLinks{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.navCta{
+  background: var(--ink);
+  color: var(--white);
+  padding: 13px 20px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+
+/* Post layout */
+.wrap{
+  padding: 34px 6vw 54px;
+}
+.post{
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.lede{
+  background: rgba(255,255,255,.92);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--orange);
+  padding: 18px 18px 16px;
+  margin-top: 14px;
+}
+
+html[data-theme="dark"] .lede{
+  background: rgba(25,28,39,.92);
+  border-color: rgba(255,255,255,.25);
+  box-shadow: 14px 14px 0 rgba(255,255,255,.14);
+}
+.kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+  margin: 0 0 12px;
+}
+.kicker span{
+  display: inline-block;
+  background: var(--pink);
+  color: var(--white);
+  padding: 8px 12px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+
+h1{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  line-height: .82;
+  font-size: clamp(44px, 6vw, 84px);
+  margin: 0 0 12px;
+  display: inline-block;
+  position: relative;
+  padding: 18px 18px 14px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+h1 em{
+  display: inline-block;
+  color: var(--pink);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 6px 6px 0 var(--acid);
+}
+.titlePin{
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 3px solid var(--ink);
+  background: var(--acid);
+  box-shadow: 3px 3px 0 rgba(9,9,9,.25);
+}
+.meta{
+  margin: 14px 0 0;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.meta a{
+  border-bottom: 4px solid var(--ink);
+  padding-bottom: 4px;
+}
+.deck{
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 800;
+  max-width: 64ch;
+}
+
+.paper{
+  margin-top: 22px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--blue);
+  padding: 18px 18px 22px;
+  overflow: hidden;
+}
+.paper figure,
+.paper .article-image{
+  margin: 18px auto;
+  text-align: center;
+}
+
+.paper figure img,
+.paper .article-image img{
+  display: block;
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 420px;
+  margin: 0 auto;
+  object-fit: contain;
+  border: 3px solid var(--ink);
+  background: var(--white);
+}
+
+.paper figcaption{
+  margin: 8px auto 0;
+  max-width: 64ch;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+.paper h2{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  line-height: .9;
+  font-size: 30px;
+  margin: 22px 0 10px;
+}
+.paper p, .paper li{
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 650;
+}
+.paper ul{
+  margin: 12px 0 0 1.2rem;
+  padding: 0;
+}
+.quote{
+  margin: 16px 0;
+  padding: 14px 14px;
+  border-left: 8px solid var(--pink);
+  background: #fff;
+  font-weight: 800;
+}
+.hr{
+  height: 6px;
+  background: var(--pride);
+  border: 0;
+  margin: 22px 0;
+}
+
+/* Shared QBTL footer */
+footer {
+  padding: 30px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid;
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--pride);
+}
+footer > p { font-family: var(--display); font-size: 14px; text-transform: uppercase; }
+.footerLinks { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.footerNav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px 18px; }
+.footerNav a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
+
+/* Dark mode */
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body { background-color: #11131a; color: var(--paper); }
+html[data-theme="dark"] .paper { background: rgba(25,28,39,.95); color: var(--paper); border-color: rgba(255,255,255,.25); box-shadow: 14px 14px 0 rgba(255,255,255,.14); }
+html[data-theme="dark"] h1 { background: rgba(25,28,39,.95); border-color: rgba(255,255,255,.25); }
+html[data-theme="dark"] .quote { background: rgba(255,255,255,.06); border-left-color: var(--acid); }
+html[data-theme="dark"] .kicker span { box-shadow: 5px 5px 0 rgba(255,255,255,.2); border-color: rgba(255,255,255,.25); }
+html[data-theme="dark"] h1 em { -webkit-text-stroke: 2px rgba(255,255,255,.25); }
+html[data-theme="dark"] .titlePin { border-color: rgba(255,255,255,.25); }
+
+/* Mobile */
+@media (max-width: 560px){
+  .wrap{ padding: 26px 16px 42px; }
+  h1{
+    font-size: clamp(38px, 11vw, 54px);
+    line-height: .9;
+    padding: 14px 14px 12px;
+    box-shadow: 9px 9px 0 var(--pink);
+    transform: none;
+  }
+  .titlePin{ top: -9px; left: 14px; }
+  .deck{ font-size: 16px; }
+  .lede{ padding: 14px 14px 12px; box-shadow: 10px 10px 0 var(--orange); }
+  .paper{ padding: 16px 14px 18px; box-shadow: 10px 10px 0 var(--blue); }
+  footer { align-items: flex-start; gap: 24px; flex-direction: column; }
+  .footerLinks { align-items: flex-start; }
+  .footerNav { justify-content: flex-start; }
+}
+  </style>
+</head>
+
+<body>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../" aria-label="Queer Between the Lines home">
+        <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
+      </a>
+      <div class="navLinks">
+        <a class="navCta" href="../">← Back to pinboard</a>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <article class="post">
+        <p class="kicker"><span>Pinboard post</span></p>
+
+        <h1><span class="titlePin" aria-hidden="true"></span>Do<br>you keep a log of your books?</h1>
+
+        <section class="lede" aria-label="Post intro">
+          <p class="meta">
+            <span>Published: 2026-09-13</span>
+            &nbsp;•&nbsp;
+            <a href="../">← Back to pinboard</a>
+          </p>
+
+          <p class="deck">I keep three different book logs: a practical Notion tracker, a typewritten record, and mini covers in my journal. It’s what actually makes the habit stick.</p>
+        </section>
+
+        <section class="paper" aria-label="Post content">
+          <h2>Three ways I keep a book log</h2><p>I keep a couple of different book logs. Not because I’m trying to be A Person With A System, but because if I don’t capture things in a way my brain likes, they just… vanish.</p><p>One version is practical and searchable. One is slow and satisfying. One is basically “tiny art project”, which is apparently what it takes for me to keep doing it.</p><h3>My digital log in Notion</h3><p>My main, reliable log lives in Notion. It’s the one I trust when I want to answer stuff like:</p><ul><li>When did I start reading this?</li><li>Did I finish it, or did I quietly abandon it?</li><li>What did I rate it?</li><li>What was I in the mood for when I picked it up?</li></ul><p>For each book, I usually capture:</p><ul><li><strong>Start date</strong></li><li><strong>End date</strong></li><li><strong>Rating</strong></li><li>(And any quick notes I’ll thank myself for later)</li></ul><p>The best part is that it’s searchable and sortable, and I can actually see patterns. Also, on the days where it feels like I have read approximately nothing and my brain is soup, the log is proof that I <em>have</em> been reading. Even if it’s been a bit chaotic.</p><figure class="article-image"><img src="https://si4io.mjt.lu/img2/si4io/3e342e29-6d80-442c-a5a1-43604303337b/content" alt="" loading="lazy"></figure><h3>The typewritten log (yes, I type it up)</h3><p>Then there’s the version I type up.</p><p>Do I <em>need</em> a second log? Absolutely not.
+Do I love an excuse to use my typewriter? Completely.</p><p>Typing the entries turns it into a little ritual. It slows me down enough to actually <em>notice</em> what I thought about the book, instead of immediately sprinting to the next one. And it’s just… nice having a physical record that feels real, not just another tab open in my head.</p><figure class="article-image"><img src="https://si4io.mjt.lu/img2/si4io/2a7e3789-31f1-4f37-93d6-8ba6708d24f4/content" alt="" loading="lazy"></figure><h3>Mini covers in my journal (because my brain likes visuals)</h3><p>And then, because my brain loves a bit of visual stimulation, I also add <strong>little mini covers</strong> into my journal.</p><p>It’s part memory aid, part creative project, part “I want my journal to look like a tiny museum of the stories I’ve been living in.”</p><p>When I flip back through pages, the covers act like anchors. I remember the vibe of the book faster than I remember a title, and the visuals bring the whole reading season back.</p><figure class="article-image"><img src="https://si4io.mjt.lu/img2/si4io/8a00cd40-7578-4d17-95e7-d92532db7e4c/content" alt="" loading="lazy"></figure><h3>Why I keep more than one log</h3><p>If you’re also someone whose brain needs a bit of novelty to stay engaged (or you’ve got a lot going on), you might get it:</p><ul><li>One system helps me <em>track</em>.</li><li>Another helps me <em>reflect</em>.</li><li>Another helps me <em>remember</em>.</li></ul><p>It’s not about being perfectly organised. It’s about giving myself enough different “ways in” that I don’t drop the habit the second my brain gets bored.</p>
+        </section>
+      </article>
+    </div>
+
+    <footer>
+      <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
+      <p>Stories beyond the straight and narrow.</p>
+      <div class="footerLinks">
+        <nav class="footerNav" aria-label="Footer navigation">
+          <a href="../">Back to pinboard</a>
+          <a href="../">Back home</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
