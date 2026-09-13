@@ -62,7 +62,7 @@ body {
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
-/* Shared QBTL header */
+/* Shared QBTL header (match Home page navbar) */
 .nav {
   height: 68px;
   padding: 0 4vw;
@@ -103,32 +103,16 @@ button { font: inherit; }
   color: var(--pink);
   letter-spacing: -.22em;
 }
-.navLinks {
+.navLinks{
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 28px;
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: .08em;
 }
-.themeToggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  border: 2px solid var(--white);
-  background: transparent;
-  color: var(--white);
-  padding: 8px 10px;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.themeToggle:hover, .themeToggle:focus-visible { background: var(--white); color: var(--blue); outline: none; }
-.themeIcon { font-size: 15px; line-height: 1; }
-.navCta {
+.navCta{
   background: var(--ink);
   color: var(--white);
   padding: 13px 20px;
@@ -136,6 +120,108 @@ button { font: inherit; }
   box-shadow: 5px 5px 0 var(--pink);
   transform: rotate(-1deg);
 }
+
+/* Hamburger menu (same pattern as Home page) */
+.menuBtn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.menuBtn:hover, .menuBtn:focus-visible{ background: var(--white); color: var(--blue); outline: none; }
+.burger{
+  width: 18px;
+  height: 12px;
+  position: relative;
+  display: inline-block;
+}
+.burger::before, .burger::after, .burger span{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.burger::before{ top: 0; }
+.burger span{ top: 5px; }
+.burger::after{ bottom: 0; }
+
+.menuOverlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(9,9,9,.55);
+  display: none;
+  z-index: 999;
+}
+.menuPanel{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: min(360px, calc(100vw - 28px));
+  background: var(--paper);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--pink);
+  padding: 14px;
+  z-index: 1000;
+  display: none;
+}
+.menuPanel .menuHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+.menuPanel .menuTitle{
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: .06em;
+  margin: 0;
+}
+.menuClose{
+  border: 3px solid var(--ink);
+  background: var(--white);
+  color: var(--ink);
+  padding: 8px 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+.menuList{
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menuLink{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 3px solid var(--ink);
+  background: var(--white);
+  padding: 12px 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.menuLink strong{ font-family: var(--display); font-weight: 900; }
+.menuLink span{ font-size: 16px; }
 
 /* Hero */
 .hero {
@@ -322,9 +408,8 @@ html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
 @media (max-width: 560px) {
   .nav { height: 64px; }
   .hero, .boardWrap { padding: 26px 16px; }
-  .navLinks { gap: 10px; }
+  .navLinks { gap: 14px; }
   .navCta { padding: 11px 14px; box-shadow: 4px 4px 0 var(--pink); transform: none; }
-  .themeToggle { padding: 7px 9px; }
   .toggleLabel { display: none; }
   h1 {
     font-size: clamp(40px, 11.5vw, 56px);
@@ -349,10 +434,11 @@ html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
         <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
       </a>
       <div class="navLinks">
-        <button class="themeToggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
-          <span class="themeIcon" aria-hidden="true">◐</span><span class="toggleLabel">Dark</span>
+        <button class="menuBtn" id="menu-open" type="button" aria-haspopup="dialog" aria-controls="menu-panel" aria-expanded="false">
+          <span class="burger" aria-hidden="true"><span></span></span>
+          <span class="toggleLabel">Menu</span>
         </button>
-        <a class="navCta" href="#board">Pinboard</a>
+        <a class="navCta" href="../#join">Join us</a>
       </div>
     </nav>
 
@@ -414,25 +500,44 @@ html[data-theme="dark"] body { background: #11131a; color: var(--paper); }
 
   
   <script>
-    const themeToggle = document.getElementById("theme-toggle");
+    const menuOpen = document.getElementById("menu-open");
+    const menuClose = document.getElementById("menu-close");
+    const menuPanel = document.getElementById("menu-panel");
+    const menuOverlay = document.getElementById("menu-overlay");
 
-    function updateThemeToggle() {
-      const isDark = document.documentElement.dataset.theme === "dark";
-      themeToggle.setAttribute("aria-pressed", String(isDark));
-      themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-      themeToggle.querySelector(".themeIcon").textContent = isDark ? "☀" : "◐";
-      const label = themeToggle.querySelector(".toggleLabel");
-      if (label) label.textContent = isDark ? "Light" : "Dark";
+    function openMenu() {
+      if (!menuPanel || !menuOverlay || !menuOpen) return;
+      menuPanel.hidden = false;
+      menuOverlay.hidden = false;
+      menuPanel.style.display = "block";
+      menuOverlay.style.display = "block";
+      menuOpen.setAttribute("aria-expanded", "true");
+      if (menuClose) menuClose.focus();
     }
 
-    themeToggle.addEventListener("click", function () {
-      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-      document.documentElement.dataset.theme = nextTheme;
-      try { localStorage.setItem("qbtl-theme", nextTheme); } catch (error) {}
-      updateThemeToggle();
+    function closeMenu() {
+      if (!menuPanel || !menuOverlay || !menuOpen) return;
+      menuPanel.style.display = "none";
+      menuOverlay.style.display = "none";
+      menuPanel.hidden = true;
+      menuOverlay.hidden = true;
+      menuOpen.setAttribute("aria-expanded", "false");
+      menuOpen.focus();
+    }
+
+    if (menuOpen) menuOpen.addEventListener("click", openMenu);
+    if (menuClose) menuClose.addEventListener("click", closeMenu);
+    if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && menuPanel && !menuPanel.hidden) closeMenu();
     });
 
-    updateThemeToggle();
+    if (menuPanel) {
+      Array.from(menuPanel.querySelectorAll("a")).forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+    }
   </script>
   
 </body>
