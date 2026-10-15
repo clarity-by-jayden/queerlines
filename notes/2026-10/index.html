@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>October Recap | Queer Between the Lines</title>
+  <meta name="description" content="October Recap meetup recap featuring The Thirty Names of Night by Zeyn Joukhadar. The group enjoyed Fruit Fly’s fast-paced, darkly funny thriller elements and its layered exploration of who ">
+  <meta name="qbtl-meeting-notes-publisher" content="e8ccf4c90bbdef0e88b293c1a3811cc094c0ff4efd3952a40ab69cdc251a6419">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WW6QL7QPL7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WW6QL7QPL7');
+  </script>
+  <script>
+    // QBTL pages are intentionally light-only.
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
+  <style>
+:root {
+  --ink: #090909;
+  --paper: #fff7e8;
+  --pink: #ff2d8d;
+  --acid: #e9ff32;
+  --blue: #4757ff;
+  --orange: #ff6337;
+  --red: #ef3340;
+  --green: #00a86b;
+  --purple: #8b3dff;
+  --white: #ffffff;
+  --display: "Archivo Black", Arial, sans-serif;
+  --pride: linear-gradient(90deg,
+    var(--red) 0 16.66%,
+    var(--orange) 16.66% 33.32%,
+    var(--acid) 33.32% 49.98%,
+    var(--green) 49.98% 66.64%,
+    var(--blue) 66.64% 83.3%,
+    var(--purple) 83.3% 100%);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+
+.nav {
+  height: 68px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--ink);
+  background: var(--blue);
+  color: var(--white);
+  position: relative;
+  z-index: 10;
+}
+.nav .flower { color: var(--acid); }
+.nav::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background: var(--pride);
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-family: var(--display);
+  font-size: 13px;
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.flower {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--pink);
+  letter-spacing: -.22em;
+}
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.navCta {
+  background: var(--ink);
+  color: var(--white);
+  padding: 13px 20px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+
+.section { padding: 48px 6vw; }
+.sectionLabel {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+.sectionLabel span {
+  background: var(--orange);
+  color: var(--ink);
+  padding: 6px 8px;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--pink);
+}
+
+h1, h2 {
+  font-family: var(--display);
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  line-height: .78;
+}
+h2 { font-size: clamp(48px, 5.8vw, 84px); }
+h2 em {
+  display: inline-block;
+  color: var(--blue);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 5px 5px 0 var(--pink);
+}
+
+.meetingNote { border: 4px solid var(--ink); padding: 20px 22px; box-shadow: 7px 7px 0 var(--ink); background: var(--pink); max-width: 720px; margin-inline: auto; }
+.meetingNote h3 { margin: 0 0 7px; font-family: var(--display); font-size: clamp(20px, 2vw, 29px); line-height: 1; text-transform: uppercase; }
+.meetingNote p { margin: 0; font-size: 15px; line-height: 1.35; font-weight: 800; }
+.meetingNote p + p { margin-top: 10px; }
+.meetingNote ul { margin: 12px 0 0; padding-left: 18px; }
+.meetingNote li { font-size: 15px; line-height: 1.4; font-weight: 800; margin: 8px 0; }
+.meetingNote li strong { font-weight: 900; }
+.meetingNote em { font-style: italic; }
+
+.videoWrap {
+  margin-top: 18px;
+  border: 4px solid var(--ink);
+  box-shadow: 7px 7px 0 var(--ink);
+  background: var(--acid);
+  padding: 14px;
+}
+.videoTitle {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: -.02em;
+  margin: 0 0 12px;
+  line-height: 1;
+}
+.video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+  border: 3px solid var(--ink);
+}
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.meetupHero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 12px;
+}
+.meetupImages { display: flex; gap: 12px; flex: 0 0 auto; }
+.meetupImages img {
+  width: 110px;
+  height: auto;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--acid);
+  display: block;
+}
+.meetupImages img.author { box-shadow: 5px 5px 0 var(--blue); }
+
+.meetupWhen {
+  flex: 1 1 auto;
+  text-align: right;
+}
+.meetupWhen .date {
+  font-family: var(--display);
+  font-size: clamp(30px, 4.2vw, 54px);
+  line-height: .85;
+  text-transform: uppercase;
+}
+.meetupWhen .time {
+  margin-top: 8px;
+  font-family: var(--display);
+  font-size: clamp(22px, 3.2vw, 42px);
+  line-height: .9;
+  text-transform: uppercase;
+}
+.meetupWhen .local {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .meetupHero { flex-direction: column; align-items: flex-start; }
+  .meetupWhen { text-align: left; }
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 18px; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 3px solid var(--ink);
+  padding: 14px 21px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  cursor: pointer;
+}
+.button span { font-size: 18px; }
+.primary { background: var(--ink); color: var(--white); box-shadow: 6px 6px 0 var(--acid); }
+.secondary { background: var(--acid); color: var(--ink); box-shadow: 6px 6px 0 var(--blue); }
+
+footer {
+  padding: 30px 4vw;
+  border-top: 4px solid;
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+}
+footer::before { content: ""; position: absolute; inset: 0 0 auto; height: 6px; background: var(--pride); }
+footer .footerInner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+footer p { margin: 0; font-family: var(--display); font-size: 14px; text-transform: uppercase; }
+
+
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="https://clarity-by-jayden.github.io/queerlines/" aria-label="Queer Between the Lines home">
+        <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
+      </a>
+      <div class="navLinks">
+        <a class="navCta" href="https://clarity-by-jayden.github.io/queerlines/#join">Join us</a>
+      </div>
+    </nav>
+
+    <section class="section">
+      <!-- QBTL_AUTO_NOTE_START -->
+      <div class="sectionLabel"><span>OCTOBER</span></div>
+      <h2>October<br><em>recap.</em></h2>
+      <div class="meetingNote" style="margin-top: 18px;">
+        <h3>Book: The Thirty Names of Night <span style="opacity:.9;">✦</span> Author: Zeyn Joukhadar</h3>
+        <div class="meetupHero" aria-label="Book cover and author artwork" style="margin-top: 12px; margin-bottom: 14px;">
+          <div class="meetupImages" aria-label="Book cover and author">
+            <img src="https://si4io.mjt.lu/img2/si4io/42683b2f-8a7e-4569-88bb-d768459e7e8e/content" alt="The Thirty Names of Night book cover" loading="lazy">
+            <img class="author" src="https://si4io.mjt.lu/img2/si4io/f79078f9-40c9-4173-9768-47d321cd986c/content" alt="Zeyn Joukhadar" loading="lazy">
+          </div>
+        </div>
+        <p>Here’s a recap of what we discussed at the October Recap.</p>
+        <aside style="margin-top: 14px; border: 3px solid var(--ink); padding: 14px; background: #e9ff32; color: var(--ink);">
+          <p style="margin: 0;"><b>TL;DR</b></p>
+          <p>The group enjoyed Fruit Fly’s fast-paced, darkly funny thriller elements and its layered exploration of who owns a story, especially when someone else’s trauma becomes material for fiction. The ending prompted mixed reactions: its open, abrupt resolution left questions about Ronan, Mo and Leo’s next steps, even as Leo’s final plan sharpened the book’s cycle of storytelling and exploitation. The group also thought the book could translate well to television.</p>
+        </aside>
+        <div class="videoWrap" aria-label="Highlights video">
+          <p class="videoTitle">Highlights video</p>
+          <div class="video">
+            <iframe src="https://www.youtube-nocookie.com/embed/iJEU6mA2hjs" title="October Recap highlights" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="noteDetail" style="margin-top: 18px;">
+          <p><b>What we discussed (more detail)</b></p>
+          <h3>Discussion overview</h3>
+<p>The group discussed Josh Silver’s Fruit Fly, focusing on its structure, characters, ethical questions and ending. The conversation was spoiler-friendly, although Jayden still had roughly 40 pages left at the time and planned to finish the book afterwards.</p>
+<h3>What worked well</h3>
+<ul>
+  <li>The novel’s pace gathers momentum, particularly in its final fifth. The time jump after the kitchen confrontation felt like a thriller-style cliffhanger, though it also left readers wanting to see more of the immediate fallout.</li>
+  <li>The section in which Ronan manipulates and undermines Mallory was especially gripping. The group found the details of his controlling behaviour, her relationship with her mother and the imbalance in their relationship compelling.</li>
+  <li>The book balances dark humour and thriller tension. Mallory’s awkward encounters with queer culture and the deliberately flimsy aliases (such as Mandy and Liam) were remembered as funny, if knowingly transparent.</li>
+  <li>Leo’s close observation of other people, and his poetry, suggest a perceptive writer whose ability has been overlooked amid his difficult circumstances.</li>
+</ul>
+<h3>Ending and open questions</h3>
+<p>The ending felt rushed or more like a coda to several readers, rather than a fully realised final confrontation. The jump forward means the reader hears hints about what happened but does not get much of the emotional or practical aftermath.</p>
+<ul>
+  <li>Ronan’s fate and the resolution of the kitchen confrontation remain unclear.</li>
+  <li>Mo’s death felt abrupt, and the group could not establish exactly what happened or how involved Leo was. His account may be unreliable, and some of what he tells Mallory is exaggerated or invented, so the uncertainty may be intentional.</li>
+  <li>The final scene suggests Leo may fictionalise Mallory’s trauma in retaliation, echoing the way Mallory used his experiences as source material. The group saw this as a pointed, sometimes on-the-nose ending that returns to the question of who has the right to tell a story. It remains unclear whether Leo will actually follow through.</li>
+</ul>
+<h3>Narrative ownership, truth and ethics</h3>
+<p>A central question was whether a writer can ethically turn another person’s trauma into fiction, and who controls the meaning of a story once it is retold. Mallory’s novel draws on Leo’s experiences, but Leo has also misled her, sometimes to gain help or shelter. The different viewpoints reveal gaps between what happened, what each character believes, and what becomes part of Mallory’s book.</p>
+<ul>
+  <li>Leo can seem comparatively candid with the reader while lying to Mallory; he is also piecing together events he may not fully remember.</li>
+  <li>Mallory is often shown recognising the truth about her relationship with Ronan and then trying to deny it to herself.</li>
+  <li>Mallory’s motives shift between self-interest (finding material for her novel) and genuine concern for Leo. The group felt both could be true at once.</li>
+  <li>Readers might be curious about a fictional work based on a real person while still feeling uneasy about the ethics of reading or supporting it.</li>
+</ul>
+<h3>Character dynamics and power</h3>
+<p>The group discussed how money and status give Mallory options Leo does not have, while not protecting her from isolation, coercive control or gaslighting. Ronan’s jealousy of Mallory’s professional success appears to feed his controlling behaviour; his need for praise and insecurity complicate, but do not excuse, that behaviour. Mallory’s therapist identity was also questioned: the group wondered how much professional understanding to expect, given the suggestion that her training may be limited.</p>
+<h3>Adaptation</h3>
+<p>The group thought Fruit Fly could work well as a television adaptation because of its thriller pacing, dark humour and tonal shifts. A screen version could add another layer to the novel’s interest in adapting stories, though the shifting viewpoints and uncertainty about what is true may be challenging to translate.</p>
+        </div>
+      </div>
+      <!-- QBTL_AUTO_NOTE_END -->
+    </section>
+
+    <footer>
+      <div class="footerInner">
+        <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
+        <p>Stories beyond the straight and narrow.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script></script>
+</body>
+</html>

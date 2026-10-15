@@ -4,7 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Notes | Queer Between the Lines</title>
-  <meta name="description" content="Monthly notes and reflections from Queer Between the Lines (QBTL).">
+  <meta name="description" content="Monthly meetup notes and reflections from Queer Between the Lines (QBTL).">
+  <meta name="qbtl-meeting-notes-publisher" content="cf36264bd37fc4df34fa1e62b1feebe82ed6a8279a771edaa0e25cc6f60aa51a">
+
+  <!-- Google tag (gtag.js) + simple consent (default denied) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WW6QL7QPL7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // Consent Mode: deny by default, grant only after user accepts.
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted'
+    });
+  </script>
 
   <script>
     /* Theme toggle removed (now always light) */
@@ -314,6 +332,54 @@ footer > p { font-family: var(--display); font-size: 14px; text-transform: upper
 .footerNav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px 18px; }
 .footerNav a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
 
+/* Simple cookie consent banner */
+.cookieBanner {
+  position: fixed;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 999;
+  display: none;
+  max-width: 980px;
+  margin: 0 auto;
+  background: var(--paper);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--pink);
+  padding: 14px 14px 12px;
+}
+.cookieBannerInner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+.cookieBanner p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+.cookieBanner a { text-decoration: underline; }
+.cookieActions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.cookieBtn {
+  border: 3px solid var(--ink);
+  padding: 10px 14px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  cursor: pointer;
+}
+.cookieAccept { background: var(--acid); color: var(--ink); box-shadow: 5px 5px 0 var(--blue); }
+.cookieReject { background: var(--paper); color: var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+
+@media (max-width: 560px) {
+  .cookieBanner { left: 14px; right: 14px; bottom: 14px; }
+  .cookieBannerInner { grid-template-columns: 1fr; }
+  .cookieActions { justify-content: flex-start; }
+}
+
 /* Dark mode removed */
 
 @media (max-width: 900px) {
@@ -352,9 +418,15 @@ footer > p { font-family: var(--display); font-size: 14px; text-transform: upper
     </header>
 
     <section class="section" id="notes" aria-label="Notes archive">
-      <div class="sectionLabel"><span>01</span> Latest</div>
 
       <div class="notesGrid">
+        <!-- QBTL_AUTO_NOTES_START -->
+        <a class="noteCard" href="./2026-10/">
+          <p class="kicker noteKicker">October 2026</p>
+          <h2 class="noteTitle">October Recap</h2>
+          <p class="noteMeta">Read the meetup notes →</p>
+        </a>
+        <!-- QBTL_AUTO_NOTES_END -->
         <a class="noteCard" href="./2026-09/">
           <p class="kicker noteKicker">Archive entry</p>
           <h2 class="noteTitle">September Meetup</h2>
@@ -373,6 +445,19 @@ footer > p { font-family: var(--display); font-size: 14px; text-transform: upper
       </div>
     </footer>
   </main>
+
+  <aside class="cookieBanner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div class="cookieBannerInner">
+      <p>
+        We use cookies for basic site function and optional analytics (to understand what’s working). \
+        <a href="https://clarity-by-jayden.github.io/queerlines/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy policy</a>.
+      </p>
+      <div class="cookieActions">
+        <button class="cookieBtn cookieReject" id="cookie-reject" type="button">Reject</button>
+        <button class="cookieBtn cookieAccept" id="cookie-accept" type="button">Accept</button>
+      </div>
+    </div>
+  </aside>
 
   <div class="menuOverlay" id="menu-overlay" hidden></div>
   <aside class="menuPanel" id="menu-panel" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
@@ -422,6 +507,69 @@ footer > p { font-family: var(--display); font-size: 14px; text-transform: upper
     Array.from(menuPanel.querySelectorAll("a")).forEach(function (link) {
       link.addEventListener("click", closeMenu);
     });
+
+    // Cookie consent (simple)
+    (function () {
+      const CONSENT_KEY = "qbtl-cookie-consent";
+      const banner = document.getElementById("cookie-banner");
+      const acceptBtn = document.getElementById("cookie-accept");
+      const rejectBtn = document.getElementById("cookie-reject");
+      const measurementId = "G-WW6QL7QPL7";
+
+      function safeGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+      function safeSet(key, val) { try { return localStorage.setItem(key, val); } catch (e) {} }
+
+      function enableAnalytics() {
+        if (typeof gtag !== "function") return;
+        gtag('consent', 'update', {
+          'ad_storage': 'denied',
+          'analytics_storage': 'granted',
+          'functionality_storage': 'granted',
+          'personalization_storage': 'denied',
+          'security_storage': 'granted'
+        });
+        gtag('config', measurementId);
+      }
+
+      function disableAnalytics() {
+        if (typeof gtag !== "function") return;
+        gtag('consent', 'update', {
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied',
+          'functionality_storage': 'denied',
+          'personalization_storage': 'denied',
+          'security_storage': 'granted'
+        });
+      }
+
+      const existing = safeGet(CONSENT_KEY); // "accepted" | "rejected" | null
+      if (existing === "accepted") {
+        enableAnalytics();
+        return;
+      }
+      if (existing === "rejected") {
+        disableAnalytics();
+        return;
+      }
+
+      // No choice recorded → show banner
+      if (banner) banner.style.display = "block";
+
+      if (acceptBtn) {
+        acceptBtn.addEventListener("click", function () {
+          safeSet(CONSENT_KEY, "accepted");
+          if (banner) banner.style.display = "none";
+          enableAnalytics();
+        });
+      }
+      if (rejectBtn) {
+        rejectBtn.addEventListener("click", function () {
+          safeSet(CONSENT_KEY, "rejected");
+          if (banner) banner.style.display = "none";
+          disableAnalytics();
+        });
+      }
+    }());
   </script>
 </body>
 </html>
