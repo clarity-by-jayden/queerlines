@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Queer Horror: Who Gets to Be the Monster? | QBTL | Pinboard | Queer Between the Lines</title>
+  <meta name="description" content="Explore queer horror through four distinct books, from The Gilda Stories to The Woods All Black, and ask who gets to define the monster.">
+
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('qbtl-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    }());
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
+
+  <!-- NOTE: CSS is intentionally copied from the post template page in Notion -->
+  <style>
+:root {
+  --ink: #090909;
+  --paper: #fff7e8;
+  --pink: #ff2d8d;
+  --acid: #e9ff32;
+  --blue: #4757ff;
+  --orange: #ff6337;
+  --red: #ef3340;
+  --green: #00a86b;
+  --purple: #8b3dff;
+  --white: #ffffff;
+  --display: "Archivo Black", Arial, sans-serif;
+  --pride: linear-gradient(90deg,
+    var(--red) 0 16.66%,
+    var(--orange) 16.66% 33.32%,
+    var(--acid) 33.32% 49.98%,
+    var(--green) 49.98% 66.64%,
+    var(--blue) 66.64% 83.3%,
+    var(--purple) 83.3% 100%);
+  --pinboard: url("https://si4io.mjt.lu/img2/si4io/bc06ad5f-8faa-420d-933e-036afce89c2e/content");
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  background-image: var(--pinboard);
+  background-size: 420px auto;
+  background-repeat: repeat;
+  background-position: top left;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+/* Shared QBTL header */
+.nav {
+  height: 68px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--ink);
+  background: var(--blue);
+  color: var(--white);
+  position: relative;
+  z-index: 10;
+}
+.nav .flower { color: var(--acid); }
+.nav::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background: var(--pride);
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-family: var(--display);
+  font-size: 13px;
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.flower {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--pink);
+  letter-spacing: -.22em;
+}
+
+.navLinks{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.navCta{
+  background: var(--ink);
+  color: var(--white);
+  padding: 13px 20px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+
+/* Post layout */
+.wrap{
+  padding: 34px 6vw 54px;
+}
+.post{
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.lede{
+  background: rgba(255,255,255,.92);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--orange);
+  padding: 18px 18px 16px;
+  margin-top: 14px;
+}
+
+html[data-theme="dark"] .lede{
+  background: rgba(25,28,39,.92);
+  border-color: rgba(255,255,255,.25);
+  box-shadow: 14px 14px 0 rgba(255,255,255,.14);
+}
+.kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+  margin: 0 0 12px;
+}
+.kicker span{
+  display: inline-block;
+  background: var(--pink);
+  color: var(--white);
+  padding: 8px 12px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+
+h1{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  line-height: .82;
+  font-size: clamp(44px, 6vw, 84px);
+  margin: 0 0 12px;
+  display: inline-block;
+  position: relative;
+  padding: 18px 18px 14px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+h1 em{
+  display: inline-block;
+  color: var(--pink);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 6px 6px 0 var(--acid);
+}
+.titlePin{
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 3px solid var(--ink);
+  background: var(--acid);
+  box-shadow: 3px 3px 0 rgba(9,9,9,.25);
+}
+.meta{
+  margin: 14px 0 0;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.meta a{
+  border-bottom: 4px solid var(--ink);
+  padding-bottom: 4px;
+}
+.deck{
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 800;
+  max-width: 64ch;
+}
+
+.paper{
+  margin-top: 22px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--blue);
+  padding: 18px 18px 22px;
+  overflow: hidden;
+}
+.paper figure,
+.paper .article-image{
+  margin: 18px auto;
+  text-align: center;
+}
+
+.paper figure img,
+.paper .article-image img{
+  display: block;
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 420px;
+  margin: 0 auto;
+  object-fit: contain;
+  border: 3px solid var(--ink);
+  background: var(--white);
+}
+
+.paper figcaption{
+  margin: 8px auto 0;
+  max-width: 64ch;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+.paper h2{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  line-height: .9;
+  font-size: 30px;
+  margin: 22px 0 10px;
+}
+.paper p, .paper li{
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 650;
+}
+.paper ul{
+  margin: 12px 0 0 1.2rem;
+  padding: 0;
+}
+.quote{
+  margin: 16px 0;
+  padding: 14px 14px;
+  border-left: 8px solid var(--pink);
+  background: #fff;
+  font-weight: 800;
+}
+.hr{
+  height: 6px;
+  background: var(--pride);
+  border: 0;
+  margin: 22px 0;
+}
+
+/* Shared QBTL footer */
+footer {
+  padding: 30px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid;
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--pride);
+}
+footer > p { font-family: var(--display); font-size: 14px; text-transform: uppercase; }
+.footerLinks { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.footerNav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px 18px; }
+.footerNav a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
+
+/* Dark mode */
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body { background-color: #11131a; color: var(--paper); }
+html[data-theme="dark"] .paper { background: rgba(25,28,39,.95); color: var(--paper); border-color: rgba(255,255,255,.25); box-shadow: 14px 14px 0 rgba(255,255,255,.14); }
+html[data-theme="dark"] h1 { background: rgba(25,28,39,.95); border-color: rgba(255,255,255,.25); }
+html[data-theme="dark"] .quote { background: rgba(255,255,255,.06); border-left-color: var(--acid); }
+html[data-theme="dark"] .kicker span { box-shadow: 5px 5px 0 rgba(255,255,255,.2); border-color: rgba(255,255,255,.25); }
+html[data-theme="dark"] h1 em { -webkit-text-stroke: 2px rgba(255,255,255,.25); }
+html[data-theme="dark"] .titlePin { border-color: rgba(255,255,255,.25); }
+
+/* Mobile */
+@media (max-width: 560px){
+  .wrap{ padding: 26px 16px 42px; }
+  h1{
+    font-size: clamp(38px, 11vw, 54px);
+    line-height: .9;
+    padding: 14px 14px 12px;
+    box-shadow: 9px 9px 0 var(--pink);
+    transform: none;
+  }
+  .titlePin{ top: -9px; left: 14px; }
+  .deck{ font-size: 16px; }
+  .lede{ padding: 14px 14px 12px; box-shadow: 10px 10px 0 var(--orange); }
+  .paper{ padding: 16px 14px 18px; box-shadow: 10px 10px 0 var(--blue); }
+  footer { align-items: flex-start; gap: 24px; flex-direction: column; }
+  .footerLinks { align-items: flex-start; }
+  .footerNav { justify-content: flex-start; }
+}
+  </style>
+</head>
+
+<body>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../" aria-label="Queer Between the Lines home">
+        <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
+      </a>
+      <div class="navLinks">
+        <a class="navCta" href="../">← Back to pinboard</a>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <article class="post">
+        <p class="kicker"><span>Pinboard post</span></p>
+
+        <h1><span class="titlePin" aria-hidden="true"></span>Queer<br>Horror: Who Gets to Be the Monster?</h1>
+
+        <section class="lede" aria-label="Post intro">
+          <p class="meta">
+            <span>Published: 2026-10-17</span>
+            &nbsp;•&nbsp;
+            <a href="../">← Back to pinboard</a>
+          </p>
+
+          <p class="deck">A QBTL reading guide to queer horror, from vampire myth and underwater gothic to conversion-camp dread and trans historical horror.</p>
+        </section>
+
+        <section class="paper" aria-label="Post content">
+          <p>Some horror asks what is hiding in the dark. Queer horror asks that too, then turns on the light and wonders why this person seemed frightening in the first place.</p><p>The answers might be supernatural, bodily, social or all three at once. For LGBTQ+ readers, horror’s old vocabulary of secrecy, transformation and otherness can land differently: sometimes as an echo of stigma, sometimes as a way to take control of it. And queer horror doesn’t have to turn every character into a symbol. It can be strange, funny, romantic, furious, tender, or simply an excellent story that makes you check the hallway before bed.</p><p>Here are four ways into the genre, each with a different kind of dark.</p><h2>Start with a vampire story that makes room for a future</h2><figure class="article-image"><img src="about:blank" alt="" loading="lazy"></figure><p><em>The Gilda Stories</em> cover by Jewelle Gomez.</p><p>In <em>The Gilda Stories</em>, a young Black woman escapes slavery in 1850s Louisiana and becomes a vampire. Jewelle Gomez follows Gilda across centuries, using the vampire story to imagine Black lesbian life, love, chosen family and survival beyond the limits of the present. It’s a landmark work of speculative fiction, but it isn’t built around jump scares. Come for the reimagined vampire myth; stay for its expansive sense of history and possibility. <a href="https://www.penguinrandomhouse.com/books/780263/the-gilda-stories-by-jewelle-gomez-afterword-by-alexis-pauline-gumbs">[1]</a></p><h2>For an underwater gothic about love and loss</h2><figure class="article-image"><img src="about:blank" alt="" loading="lazy"></figure><p><em>Our Wives Under the Sea</em> cover by Julia Armfield.</p><p>Julia Armfield’s <em>Our Wives Under the Sea</em> begins when Leah returns from a deep-sea mission that ended in catastrophe. Her wife, Miri, has her back, but something about Leah has changed. The result is an intimate, unsettling story about marriage, grief and the unknowable parts of the people we love. Its horror creeps in slowly, through the body and the everyday details of a relationship, rather than arriving with a neat explanation. <a href="https://www.panmacmillan.com/authors/julia-armfield/our-wives-under-the-sea/9781529017250">[2]</a></p><h2>For supernatural horror with a sharp edge</h2><figure class="article-image"><img src="about:blank" alt="" loading="lazy"></figure><p><em>Camp Damascus</em> cover by Chuck Tingle.</p><p><em>Camp Damascus</em> by Chuck Tingle takes us to a small Montana town and the conversion camp on its mountain, which claims to be remarkably effective. The secret behind that claim is far darker. Tingle uses supernatural horror to confront the violence of conversion efforts, the cost of secrecy and the courage it takes to leave a harmful belief system. It’s a more direct, high-energy entry point if you want your horror to have teeth as well as something to say. <a href="https://us.macmillan.com/books/9781250874634/campdamascus">[3]</a></p><h2>For trans historical horror and bloody revenge</h2><figure class="article-image"><img src="about:blank" alt="" loading="lazy"></figure><p><em>The Woods All Black</em> cover by Lee Mandelo.</p><p>Lee Mandelo describes <em>The Woods All Black</em> as historical horror and trans romance, set in 1920s Appalachia. The novella brings prejudice, bodily autonomy and small-town religious power into a story of passion and revenge. It’s a strong choice if you want a darker, bloodier read, and one that puts a trans character at the centre of the story rather than at its margins. <a href="https://leemandelo.com/">[4]</a></p><h2>Who gets to name the monster?</h2><p>These books don’t offer one tidy definition of queer horror. One reworks vampire mythology across centuries; another turns a marriage and an ocean into a source of dread; the others bring supernatural terror into direct contact with coercion, prejudice and bodily autonomy.</p><p>That variety is part of the pleasure. Horror gives us a place to sit with fears that can be hard to name, then ask where they came from. Is the danger coming from the creature, the institution, the family, the community, or the person telling the story? Who gets believed when someone says their body or their life has changed? And what might freedom look like after the frightening part?</p><p>If you’re new to the genre, choose by mood. Try <em>Our Wives Under the Sea</em> for atmospheric, slow-building unease; <em>Camp Damascus</em> for a sharper supernatural ride; <em>The Gilda Stories</em> for a sweeping vampire reimagining; or <em>The Woods All Black</em> for trans historical horror with a bloody streak.</p><p>The most interesting question may be less “What is the monster?” than “Who benefits when someone else gets called one?”</p>
+        </section>
+      </article>
+    </div>
+
+    <footer>
+      <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
+      <p>Stories beyond the straight and narrow.</p>
+      <div class="footerLinks">
+        <nav class="footerNav" aria-label="Footer navigation">
+          <a href="../">Back to pinboard</a>
+          <a href="../">Back home</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
