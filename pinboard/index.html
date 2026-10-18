@@ -299,6 +299,8 @@ h1 em{
   position: relative;
   z-index: 2;
   display: grid;
+  /* Keep each notice at its own content height instead of stretching to its row. */
+  align-items: start;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 14px;
 }
@@ -334,7 +336,6 @@ h1 em{
   background: var(--white);
   box-shadow: 10px 10px 0 var(--blue);
   padding: 18px 18px 16px;
-  min-height: 150px;
 }
 .card:nth-child(3n) { box-shadow: 10px 10px 0 var(--pink); transform: rotate(1deg); }
 .card:nth-child(3n+1) { transform: rotate(-1deg); }
@@ -360,7 +361,6 @@ h1 em{
 }
 
 .card.small h2 { font-size: 22px; }
-.card.small { min-height: 130px; }
 
 .grid-5 { grid-column: span 5; }
 .grid-4 { grid-column: span 4; }
