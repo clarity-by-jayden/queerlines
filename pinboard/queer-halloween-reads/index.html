@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4 Queer Halloween Reads for Every Kind of Scare | Pinboard | Queer Between the Lines</title>
+  <meta name="description" content="Find your next queer Halloween read, from sapphic gothic horror and a queer Dracula retelling to unsettling short stories and a claustrophobic sci-fi horror.">
+
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('qbtl-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme || systemTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    }());
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
+
+  <!-- NOTE: CSS is intentionally copied from the post template page in Notion -->
+  <style>
+:root {
+  --ink: #090909;
+  --paper: #fff7e8;
+  --pink: #ff2d8d;
+  --acid: #e9ff32;
+  --blue: #4757ff;
+  --orange: #ff6337;
+  --red: #ef3340;
+  --green: #00a86b;
+  --purple: #8b3dff;
+  --white: #ffffff;
+  --display: "Archivo Black", Arial, sans-serif;
+  --pride: linear-gradient(90deg,
+    var(--red) 0 16.66%,
+    var(--orange) 16.66% 33.32%,
+    var(--acid) 33.32% 49.98%,
+    var(--green) 49.98% 66.64%,
+    var(--blue) 66.64% 83.3%,
+    var(--purple) 83.3% 100%);
+  --pinboard: url("https://si4io.mjt.lu/img2/si4io/bc06ad5f-8faa-420d-933e-036afce89c2e/content");
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  background-image: var(--pinboard);
+  background-size: 420px auto;
+  background-repeat: repeat;
+  background-position: top left;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+/* Shared QBTL header */
+.nav {
+  height: 68px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--ink);
+  background: var(--blue);
+  color: var(--white);
+  position: relative;
+  z-index: 10;
+}
+.nav .flower { color: var(--acid); }
+.nav::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background: var(--pride);
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-family: var(--display);
+  font-size: 13px;
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.flower {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--pink);
+  letter-spacing: -.22em;
+}
+
+.navLinks{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.navCta{
+  background: var(--ink);
+  color: var(--white);
+  padding: 13px 20px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+
+/* Post layout */
+.wrap{
+  padding: 34px 6vw 54px;
+}
+.post{
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.lede{
+  background: rgba(255,255,255,.92);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--orange);
+  padding: 18px 18px 16px;
+  margin-top: 14px;
+}
+
+html[data-theme="dark"] .lede{
+  background: rgba(25,28,39,.92);
+  border-color: rgba(255,255,255,.25);
+  box-shadow: 14px 14px 0 rgba(255,255,255,.14);
+}
+.kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+  margin: 0 0 12px;
+}
+.kicker span{
+  display: inline-block;
+  background: var(--pink);
+  color: var(--white);
+  padding: 8px 12px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+
+h1{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  line-height: .82;
+  font-size: clamp(44px, 6vw, 84px);
+  margin: 0 0 12px;
+  display: inline-block;
+  position: relative;
+  padding: 18px 18px 14px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+h1 em{
+  display: inline-block;
+  color: var(--pink);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 6px 6px 0 var(--acid);
+}
+.titlePin{
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 3px solid var(--ink);
+  background: var(--acid);
+  box-shadow: 3px 3px 0 rgba(9,9,9,.25);
+}
+.meta{
+  margin: 14px 0 0;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.meta a{
+  border-bottom: 4px solid var(--ink);
+  padding-bottom: 4px;
+}
+.deck{
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 800;
+  max-width: 64ch;
+}
+
+.paper{
+  margin-top: 22px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--blue);
+  padding: 18px 18px 22px;
+  overflow: hidden;
+}
+.paper figure,
+.paper .article-image{
+  margin: 18px auto;
+  text-align: center;
+}
+
+.paper figure img,
+.paper .article-image img{
+  display: block;
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 420px;
+  margin: 0 auto;
+  object-fit: contain;
+  border: 3px solid var(--ink);
+  background: var(--white);
+}
+
+.paper figcaption{
+  margin: 8px auto 0;
+  max-width: 64ch;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+.paper h2{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  line-height: .9;
+  font-size: 30px;
+  margin: 22px 0 10px;
+}
+.paper p, .paper li{
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 650;
+}
+.paper ul{
+  margin: 12px 0 0 1.2rem;
+  padding: 0;
+}
+.quote{
+  margin: 16px 0;
+  padding: 14px 14px;
+  border-left: 8px solid var(--pink);
+  background: #fff;
+  font-weight: 800;
+}
+.hr{
+  height: 6px;
+  background: var(--pride);
+  border: 0;
+  margin: 22px 0;
+}
+
+/* Shared QBTL footer */
+footer {
+  padding: 30px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid;
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--pride);
+}
+footer > p { font-family: var(--display); font-size: 14px; text-transform: uppercase; }
+.footerLinks { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.footerNav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px 18px; }
+.footerNav a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
+
+/* Dark mode */
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body { background-color: #11131a; color: var(--paper); }
+html[data-theme="dark"] .paper { background: rgba(25,28,39,.95); color: var(--paper); border-color: rgba(255,255,255,.25); box-shadow: 14px 14px 0 rgba(255,255,255,.14); }
+html[data-theme="dark"] h1 { background: rgba(25,28,39,.95); border-color: rgba(255,255,255,.25); }
+html[data-theme="dark"] .quote { background: rgba(255,255,255,.06); border-left-color: var(--acid); }
+html[data-theme="dark"] .kicker span { box-shadow: 5px 5px 0 rgba(255,255,255,.2); border-color: rgba(255,255,255,.25); }
+html[data-theme="dark"] h1 em { -webkit-text-stroke: 2px rgba(255,255,255,.25); }
+html[data-theme="dark"] .titlePin { border-color: rgba(255,255,255,.25); }
+
+/* Mobile */
+@media (max-width: 560px){
+  .wrap{ padding: 26px 16px 42px; }
+  h1{
+    font-size: clamp(38px, 11vw, 54px);
+    line-height: .9;
+    padding: 14px 14px 12px;
+    box-shadow: 9px 9px 0 var(--pink);
+    transform: none;
+  }
+  .titlePin{ top: -9px; left: 14px; }
+  .deck{ font-size: 16px; }
+  .lede{ padding: 14px 14px 12px; box-shadow: 10px 10px 0 var(--orange); }
+  .paper{ padding: 16px 14px 18px; box-shadow: 10px 10px 0 var(--blue); }
+  footer { align-items: flex-start; gap: 24px; flex-direction: column; }
+  .footerLinks { align-items: flex-start; }
+  .footerNav { justify-content: flex-start; }
+}
+  </style>
+</head>
+
+<body>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../" aria-label="Queer Between the Lines home">
+        <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
+      </a>
+      <div class="navLinks">
+        <a class="navCta" href="../">← Back to pinboard</a>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <article class="post">
+        <p class="kicker"><span>Pinboard post</span></p>
+
+        <h1><span class="titlePin" aria-hidden="true"></span>Queer<br>Halloween Reads for Every Kind of Scare</h1>
+
+        <section class="lede" aria-label="Post intro">
+          <p class="meta">
+            <span>Published: 2026-10-18</span>
+            &nbsp;•&nbsp;
+            <a href="../">← Back to pinboard</a>
+          </p>
+
+          <p class="deck">Four queer horror reads for Halloween, from sapphic gothic intrigue and Dracula’s first bride to uncanny short stories and a claustrophobic cave descent.</p>
+        </section>
+
+        <section class="paper" aria-label="Post content">
+          <p>Halloween reading doesn’t have to mean one particular kind of scare. Maybe you want a velvet-dark gothic, a book of strange stories you can dip into between pumpkin-carving and sweets, or a story that makes the walls feel a little too close.</p><p>Here are four queer reads for four different spooky moods. They all bring something different to the season, so you can pick your level of dread and settle in.</p><h2>For a lush, blood-red gothic: <em>A Dowry of Blood</em> by S.T. Gibson</h2><figure class="article-image"><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/0c6aaa86-ce49-46ba-a2fa-e76e222825d8/b35c1f88-812a-48a0-89ec-9cf3f4b333bf/a-dowry-of-blood-cover.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=ASIAZI2LB4667LECE764%2F20261018%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20261018T195011Z&amp;X-Amz-Expires=3600&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLXdlc3QtMiJHMEUCIBBT6k5Vhdv48pM4epAIqQMOg9AZ6r4AubdILX8YsmA4AiEAjBu6nj20jmpBk2qlIMGVzaY7CrlGtpZl87XDSL%2BKqLEq%2FwMIGxAAGgw2Mzc0MjMxODM4MDUiDBAyyIECM3OHKs9gmircA%2FGCOOc2%2BeuDTMFpyrPV6paBScbimDyHn9hOQZL%2Bx6oxXJGnvaI97b6Yi5UvxAw%2BMYoffp6Xo7svKpcVWu8D3snFw4AMVwzUQSRtS%2BuQ1eb%2FBsQth75LdQqmmYXfIZ3Y3Iq5LbdzdGJZSLJuQbfgKl2Vgkqy5rDWtIUXtMn5g4vAufFD7CliL1HcRLimitBPRG803GwxpCYnec9Qdz5JcnRB04RQs9MlWlowwlaseYKbq5HMdqbP%2B7RIYyuTWa04teru0%2Fd%2FrIwEmmwviwb113vXYvtvV7GVfao9haxk19dOEOxkCKH%2ByIqqkR268Y0IMuN5MPe2DaVKhfn0l2%2FTx70%2FTaguoaSfQ3eeLQ4jy68KNYZR3VsI1q6lsX6WG5fZA7uA2vxHv9jhI5PoNFttKTdJt7r9EzDBBnw4EbT5H7EjSh56gmGFH1omluvfHhv8Ps8TxpGfYCBtI1ri%2FsGvGm%2BXjtU%2FUr06rZUqhyVZa%2BBpxuNsvF9Vs4Xgu9U8vBSpA7rcNj7GnU6tIpxa1x3HE7j8BFAEZXaLXwAEsjCziLr7istie%2Fm%2BHncalgmMt3C7u5z8RewcR4ZUiqz%2F%2FMKlX9h3sCRWWWFQRvv0MYdaWZbP2tyfNdZZ2dyJMdJ5MP2G1NYGOqUBsw2%2FpK7P%2FBK11cWzq3x75ZkSFs8MYI2Fk1L1Y1sa9n3Xslr60BoGU%2FPUoP58X0FhGNMKZXBvH8wcyA%2F9o2q39NfyDFouxwWAo%2B21Cmb4AePOlobNL5F%2FhxEK36O0qOR%2BVl%2FGGDvw50VtTIWnI%2BRXhs3ptxf3GIwNv7n2iSghz5btwM%2FJ2jAEyu9mlrkcFKk8ld9I8OhMkPdEHfeio2xPA%2F5dmBzU&amp;X-Amz-Signature=12b73375ed4e08592f2520e9217c228c4966f7a3e0ce65f566dfcb40631b38f7&amp;X-Amz-SignedHeaders=host&amp;x-amz-checksum-mode=ENABLED&amp;x-id=GetObject" alt="" loading="lazy"></figure><p><em>A Dowry of Blood</em> cover by S.T. Gibson.</p><p>If your ideal Halloween involves candlelight, doomed romance and a beautiful house full of bad decisions, start here. <em>A Dowry of Blood</em> retells the Dracula story through the eyes of Constanta, one of his brides. As Dracula gathers more people around him, Constanta’s bond with his other consorts grows, and the novel turns its gaze towards desire, control and the difficult work of reclaiming a life.</p><p>It’s a lyrical, queer gothic with the decadence of a vampire story and the emotional teeth of a tale about surviving abuse. Best saved for a night when you want the atmosphere turned all the way up. <a href="https://www.hachettebookgroup.com/titles/s-t-gibson/a-dowry-of-blood/9780316501071/">[1]</a></p><h2>For a haunted-school slow burn: <em>Plain Bad Heroines</em> by Emily M. Danforth</h2><figure class="article-image"><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/0c6aaa86-ce49-46ba-a2fa-e76e222825d8/7d557d4a-ff7d-48e7-a3d8-eac189c15979/plain-bad-heroines-cover.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=ASIAZI2LB4667LECE764%2F20261018%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20261018T195011Z&amp;X-Amz-Expires=3600&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLXdlc3QtMiJHMEUCIBBT6k5Vhdv48pM4epAIqQMOg9AZ6r4AubdILX8YsmA4AiEAjBu6nj20jmpBk2qlIMGVzaY7CrlGtpZl87XDSL%2BKqLEq%2FwMIGxAAGgw2Mzc0MjMxODM4MDUiDBAyyIECM3OHKs9gmircA%2FGCOOc2%2BeuDTMFpyrPV6paBScbimDyHn9hOQZL%2Bx6oxXJGnvaI97b6Yi5UvxAw%2BMYoffp6Xo7svKpcVWu8D3snFw4AMVwzUQSRtS%2BuQ1eb%2FBsQth75LdQqmmYXfIZ3Y3Iq5LbdzdGJZSLJuQbfgKl2Vgkqy5rDWtIUXtMn5g4vAufFD7CliL1HcRLimitBPRG803GwxpCYnec9Qdz5JcnRB04RQs9MlWlowwlaseYKbq5HMdqbP%2B7RIYyuTWa04teru0%2Fd%2FrIwEmmwviwb113vXYvtvV7GVfao9haxk19dOEOxkCKH%2ByIqqkR268Y0IMuN5MPe2DaVKhfn0l2%2FTx70%2FTaguoaSfQ3eeLQ4jy68KNYZR3VsI1q6lsX6WG5fZA7uA2vxHv9jhI5PoNFttKTdJt7r9EzDBBnw4EbT5H7EjSh56gmGFH1omluvfHhv8Ps8TxpGfYCBtI1ri%2FsGvGm%2BXjtU%2FUr06rZUqhyVZa%2BBpxuNsvF9Vs4Xgu9U8vBSpA7rcNj7GnU6tIpxa1x3HE7j8BFAEZXaLXwAEsjCziLr7istie%2Fm%2BHncalgmMt3C7u5z8RewcR4ZUiqz%2F%2FMKlX9h3sCRWWWFQRvv0MYdaWZbP2tyfNdZZ2dyJMdJ5MP2G1NYGOqUBsw2%2FpK7P%2FBK11cWzq3x75ZkSFs8MYI2Fk1L1Y1sa9n3Xslr60BoGU%2FPUoP58X0FhGNMKZXBvH8wcyA%2F9o2q39NfyDFouxwWAo%2B21Cmb4AePOlobNL5F%2FhxEK36O0qOR%2BVl%2FGGDvw50VtTIWnI%2BRXhs3ptxf3GIwNv7n2iSghz5btwM%2FJ2jAEyu9mlrkcFKk8ld9I8OhMkPdEHfeio2xPA%2F5dmBzU&amp;X-Amz-Signature=221247399dd8df30686322a35739ed02a8887fa392eb5014cf41ad9ec716e26a&amp;X-Amz-SignedHeaders=host&amp;x-amz-checksum-mode=ENABLED&amp;x-id=GetObject" alt="" loading="lazy"></figure><p><em>Plain Bad Heroines</em> cover by Emily M. Danforth.</p><p>A girls’ school, a forbidden attachment, an old book and a history that refuses to stay put: <em>Plain Bad Heroines</em> has all the ingredients of a deliciously unruly gothic. Its story moves between a deadly episode at the Brookhants School for Girls in 1902 and a present-day film production that brings the school’s queer history back into view.</p><p>This is the pick for readers who like their horror tangled up with books, film, feminist history and a generous dose of literary mischief. It’s a sapphic-gothic haunted-house novel, but one that knows a little humour can make the shadows more fun. <a href="https://www.emilymdanforth.com/pbh">[2]</a></p><h2>For strange stories in small doses: <em>Her Body and Other Parties</em> by Carmen Maria Machado</h2><figure class="article-image"><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/0c6aaa86-ce49-46ba-a2fa-e76e222825d8/c07ac511-4360-4356-bdcd-012a53bf8fa7/her-body-and-other-parties-cover.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=ASIAZI2LB4667LECE764%2F20261018%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20261018T195011Z&amp;X-Amz-Expires=3600&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLXdlc3QtMiJHMEUCIBBT6k5Vhdv48pM4epAIqQMOg9AZ6r4AubdILX8YsmA4AiEAjBu6nj20jmpBk2qlIMGVzaY7CrlGtpZl87XDSL%2BKqLEq%2FwMIGxAAGgw2Mzc0MjMxODM4MDUiDBAyyIECM3OHKs9gmircA%2FGCOOc2%2BeuDTMFpyrPV6paBScbimDyHn9hOQZL%2Bx6oxXJGnvaI97b6Yi5UvxAw%2BMYoffp6Xo7svKpcVWu8D3snFw4AMVwzUQSRtS%2BuQ1eb%2FBsQth75LdQqmmYXfIZ3Y3Iq5LbdzdGJZSLJuQbfgKl2Vgkqy5rDWtIUXtMn5g4vAufFD7CliL1HcRLimitBPRG803GwxpCYnec9Qdz5JcnRB04RQs9MlWlowwlaseYKbq5HMdqbP%2B7RIYyuTWa04teru0%2Fd%2FrIwEmmwviwb113vXYvtvV7GVfao9haxk19dOEOxkCKH%2ByIqqkR268Y0IMuN5MPe2DaVKhfn0l2%2FTx70%2FTaguoaSfQ3eeLQ4jy68KNYZR3VsI1q6lsX6WG5fZA7uA2vxHv9jhI5PoNFttKTdJt7r9EzDBBnw4EbT5H7EjSh56gmGFH1omluvfHhv8Ps8TxpGfYCBtI1ri%2FsGvGm%2BXjtU%2FUr06rZUqhyVZa%2BBpxuNsvF9Vs4Xgu9U8vBSpA7rcNj7GnU6tIpxa1x3HE7j8BFAEZXaLXwAEsjCziLr7istie%2Fm%2BHncalgmMt3C7u5z8RewcR4ZUiqz%2F%2FMKlX9h3sCRWWWFQRvv0MYdaWZbP2tyfNdZZ2dyJMdJ5MP2G1NYGOqUBsw2%2FpK7P%2FBK11cWzq3x75ZkSFs8MYI2Fk1L1Y1sa9n3Xslr60BoGU%2FPUoP58X0FhGNMKZXBvH8wcyA%2F9o2q39NfyDFouxwWAo%2B21Cmb4AePOlobNL5F%2FhxEK36O0qOR%2BVl%2FGGDvw50VtTIWnI%2BRXhs3ptxf3GIwNv7n2iSghz5btwM%2FJ2jAEyu9mlrkcFKk8ld9I8OhMkPdEHfeio2xPA%2F5dmBzU&amp;X-Amz-Signature=dfd5136f06653c812806753f2955109483b58c345aef65dd0e419473af50ea45&amp;X-Amz-SignedHeaders=host&amp;x-amz-checksum-mode=ENABLED&amp;x-id=GetObject" alt="" loading="lazy"></figure><p><em>Her Body and Other Parties</em> cover by Carmen Maria Machado.</p><p>Not every Halloween read needs to be a doorstopper. This collection moves through unsettling, inventive stories where bodies, desire and everyday life become wonderfully strange. The stories shift between horror, dark humour and tenderness, with queer women at the centre of many of them.</p><p>Read one story at a time, or let the book keep you company for a longer evening. Either way, expect familiar things to come back slightly changed. <a href="https://carmenmariamachado.com/her-body-and-other-parties">[3]</a> <a href="https://www.nationalbook.org/books/her-body-and-other-parties">[4]</a></p><h2>For full-body claustrophobia: <em>The Luminous Dead</em> by Caitlin Starling</h2><figure class="article-image"><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/0c6aaa86-ce49-46ba-a2fa-e76e222825d8/f909a999-b411-47ed-8547-91adb96ab883/the-luminous-dead-cover.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=ASIAZI2LB4667LECE764%2F20261018%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20261018T195011Z&amp;X-Amz-Expires=3600&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFIaCXVzLXdlc3QtMiJHMEUCIBBT6k5Vhdv48pM4epAIqQMOg9AZ6r4AubdILX8YsmA4AiEAjBu6nj20jmpBk2qlIMGVzaY7CrlGtpZl87XDSL%2BKqLEq%2FwMIGxAAGgw2Mzc0MjMxODM4MDUiDBAyyIECM3OHKs9gmircA%2FGCOOc2%2BeuDTMFpyrPV6paBScbimDyHn9hOQZL%2Bx6oxXJGnvaI97b6Yi5UvxAw%2BMYoffp6Xo7svKpcVWu8D3snFw4AMVwzUQSRtS%2BuQ1eb%2FBsQth75LdQqmmYXfIZ3Y3Iq5LbdzdGJZSLJuQbfgKl2Vgkqy5rDWtIUXtMn5g4vAufFD7CliL1HcRLimitBPRG803GwxpCYnec9Qdz5JcnRB04RQs9MlWlowwlaseYKbq5HMdqbP%2B7RIYyuTWa04teru0%2Fd%2FrIwEmmwviwb113vXYvtvV7GVfao9haxk19dOEOxkCKH%2ByIqqkR268Y0IMuN5MPe2DaVKhfn0l2%2FTx70%2FTaguoaSfQ3eeLQ4jy68KNYZR3VsI1q6lsX6WG5fZA7uA2vxHv9jhI5PoNFttKTdJt7r9EzDBBnw4EbT5H7EjSh56gmGFH1omluvfHhv8Ps8TxpGfYCBtI1ri%2FsGvGm%2BXjtU%2FUr06rZUqhyVZa%2BBpxuNsvF9Vs4Xgu9U8vBSpA7rcNj7GnU6tIpxa1x3HE7j8BFAEZXaLXwAEsjCziLr7istie%2Fm%2BHncalgmMt3C7u5z8RewcR4ZUiqz%2F%2FMKlX9h3sCRWWWFQRvv0MYdaWZbP2tyfNdZZ2dyJMdJ5MP2G1NYGOqUBsw2%2FpK7P%2FBK11cWzq3x75ZkSFs8MYI2Fk1L1Y1sa9n3Xslr60BoGU%2FPUoP58X0FhGNMKZXBvH8wcyA%2F9o2q39NfyDFouxwWAo%2B21Cmb4AePOlobNL5F%2FhxEK36O0qOR%2BVl%2FGGDvw50VtTIWnI%2BRXhs3ptxf3GIwNv7n2iSghz5btwM%2FJ2jAEyu9mlrkcFKk8ld9I8OhMkPdEHfeio2xPA%2F5dmBzU&amp;X-Amz-Signature=35c695d05a4ce8966b6e6812f448eecc74effefe9d3ed4df856bb1a34e9fa97f&amp;X-Amz-SignedHeaders=host&amp;x-amz-checksum-mode=ENABLED&amp;x-id=GetObject" alt="" loading="lazy"></figure><p><em>The Luminous Dead</em> cover by Caitlin Starling.</p><p>Gyre signs up for a solo caving expedition on a distant planet, expecting a guide to support her from the surface. Instead, the person on the other end of her suit’s radio has kept crucial information from her. The cave is dangerous, the equipment starts to fail, and the two women have to decide whether they can trust each other while there’s nowhere to go but deeper.</p><p>This is the choice for readers who like their horror tight, tense and a little breathless. The cave setting does a lot of the work, but the shifting relationship between Gyre and Em gives the story its human pulse. Maybe don’t read it in a narrow tent if you’re already feeling jumpy. <a href="https://www.caitlinstarling.com/the-luminous-dead">[5]</a> <a href="https://www.bpl.org/blogs/post/diversity-in-sci-fi-the-luminous-dead">[6]</a></p><h2>Pick your poison</h2><p>For velvet-and-fangs gothic, choose <em>A Dowry of Blood</em>. For haunted literary fun, try <em>Plain Bad Heroines</em>. For a handful of beautifully unsettling stories, reach for <em>Her Body and Other Parties</em>. And if you want the walls closing in around you, take <em>The Luminous Dead</em> into the dark.</p><p>However you spend Halloween, there’s room on the reading pile for queer stories that are eerie, strange, romantic, funny or all of the above. Just remember to leave a light on if you’re taking the cave book to bed.</p>
+        </section>
+      </article>
+    </div>
+
+    <footer>
+      <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
+      <p>Stories beyond the straight and narrow.</p>
+      <div class="footerLinks">
+        <nav class="footerNav" aria-label="Footer navigation">
+          <a href="../">Back to pinboard</a>
+          <a href="../">Back home</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
