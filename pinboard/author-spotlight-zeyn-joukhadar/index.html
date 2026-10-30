@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Author Spotlight: Zeyn Joukhadar | QBTL | Pinboard | Queer Between the Lines</title>
+  <meta name="description" content="Meet Zeyn Joukhadar, the Syrian American writer exploring migration, queer history, family memory and belonging through fiction.">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
+
+  <!-- NOTE: CSS is intentionally copied from the post template page in Notion -->
+  <style>
+:root {
+  --ink: #090909;
+  --paper: #fff7e8;
+  --pink: #ff2d8d;
+  --acid: #e9ff32;
+  --blue: #4757ff;
+  --orange: #ff6337;
+  --red: #ef3340;
+  --green: #00a86b;
+  --purple: #8b3dff;
+  --white: #ffffff;
+  --display: "Archivo Black", Arial, sans-serif;
+  --pride: linear-gradient(90deg,
+    var(--red) 0 16.66%,
+    var(--orange) 16.66% 33.32%,
+    var(--acid) 33.32% 49.98%,
+    var(--green) 49.98% 66.64%,
+    var(--blue) 66.64% 83.3%,
+    var(--purple) 83.3% 100%);
+  --pinboard: url("https://si4io.mjt.lu/img2/si4io/bc06ad5f-8faa-420d-933e-036afce89c2e/content");
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  background-image: var(--pinboard);
+  background-size: 420px auto;
+  background-repeat: repeat;
+  background-position: top left;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+/* Shared QBTL header */
+.nav {
+  height: 68px;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--ink);
+  background: var(--blue);
+  color: var(--white);
+  position: relative;
+  z-index: 10;
+}
+.nav .flower { color: var(--acid); }
+.nav::after {
+  content: "";
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background: var(--pride);
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-family: var(--display);
+  font-size: 13px;
+  line-height: .92;
+  letter-spacing: .04em;
+}
+.flower {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--pink);
+  letter-spacing: -.22em;
+}
+
+.navLinks{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.navCta{
+  background: var(--ink);
+  color: var(--white);
+  padding: 13px 20px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+
+/* Post layout */
+.wrap{
+  padding: 34px 6vw 54px;
+}
+.post{
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.lede{
+  background: rgba(255,255,255,.92);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--orange);
+  padding: 18px 18px 16px;
+  margin-top: 14px;
+}
+
+.kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: .14em;
+  margin: 0 0 12px;
+}
+.kicker span{
+  display: inline-block;
+  background: var(--pink);
+  color: var(--white);
+  padding: 8px 12px;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(-2deg);
+}
+
+h1{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  line-height: .82;
+  font-size: clamp(44px, 6vw, 84px);
+  margin: 0 0 12px;
+  display: inline-block;
+  position: relative;
+  padding: 18px 18px 14px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--pink);
+  transform: rotate(-1deg);
+}
+h1 em{
+  display: inline-block;
+  color: var(--pink);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 6px 6px 0 var(--acid);
+}
+.titlePin{
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 3px solid var(--ink);
+  background: var(--acid);
+  box-shadow: 3px 3px 0 rgba(9,9,9,.25);
+}
+.meta{
+  margin: 14px 0 0;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.meta a{
+  border-bottom: 4px solid var(--ink);
+  padding-bottom: 4px;
+}
+.deck{
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 800;
+  max-width: 64ch;
+}
+
+.paper{
+  margin-top: 22px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  box-shadow: 14px 14px 0 var(--blue);
+  padding: 18px 18px 22px;
+  overflow: hidden;
+}
+.paper figure,
+.paper .article-image{
+  margin: 18px auto;
+  text-align: center;
+}
+
+.paper figure img,
+.paper .article-image img{
+  display: block;
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 420px;
+  margin: 0 auto;
+  object-fit: contain;
+  border: 3px solid var(--ink);
+  background: var(--white);
+}
+
+.paper figcaption{
+  margin: 8px auto 0;
+  max-width: 64ch;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+.paper h2{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  line-height: .9;
+  font-size: 30px;
+  margin: 22px 0 10px;
+}
+.paper p, .paper li{
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 650;
+}
+.paper ul{
+  margin: 12px 0 0 1.2rem;
+  padding: 0;
+}
+.quote{
+  margin: 16px 0;
+  padding: 14px 14px;
+  border-left: 8px solid var(--pink);
+  background: #fff;
+  font-weight: 800;
+}
+.hr{
+  height: 6px;
+  background: var(--pride);
+  border: 0;
+  margin: 22px 0;
+}
+
+/* Shared QBTL footer */
+footer {
+  padding: 30px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid;
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--pride);
+}
+footer > p { font-family: var(--display); font-size: 14px; text-transform: uppercase; }
+.footerLinks { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.footerNav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px 18px; }
+.footerNav a { font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--acid); }
+
+/* Mobile */
+@media (max-width: 560px){
+  .wrap{ padding: 26px 16px 42px; }
+  h1{
+    font-size: clamp(38px, 11vw, 54px);
+    line-height: .9;
+    padding: 14px 14px 12px;
+    box-shadow: 9px 9px 0 var(--pink);
+    transform: none;
+  }
+  .titlePin{ top: -9px; left: 14px; }
+  .deck{ font-size: 16px; }
+  .lede{ padding: 14px 14px 12px; box-shadow: 10px 10px 0 var(--orange); }
+  .paper{ padding: 16px 14px 18px; box-shadow: 10px 10px 0 var(--blue); }
+  footer { align-items: flex-start; gap: 24px; flex-direction: column; }
+  .footerLinks { align-items: flex-start; }
+  .footerNav { justify-content: flex-start; }
+}
+  </style>
+</head>
+
+<body>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../" aria-label="Queer Between the Lines home">
+        <span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span>
+      </a>
+      <div class="navLinks">
+        <a class="navCta" href="../">← Back to pinboard</a>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <article class="post">
+        <p class="kicker"><span>Pinboard post</span></p>
+
+        <h1><span class="titlePin" aria-hidden="true"></span>Author<br>Spotlight: Zeyn Joukhadar — Book #008</h1>
+
+        <section class="lede" aria-label="Post intro">
+          <p class="meta">
+            <span>Published: 2026-10-28</span>
+            &nbsp;•&nbsp;
+            <a href="../">← Back to pinboard</a>
+          </p>
+
+          <p class="deck">Meet Syrian American writer Zeyn Joukhadar, whose fiction explores migration, queer history, family memory and belonging, from The Map of Salt and Stars to The Thirty Names of Night.</p>
+        </section>
+
+        <section class="paper" aria-label="Post content">
+          <p>Zeyn Joukhadar writes across borders: geographic, historical, and the boundaries people are told their identities must fit inside. A Syrian American novelist and short-story writer, Joukhadar brings family memory, migration and queer lives into richly imagined worlds shaped by research, sensory detail and the stories people inherit.</p><figure class="article-image"><img src="assets/b5c63217-026c-465b-aa80-5fe3885eb6b1.jpg" alt="Portrait of Zeyn Joukhadar" loading="lazy"><figcaption>Portrait of Zeyn Joukhadar</figcaption></figure><p>Before writing full time, Joukhadar trained and worked in biomedical research, earning a PhD in pathobiology and completing postdoctoral fellowships. The move from science to fiction was a change of direction, but curiosity about how the world is made, mapped and remembered runs through the books.</p><h3>A body of work shaped by memory and movement</h3><p>Joukhadar’s debut novel, <em>The Map of Salt and Stars</em>, follows Nour, a Syrian girl fleeing war, alongside the story of Rawiya, a young apprentice to a medieval mapmaker. The two journeys connect present-day displacement with older histories of the Levant and North Africa. The novel won the Middle East Book Award and established Joukhadar as a writer interested in how stories can help people carry a sense of home with them.</p><p>In <em>The Thirty Names of Night</em>, that interest in history and belonging takes another form. Three generations of Syrian Americans are linked by birds, art and histories of queer and trans life that have been left out of the record. Joukhadar’s short fiction and essays have also appeared in publications including <em>Electric Literature</em>, <em>Salon</em> and <em>The Paris Review</em>.</p><p>Across these works, Joukhadar pairs careful research with imaginative storytelling. Layered timelines, vivid sensory detail, birds, maps and art help make visible the histories and inner lives that official accounts can miss. Joukhadar has described wanting to write toward agency, resilience and joy, leaving room for love and everyday care alongside grief and upheaval.</p><h3>Why Zeyn is worth getting to know</h3><p>Joukhadar’s fiction asks who gets to tell a community’s history, and what becomes possible when people find traces of themselves in it. The books make room for characters to change, to imagine, and to define their own relationships to home and identity. That gives readers more to follow than a plot: it offers a way to notice how memory travels between generations and how stories can help people claim a future.</p><p>For our current read, <em>The Thirty Names of Night</em> is QBTL Book #008.</p><h3>Things to look out for as we read</h3><ul><li>How does Joukhadar braid personal memory with larger histories?</li><li>What do birds, maps and art make possible in the stories?</li><li>Where do moments of joy, care or imagination sit alongside grief and displacement?</li><li>What changes when people encounter histories that had been hidden from them?</li></ul><h3>A question to bring into the discussion</h3><p>What can a story give someone that an official record might leave out?</p>
+        </section>
+      </article>
+    </div>
+
+    <footer>
+      <div class="brand"><span class="flower">///</span><span>Queer Between<br>the Lines</span></div>
+      <p>Stories beyond the straight and narrow.</p>
+      <div class="footerLinks">
+        <nav class="footerNav" aria-label="Footer navigation">
+          <a href="../">Back to pinboard</a>
+          <a href="../">Back home</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
