@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Help Queer Between the Lines decide whether to start a monthly LGBTQ+ film club. Share your interest in a quick form.">
+  <meta name="color-scheme" content="light">
+  <title>Film Club | Queer Between the Lines</title>
+
+  <!-- Google tag (gtag.js) + consent defaults matching the QBTL site -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WW6QL7QPL7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted'
+    });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #090909;
+      --paper: #fff7e8;
+      --pink: #ff2d8d;
+      --acid: #e9ff32;
+      --blue: #4757ff;
+      --orange: #ff6337;
+      --red: #ef3340;
+      --green: #00a86b;
+      --purple: #8b3dff;
+      --white: #fff;
+      --display: "Archivo Black", Arial, sans-serif;
+      --pride: linear-gradient(90deg, var(--red) 0 16.66%, var(--orange) 16.66% 33.32%, var(--acid) 33.32% 49.98%, var(--green) 49.98% 66.64%, var(--blue) 66.64% 83.3%, var(--purple) 83.3% 100%);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: Arial, Helvetica, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    a:focus-visible, button:focus-visible { outline: 4px solid var(--blue); outline-offset: 4px; }
+
+    .nav {
+      min-height: 68px; padding: 0 4vw; display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 4px solid var(--ink); background: var(--blue); color: var(--white); position: relative; z-index: 10;
+    }
+    .nav::after { content: ""; position: absolute; z-index: 11; left: 0; right: 0; bottom: -4px; height: 7px; background: var(--pride); border-bottom: 3px solid var(--ink); }
+    .brand { display: flex; align-items: center; gap: 12px; font: 900 13px/.92 var(--display); letter-spacing: .04em; text-transform: uppercase; }
+    .flower { color: var(--acid); font: 900 22px/1 var(--display); letter-spacing: -.22em; }
+    .navLinks { display: flex; align-items: center; gap: 16px; }
+    .menuBtn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 12px; border: 2px solid var(--white); background: transparent; color: var(--white); font-size: 11px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+    .menuBtn:hover, .menuBtn:focus-visible { background: var(--white); color: var(--blue); }
+    .burger { width: 18px; height: 12px; position: relative; display: inline-block; }
+    .burger::before, .burger::after, .burger span { content: ""; position: absolute; left: 0; right: 0; height: 2px; background: currentColor; border-radius: 2px; }
+    .burger::before { top: 0; } .burger span { top: 5px; } .burger::after { bottom: 0; }
+    .navCta { min-height: 44px; display: inline-flex; align-items: center; padding: 11px 16px; border: 3px solid var(--ink); background: var(--ink); color: var(--white); box-shadow: 5px 5px 0 var(--pink); font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+
+    .menuOverlay { position: fixed; inset: 0; z-index: 999; display: none; background: rgba(9,9,9,.58); }
+    .menuPanel { position: fixed; z-index: 1000; top: 14px; right: 14px; width: min(360px, calc(100vw - 28px)); display: none; padding: 14px; border: 4px solid var(--ink); background: var(--paper); box-shadow: 12px 12px 0 var(--pink); color: var(--ink); }
+    .menuHead { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 10px; }
+    .menuTitle { margin: 0; font: 14px/1.2 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+    .menuClose { min-height: 44px; padding: 8px 10px; border: 3px solid var(--ink); background: var(--white); color: var(--ink); font-weight: 900; text-transform: uppercase; cursor: pointer; }
+    .menuList { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .menuLink { min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px; border: 3px solid var(--ink); background: var(--white); font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .menuLink strong { font-family: var(--display); }
+
+    .hero {
+      display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(280px, .92fr); align-items: center; gap: clamp(28px, 5vw, 72px);
+      padding: 54px max(6vw, calc((100vw - 1220px) / 2)) 64px;
+      background: linear-gradient(90deg, transparent 49.8%, rgba(9,9,9,.08) 50%, transparent 50.2%), var(--paper);
+      background-size: 54px 54px;
+    }
+    .heroCopy { max-width: 720px; }
+    .eyebrow, .kicker, .sectionLabel { margin: 0; font-size: 12px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow span { display: inline-block; padding: 8px 12px; border: 3px solid var(--ink); background: var(--pink); color: var(--ink); box-shadow: 5px 5px 0 var(--ink); transform: rotate(-2deg); }
+    h1, h2, h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; }
+    h1 { margin: 26px 0 18px; font-size: clamp(58px, 7vw, 100px); letter-spacing: -.045em; line-height: .84; }
+    h1 em { color: var(--pink); font-style: normal; -webkit-text-stroke: 2px var(--ink); text-shadow: 6px 6px 0 var(--acid); }
+    .heroText { max-width: 610px; margin: 0; font-size: 18px; font-weight: 700; line-height: 1.5; }
+    .heroActions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 26px; }
+    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 13px 18px; border: 3px solid var(--ink); font-size: 12px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+    .buttonPrimary { background: var(--pink); color: var(--ink); box-shadow: 6px 6px 0 var(--ink); }
+    .textLink { padding: 5px 0; border-bottom: 4px solid var(--ink); font-size: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+
+    .poster { position: relative; overflow: hidden; min-height: 340px; display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 4vw, 48px); border: 4px solid var(--ink); background: var(--blue); color: var(--white); box-shadow: 14px 14px 0 var(--pink); transform: rotate(1deg); }
+    .poster::before { content: ""; position: absolute; top: 16px; right: 16px; width: 90px; height: 12px; border-block: 2px solid var(--ink); background: var(--pride); }
+    .poster .kicker { position: relative; z-index: 1; color: var(--acid); }
+    .posterWords { position: relative; z-index: 1; margin-top: 22px; font: 900 clamp(46px, 5vw, 72px)/.8 var(--display); letter-spacing: -.055em; text-transform: uppercase; }
+    .posterWords span { display: block; }
+    .posterWords span:nth-child(2) { color: var(--acid); }
+    .posterWords span:nth-child(3) { color: transparent; -webkit-text-stroke: 2px var(--white); }
+    .posterNote { position: relative; z-index: 1; align-self: flex-end; margin: 24px 0 0; padding: 8px 10px; border: 3px solid var(--ink); background: var(--orange); color: var(--ink); font-size: 11px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; transform: rotate(-2deg); }
+
+    .how { padding: 52px max(6vw, calc((100vw - 1220px) / 2)) 60px; border-block: 8px solid var(--ink); background: var(--acid); }
+    .sectionTop { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .sectionLabel { display: inline-flex; align-items: center; gap: 10px; }
+    .sectionLabel span { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 2px solid var(--ink); background: var(--ink); color: var(--white); box-shadow: 3px 3px 0 var(--pink); }
+    .sectionTop h2, .interestIntro h2 { margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: .9; letter-spacing: -.04em; }
+    .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .step { min-height: 190px; padding: 24px; border: 4px solid var(--ink); background: var(--white); box-shadow: 8px 8px 0 var(--ink); }
+    .step:nth-child(2) { background: var(--pink); }
+    .step:nth-child(3) { background: var(--blue); color: var(--white); }
+    .stepNumber { display: block; margin-bottom: 24px; font: 900 15px/1 var(--display); color: var(--ink); }
+    .step h3 { margin: 0 0 10px; font-size: clamp(20px, 2.4vw, 29px); line-height: .95; }
+    .step p { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.45; }
+    .schedule { display: flex; align-items: flex-start; gap: 14px; max-width: 850px; margin: 34px 0 0; padding: 18px 20px; border: 3px solid var(--ink); background: var(--paper); font-size: 15px; font-weight: 700; line-height: 1.5; }
+    .scheduleMark { flex: 0 0 auto; padding: 5px 8px; background: var(--orange); font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .schedule p { margin: 0; }
+
+    .interest { display: grid; grid-template-columns: minmax(230px, .72fr) minmax(0, 1.28fr); gap: clamp(28px, 5vw, 64px); align-items: start; padding: 64px max(6vw, calc((100vw - 1220px) / 2)) 72px; }
+    .interestIntro { position: sticky; top: 24px; }
+    .interestIntro .sectionLabel { margin-bottom: 22px; }
+    .interestIntro .sectionLabel span { background: var(--purple); }
+    .interestIntro h2 { margin-bottom: 18px; }
+    .interestIntro > p { max-width: 440px; margin: 0 0 18px; font-size: 17px; font-weight: 700; line-height: 1.5; }
+    .noPressure { display: inline-block; padding: 8px 10px; border: 2px solid var(--ink); background: var(--acid); font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .formCard { padding: clamp(16px, 3vw, 30px); border: 4px solid var(--ink); background: var(--white); box-shadow: 12px 12px 0 var(--blue); }
+    .formCardHead { display: flex; align-items: start; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+    .formCardHead h3 { margin: 0; font-size: clamp(22px, 3vw, 32px); line-height: .95; }
+    .formTime { flex: 0 0 auto; padding: 7px 9px; background: var(--pink); font-size: 11px; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; }
+    .formHint { margin: 0 0 14px; color: #353535; font-size: 14px; line-height: 1.45; }
+    .formFrame { display: block; width: 100%; height: 600px; border: 0; background: var(--white); }
+    .formFallback { margin: 14px 0 0; font-size: 14px; font-weight: 700; line-height: 1.5; }
+    .formFallback a { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+    footer { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px 4vw; border-top: 4px solid var(--ink); background: var(--ink); color: var(--white); }
+    footer::before { content: ""; position: absolute; inset: 0 0 auto; height: 6px; background: var(--pride); }
+    .footerTagline { margin: 0; font: 14px/1.4 var(--display); text-transform: uppercase; }
+    .footerLinks { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+    .footerNav { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px 18px; }
+    .footerNav a, .footerCredit a { color: var(--acid); font-size: 12px; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+    .footerCredit { margin: 0; font-size: 12px; font-weight: 800; }
+
+    .cookieBanner { position: fixed; z-index: 999; left: 18px; right: 18px; bottom: 18px; display: none; max-width: 980px; margin: 0 auto; padding: 14px; border: 4px solid var(--ink); background: var(--paper); box-shadow: 10px 10px 0 var(--pink); color: var(--ink); }
+    .cookieBannerInner { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px; }
+    .cookieBanner p { margin: 0; font-size: 14px; font-weight: 700; line-height: 1.4; }
+    .cookieBanner a { text-decoration: underline; }
+    .cookieActions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+    .cookieBtn { min-height: 44px; padding: 10px 14px; border: 3px solid var(--ink); font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+    .cookieReject { background: var(--paper); color: var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+    .cookieAccept { background: var(--acid); color: var(--ink); box-shadow: 5px 5px 0 var(--blue); }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; padding-top: 42px; padding-bottom: 50px; }
+      .poster { width: min(100%, 620px); min-height: 280px; }
+      .steps { grid-template-columns: 1fr; gap: 14px; }
+      .step { min-height: 0; }
+      .stepNumber { margin-bottom: 16px; }
+      .interest { grid-template-columns: 1fr; }
+      .interestIntro { position: static; }
+    }
+    @media (max-width: 560px) {
+      .nav { min-height: 64px; padding-inline: 18px; }
+      .navLinks { gap: 9px; }
+      .menuBtn { padding: 9px 10px; }
+      .navCta { padding: 10px 11px; font-size: 10px; box-shadow: 4px 4px 0 var(--pink); }
+      .hero, .how, .interest { padding: 34px 22px 42px; }
+      h1 { margin-top: 22px; font-size: clamp(52px, 13.5vw, 68px); }
+      .heroText { font-size: 16px; }
+      .heroActions { align-items: flex-start; flex-direction: column; gap: 16px; }
+      .poster { min-height: 250px; padding: 24px; box-shadow: 9px 9px 0 var(--pink); }
+      .posterWords { font-size: clamp(38px, 10.5vw, 48px); }
+      .sectionTop { align-items: flex-start; flex-direction: column; gap: 18px; }
+      .sectionTop h2, .interestIntro h2 { font-size: 42px; }
+      .schedule { flex-direction: column; padding: 16px; }
+      .formCard { padding: 16px; box-shadow: 8px 8px 0 var(--blue); }
+      .formCardHead { flex-direction: column; }
+      .formFrame { height: 640px; }
+      footer { align-items: flex-start; flex-direction: column; padding: 28px 22px; }
+      .footerLinks { align-items: flex-start; }
+      .footerNav { justify-content: flex-start; }
+      .cookieBanner { left: 14px; right: 14px; bottom: 14px; }
+      .cookieBannerInner { grid-template-columns: 1fr; }
+      .cookieActions { justify-content: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../" aria-label="Queer Between the Lines home"><span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span></a>
+      <div class="navLinks">
+        <button class="menuBtn" id="menu-open" type="button" aria-haspopup="dialog" aria-controls="menu-panel" aria-expanded="false"><span class="burger" aria-hidden="true"><span></span></span><span>Menu</span></button>
+        <a class="navCta" href="#interest">Film club form</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="heroCopy">
+        <p class="eyebrow"><span>A new QBTL idea</span></p>
+        <h1>Lights,<br>camera,<br><em>queer.</em></h1>
+        <p class="heroText">We’re exploring a monthly LGBTQ+ film club alongside the QBTL book club. Before we start picking films, we want to know if you’d be up for it.</p>
+        <div class="heroActions">
+          <a class="button buttonPrimary" href="#interest">Tell us what you think <span aria-hidden="true">↘</span></a>
+          <a class="textLink" href="#how-it-works">How it could work <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="poster" aria-hidden="true">
+        <p class="kicker">Queer Between the Lines presents</p>
+        <div class="posterWords"><span>Stories</span><span>on</span><span>screen</span></div>
+        <p class="posterNote">Watch · talk · connect</p>
+      </div>
+    </header>
+
+    <section class="how" id="how-it-works" aria-labelledby="how-title">
+      <div class="sectionTop">
+        <p class="sectionLabel"><span>01</span> The idea</p>
+        <h2 id="how-title">A film, then a conversation.</h2>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="stepNumber">01</span>
+          <h3>Choose a film</h3>
+          <p>We’d pick one LGBTQ+ film to watch each month.</p>
+        </article>
+        <article class="step">
+          <span class="stepNumber">02</span>
+          <h3>Watch your way</h3>
+          <p>Watch in your own time, wherever and whenever works for you.</p>
+        </article>
+        <article class="step">
+          <span class="stepNumber">03</span>
+          <h3>Meet and chat</h3>
+          <p>Then we’d come together on Google Meet to talk queer cinema, representation, characters, themes, and the stories that stay with us.</p>
+        </article>
+      </div>
+      <div class="schedule"><span class="scheduleMark">Timing idea</span><p>We’re considering the third Wednesday of each month, with the book club staying on its usual second Wednesday. You could join either or both.</p></div>
+    </section>
+
+    <section class="interest" id="interest" aria-labelledby="interest-title">
+      <div class="interestIntro">
+        <p class="sectionLabel"><span>02</span> Your turn</p>
+        <h2 id="interest-title">Would you join us?</h2>
+        <p>This quick form will help us gauge interest. It’s just an idea at this stage, so there’s no commitment.</p>
+        <span class="noPressure">Either club, both, or neither — no pressure</span>
+      </div>
+      <div class="formCard">
+        <div class="formCardHead">
+          <h3>Tell us what you think</h3>
+          <span class="formTime">About 1 minute</span>
+        </div>
+        <p class="formHint">Your answer will help us decide whether to bring the film club to life.</p>
+        <p class="formFallback">If the form doesn’t load, <a href="https://jaydencooke.notion.site/ebd//412764c58a1180059a0aef9f233f68ce" target="_blank" rel="noopener noreferrer">open it in a new tab</a>.</p>
+        <iframe class="formFrame" src="https://jaydencooke.notion.site/ebd//412764c58a1180059a0aef9f233f68ce" width="100%" height="600" frameborder="0" allowfullscreen loading="eager" title="QBTL Film Club interest form"></iframe>
+      </div>
+    </section>
+
+    <footer>
+      <div class="brand"><span class="flower" aria-hidden="true">///</span><span>Queer Between<br>the Lines</span></div>
+      <p class="footerTagline">Stories beyond the straight and narrow.</p>
+      <div class="footerLinks">
+        <nav class="footerNav" aria-label="Footer navigation"><a href="https://clarity-by-jayden.github.io/queerlines/privacy-policy/">Privacy policy</a><a href="../">Back to QBTL</a><a href="#top">Back to top ↑</a></nav>
+        <p class="footerCredit">Built with 💜 by <a href="https://claritybyjayden.online" target="_blank" rel="noopener noreferrer">Clarity by Jayden</a></p>
+      </div>
+    </footer>
+
+    <aside class="cookieBanner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+      <div class="cookieBannerInner">
+        <p>We use cookies for basic site function and optional analytics (to understand what’s working). <a href="https://clarity-by-jayden.github.io/queerlines/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy policy</a>.</p>
+        <div class="cookieActions"><button class="cookieBtn cookieReject" id="cookie-reject" type="button">Reject</button><button class="cookieBtn cookieAccept" id="cookie-accept" type="button">Accept</button></div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="menuOverlay" id="menu-overlay" hidden></div>
+  <aside class="menuPanel" id="menu-panel" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+    <div class="menuHead"><p class="menuTitle">Menu</p><button class="menuClose" id="menu-close" type="button">Close</button></div>
+    <ul class="menuList">
+      <li><a class="menuLink" href="#interest"><strong>Film club form</strong><span>↓</span></a></li>
+      <li><a class="menuLink" href="../#join"><strong>Book club</strong><span>↗</span></a></li>
+      <li><a class="menuLink" href="../pinboard/"><strong>Pinboard</strong><span>↗</span></a></li>
+    </ul>
+  </aside>
+
+  <script>
+    const menuOpen = document.getElementById("menu-open");
+    const menuClose = document.getElementById("menu-close");
+    const menuPanel = document.getElementById("menu-panel");
+    const menuOverlay = document.getElementById("menu-overlay");
+    function openMenu() {
+      menuPanel.hidden = false;
+      menuOverlay.hidden = false;
+      menuPanel.style.display = "block";
+      menuOverlay.style.display = "block";
+      menuOpen.setAttribute("aria-expanded", "true");
+      menuClose.focus();
+    }
+    function closeMenu() {
+      menuPanel.style.display = "none";
+      menuOverlay.style.display = "none";
+      menuPanel.hidden = true;
+      menuOverlay.hidden = true;
+      menuOpen.setAttribute("aria-expanded", "false");
+      menuOpen.focus();
+    }
+    menuOpen.addEventListener("click", openMenu);
+    menuClose.addEventListener("click", closeMenu);
+    menuOverlay.addEventListener("click", closeMenu);
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !menuPanel.hidden) closeMenu();
+    });
+    Array.from(menuPanel.querySelectorAll("a")).forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    (function () {
+      const CONSENT_KEY = "qbtl-cookie-consent";
+      const banner = document.getElementById("cookie-banner");
+      const acceptBtn = document.getElementById("cookie-accept");
+      const rejectBtn = document.getElementById("cookie-reject");
+      const measurementId = "G-WW6QL7QPL7";
+      function safeGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+      function safeSet(key, value) { try { localStorage.setItem(key, value); } catch (e) {} }
+      function enableAnalytics() {
+        if (typeof gtag !== "function") return;
+        gtag("consent", "update", { ad_storage: "denied", analytics_storage: "granted", functionality_storage: "granted", personalization_storage: "denied", security_storage: "granted" });
+        gtag("config", measurementId);
+      }
+      function disableAnalytics() {
+        if (typeof gtag !== "function") return;
+        gtag("consent", "update", { ad_storage: "denied", analytics_storage: "denied", functionality_storage: "denied", personalization_storage: "denied", security_storage: "granted" });
+      }
+      const existing = safeGet(CONSENT_KEY);
+      if (existing === "accepted") { enableAnalytics(); return; }
+      if (existing === "rejected") { disableAnalytics(); return; }
+      if (banner) banner.style.display = "block";
+      if (acceptBtn) acceptBtn.addEventListener("click", function () { safeSet(CONSENT_KEY, "accepted"); if (banner) banner.style.display = "none"; enableAnalytics(); });
+      if (rejectBtn) rejectBtn.addEventListener("click", function () { safeSet(CONSENT_KEY, "rejected"); if (banner) banner.style.display = "none"; disableAnalytics(); });
+    }());
+  </script>
+</body>
+</html>
